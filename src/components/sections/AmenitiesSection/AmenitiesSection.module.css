@@ -1,8 +1,852 @@
 /* ============================================
-   AmenitiesSection Styles - Placeholder
+   AmenitiesSection Styles - Nambiar District 25 Phase 2
+   Amenities showcase with clubhouse and categories
    ============================================ */
-.section {
+
+/* ========== Main Section ========== */
+.amenitiesSection {
   position: relative;
-  padding: 4rem 0;
-  background-color: #FFFFFF;
+  padding: 5rem 0;
+  background-color: #0A1628;
+  overflow: hidden;
+}
+
+/* ========== Background Elements ========== */
+.bgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #0A1628 0%, #0D1E36 50%, #0A1628 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(201, 162, 39, 0.04) 1px, transparent 0);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========== Section Header ========== */
+.sectionHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.amenitiesBadge {
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  position: relative;
+}
+
+.goldText {
+  color: #C9A227;
+  font-style: italic;
+}
+
+/* Title Underline */
+.titleUnderline {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.underlineBar {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  border-radius: 4px;
+}
+
+/* ========== Clubhouse Section ========== */
+.clubhouseSection {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 3rem;
+}
+
+.clubhouseCard {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: linear-gradient(135deg, #FEF9E7 0%, #FCF3CF 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.clubhouseInfo {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.clubhouseLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(201, 162, 39, 0.15);
+  color: #C9A227;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+.clubhouseLabelIcon {
+  font-size: 18px;
+}
+
+.clubhouseTitle {
+  margin-bottom: 0.75rem;
+}
+
+.clubhouseHighlight {
+  color: #C9A227;
+}
+
+.clubhouseSubtext {
+  font-size: 1rem;
+  color: #6B7280;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.clubhouseSubtext strong {
+  color: #0A1628;
+}
+
+/* Clubhouse Quick Stats */
+.clubhouseStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.clubhouseStat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(10, 22, 40, 0.06);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.clubhouseStat:hover {
+  background-color: rgba(201, 162, 39, 0.15);
+  color: #0A1628;
+}
+
+.clubhouseStatIcon {
+  font-size: 18px;
+  color: #C9A227;
+}
+
+/* Clubhouse Image */
+.clubhouseImageWrapper {
+  flex: 1.2;
+  position: relative;
+  min-height: 320px;
+}
+
+.clubhouseImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.clubhouseImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 22, 40, 0.3) 0%,
+    rgba(10, 22, 40, 0.1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.clubhouseImageWrapper:hover .clubhouseImageOverlay {
+  opacity: 1;
+}
+
+.clubhouseImageBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0A1628;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clubhouseImageBadge:hover {
+  background: #C9A227;
+  color: #FFFFFF;
+  transform: scale(1.05);
+}
+
+.clubhouseImageBadge svg {
+  font-size: 22px;
+}
+
+/* ========== Category Tabs ========== */
+.categoryWrapper {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+.categoryTabs {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 8px;
+}
+
+/* ========== Amenities Grid ========== */
+.amenitiesGrid {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+/* ========== Amenity Card ========== */
+.amenityCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+.amenityCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(201, 162, 39, 0.3);
+}
+
+.amenityIconWrapper {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.amenityCard:hover .amenityIconWrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.amenityIcon {
+  font-size: 28px;
+}
+
+.amenityName {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+}
+
+/* ========== More Amenities Section ========== */
+.moreAmenities {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 3rem;
+}
+
+.moreAmenitiesContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(201, 162, 39, 0.05) 100%);
+  border-radius: 16px;
+  border: 1px dashed rgba(201, 162, 39, 0.3);
+}
+
+.moreAmenitiesIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 162, 39, 0.15);
+  border-radius: 12px;
+  color: #C9A227;
+  font-size: 24px;
+}
+
+.moreAmenitiesText {
+  display: flex;
+  flex-direction: column;
+}
+
+.moreAmenitiesTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #C9A227;
+  margin-bottom: 0.25rem;
+}
+
+.moreAmenitiesSubtext {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ========== Category Summary Cards ========== */
+.categorySummary {
+  position: relative;
+  z-index: 1;
+}
+
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+.categoryCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(201, 162, 39, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.categoryCardIcon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  font-size: 28px;
+  color: #0A1628;
+  transition: transform 0.3s ease;
+}
+
+.categoryCard:hover .categoryCardIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.categoryCardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.categoryCardCount {
+  font-size: 0.8125rem;
+  color: #C9A227;
+  font-weight: 500;
+}
+
+/* ========== Responsive Styles ========== */
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .amenitiesSection {
+    padding: 6rem 0;
+  }
+
+  .clubhouseInfo {
+    padding: 4rem;
+  }
+
+  .clubhouseImageWrapper {
+    min-height: 400px;
+  }
+
+  .amenityCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .amenityIconWrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .amenityIcon {
+    font-size: 32px;
+  }
+
+  .amenityName {
+    font-size: 0.875rem;
+  }
+
+  .categoryCard {
+    padding: 2.5rem 2rem;
+  }
+
+  .categoryCardIcon {
+    width: 72px;
+    height: 72px;
+    font-size: 32px;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .amenitiesSection {
+    padding: 5rem 0;
+  }
+
+  .clubhouseImageWrapper {
+    min-height: 360px;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .amenitiesSection {
+    padding: 4rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2.5rem;
+  }
+
+  .clubhouseCard {
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .clubhouseInfo {
+    padding: 2rem;
+    order: 2;
+  }
+
+  .clubhouseImageWrapper {
+    min-height: 280px;
+    order: 1;
+  }
+
+  .clubhouseStats {
+    gap: 0.75rem;
+  }
+
+  .amenityCard {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .amenityIconWrapper {
+    width: 52px;
+    height: 52px;
+  }
+
+  .amenityIcon {
+    font-size: 26px;
+  }
+
+  .amenityName {
+    font-size: 0.75rem;
+  }
+
+  .categoryCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .categoryCardIcon {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+
+  .categoryCardTitle {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .amenitiesSection {
+    padding: 3rem 0;
+  }
+
+  .bgPattern {
+    background-size: 30px 30px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .underlineBar {
+    width: 50px;
+    height: 3px;
+  }
+
+  .clubhouseSection {
+    margin-bottom: 2rem;
+  }
+
+  .clubhouseCard {
+    flex-direction: column;
+    border-radius: 16px;
+  }
+
+  .clubhouseInfo {
+    padding: 1.5rem;
+    order: 2;
+  }
+
+  .clubhouseLabel {
+    padding: 6px 12px;
+    font-size: 0.6875rem;
+  }
+
+  .clubhouseLabelIcon {
+    font-size: 16px;
+  }
+
+  .clubhouseImageWrapper {
+    min-height: 200px;
+    order: 1;
+  }
+
+  .clubhouseSubtext {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .clubhouseStats {
+    gap: 0.5rem;
+  }
+
+  .clubhouseStat {
+    padding: 6px 10px;
+    font-size: 0.6875rem;
+    border-radius: 8px;
+  }
+
+  .clubhouseStatIcon {
+    font-size: 14px;
+  }
+
+  .clubhouseImageBadge {
+    padding: 10px 16px;
+    font-size: 0.8125rem;
+  }
+
+  .categoryWrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .categoryTabs {
+    border-radius: 12px;
+    padding: 4px;
+  }
+
+  .amenitiesGrid {
+    margin-bottom: 1.5rem;
+  }
+
+  .amenityCard {
+    padding: 1rem 0.5rem;
+    border-radius: 12px;
+  }
+
+  .amenityIconWrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+  }
+
+  .amenityIcon {
+    font-size: 22px;
+  }
+
+  .amenityName {
+    font-size: 0.6875rem;
+  }
+
+  .moreAmenities {
+    margin-bottom: 2rem;
+  }
+
+  .moreAmenitiesContent {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .moreAmenitiesIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .moreAmenitiesTitle {
+    font-size: 1rem;
+  }
+
+  .moreAmenitiesSubtext {
+    font-size: 0.8125rem;
+  }
+
+  .categoryCard {
+    padding: 1.25rem 0.75rem;
+    border-radius: 14px;
+  }
+
+  .categoryCardIcon {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+  }
+
+  .categoryCardTitle {
+    font-size: 0.8125rem;
+  }
+
+  .categoryCardCount {
+    font-size: 0.6875rem;
+  }
+}
+
+/* Small Mobile (max-width: 374px) */
+@media (max-width: 374px) {
+  .amenitiesSection {
+    padding: 2.5rem 0;
+  }
+
+  .clubhouseInfo {
+    padding: 1.25rem;
+  }
+
+  .clubhouseImageWrapper {
+    min-height: 180px;
+  }
+
+  .clubhouseStats {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .clubhouseStats::-webkit-scrollbar {
+    display: none;
+  }
+
+  .clubhouseStat {
+    flex-shrink: 0;
+  }
+
+  .amenityCard {
+    padding: 0.875rem 0.375rem;
+  }
+
+  .amenityIconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .amenityIcon {
+    font-size: 20px;
+  }
+
+  .amenityName {
+    font-size: 0.625rem;
+  }
+
+  .categoryCard {
+    padding: 1rem 0.5rem;
+  }
+
+  .categoryCardIcon {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .categoryCardTitle {
+    font-size: 0.75rem;
+  }
+
+  .categoryCardCount {
+    font-size: 0.625rem;
+  }
+}
+
+/* ========== Hover Effects (Pointer Devices) ========== */
+@media (hover: hover) {
+  .amenityCard:hover {
+    transform: translateY(-6px);
+  }
+
+  .categoryCard:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ========== Animations ========== */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(201, 162, 39, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Reduced Motion ========== */
+@media (prefers-reduced-motion: reduce) {
+  .amenityCard,
+  .categoryCard,
+  .amenityIconWrapper,
+  .categoryCardIcon,
+  .clubhouseImageOverlay,
+  .clubhouseStat {
+    transition: none;
+  }
+
+  .amenityCard:hover,
+  .categoryCard:hover {
+    transform: none;
+  }
+
+  .amenityCard:hover .amenityIconWrapper,
+  .categoryCard:hover .categoryCardIcon {
+    transform: none;
+  }
+
+  .clubhouseImageWrapper:hover .clubhouseImageOverlay {
+    opacity: 1;
+  }
+}
+
+/* ========== Focus Styles for Accessibility ========== */
+.amenityCard:focus-visible,
+.categoryCard:focus-visible,
+.clubhouseImageBadge:focus-visible {
+  outline: 2px solid #C9A227;
+  outline-offset: 2px;
+}
+
+/* ========== Print Styles ========== */
+@media print {
+  .amenitiesSection {
+    padding: 2rem 0;
+    background: white;
+    color: black;
+  }
+
+  .bgOverlay,
+  .bgPattern {
+    display: none;
+  }
+
+  .clubhouseCard {
+    background: #f5f5f5;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .amenityCard,
+  .categoryCard {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+  }
+
+  .amenityName,
+  .categoryCardTitle,
+  .goldText,
+  .sectionTitle {
+    color: #0A1628 !important;
+  }
+
+  .moreAmenities {
+    display: none;
+  }
+}
+
+/* ========== Custom Scrollbar for Category Tabs ========== */
+.categoryWrapper :global(.MuiTabs-scroller) {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 162, 39, 0.5) transparent;
+}
+
+.categoryWrapper :global(.MuiTabs-scroller)::-webkit-scrollbar {
+  height: 4px;
+}
+
+.categoryWrapper :global(.MuiTabs-scroller)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.categoryWrapper :global(.MuiTabs-scroller)::-webkit-scrollbar-thumb {
+  background-color: rgba(201, 162, 39, 0.5);
+  border-radius: 4px;
 }
