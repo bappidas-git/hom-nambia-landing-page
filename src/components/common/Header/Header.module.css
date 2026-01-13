@@ -44,7 +44,7 @@
 
 /* Header Container */
 .headerContainer {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
@@ -141,7 +141,7 @@
 }
 
 .navLink::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -180,7 +180,11 @@
   height: 50px;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-alt) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark) 0%,
+    var(--primary-dark-alt) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
