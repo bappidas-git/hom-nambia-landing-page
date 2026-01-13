@@ -1,6 +1,6 @@
 /* ============================================
    EMICalculator Component - Nambiar District 25 Phase 2
-   Interactive EMI calculator with sliders
+   Compact interactive EMI calculator
    ============================================ */
 
 import React, { useState, useEffect, useMemo } from 'react';
@@ -45,12 +45,12 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
 
   // Animation variants
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         delay: 0.1,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
@@ -58,21 +58,21 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
   };
 
   const resultVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, scale: 0.97 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.4,
+        duration: 0.3,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
 
-  // Custom slider styles
+  // Custom slider styles - compact
   const sliderSx = {
     color: '#C9A227',
-    height: 6,
+    height: 5,
     '& .MuiSlider-track': {
       border: 'none',
       background: 'linear-gradient(90deg, #C9A227 0%, #E5C96E 100%)',
@@ -81,26 +81,26 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
       backgroundColor: 'rgba(255, 255, 255, 0.15)',
     },
     '& .MuiSlider-thumb': {
-      width: 20,
-      height: 20,
+      width: 18,
+      height: 18,
       backgroundColor: '#C9A227',
-      border: '3px solid #FFFFFF',
-      boxShadow: '0 2px 8px rgba(201, 162, 39, 0.4)',
+      border: '2px solid #FFFFFF',
+      boxShadow: '0 2px 6px rgba(201, 162, 39, 0.4)',
       '&:before': {
         boxShadow: 'none',
       },
       '&:hover, &.Mui-focusVisible': {
-        boxShadow: '0 0 0 8px rgba(201, 162, 39, 0.16)',
+        boxShadow: '0 0 0 6px rgba(201, 162, 39, 0.16)',
       },
       '&.Mui-active': {
-        boxShadow: '0 0 0 12px rgba(201, 162, 39, 0.16)',
+        boxShadow: '0 0 0 10px rgba(201, 162, 39, 0.16)',
       },
     },
     '& .MuiSlider-valueLabel': {
       backgroundColor: '#C9A227',
-      borderRadius: '8px',
-      padding: '4px 8px',
-      fontSize: '0.75rem',
+      borderRadius: '6px',
+      padding: '3px 6px',
+      fontSize: '0.6875rem',
       fontWeight: 600,
     },
   };
@@ -121,13 +121,13 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
           backgroundColor: 'rgba(201, 162, 39, 0.15)',
           color: '#C9A227',
           fontWeight: 600,
-          fontSize: '0.8125rem',
-          height: '36px',
-          borderRadius: '20px',
+          fontSize: '0.75rem',
+          height: '32px',
+          borderRadius: '16px',
           border: '1px solid rgba(201, 162, 39, 0.3)',
           '& .MuiChip-icon': {
             color: '#C9A227',
-            fontSize: '18px',
+            fontSize: '16px',
           },
         }}
       />
@@ -137,7 +137,7 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
         Calculate Monthly EMI
       </Typography>
 
-      {/* Sliders Section */}
+      {/* Sliders Section - Compact */}
       <div className={styles.emiSliders}>
         {/* Loan Amount Slider */}
         <div className={styles.sliderGroup}>
@@ -206,7 +206,7 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
         </div>
       </div>
 
-      {/* EMI Results Card */}
+      {/* EMI Results Card - Compact */}
       <motion.div
         className={styles.emiResults}
         variants={resultVariants}
@@ -224,7 +224,7 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
           </Typography>
         </div>
 
-        {/* Breakdown */}
+        {/* Breakdown - Compact */}
         <div className={styles.emiBreakdown}>
           <div className={styles.emiBreakdownItem}>
             <Typography className={styles.breakdownLabel}>Principal</Typography>
@@ -248,7 +248,7 @@ const EMICalculator = ({ propertyPrice = 17000000 }) => {
           </div>
         </div>
 
-        {/* Note */}
+        {/* Note - Compact */}
         <div className={styles.emiNote}>
           <Icon icon="mdi:information-outline" />
           <Typography>

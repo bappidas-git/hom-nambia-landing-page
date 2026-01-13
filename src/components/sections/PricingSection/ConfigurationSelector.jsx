@@ -1,6 +1,6 @@
 /* ============================================
    ConfigurationSelector Component - Nambiar District 25 Phase 2
-   Dropdown selector for apartment configurations
+   Compact dropdown selector with enhanced CTA
    ============================================ */
 
 import React, { useState } from 'react';
@@ -28,25 +28,25 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
 
   // Animation variants
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
 
   const featureVariants = {
-    hidden: { opacity: 0, x: -10 },
+    hidden: { opacity: 0, x: -8 },
     visible: (i) => ({
       opacity: 1,
       x: 0,
       transition: {
-        delay: i * 0.1,
-        duration: 0.3,
+        delay: i * 0.08,
+        duration: 0.25,
       },
     }),
   };
@@ -67,12 +67,12 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
           backgroundColor: '#C9A227',
           color: '#FFFFFF',
           fontWeight: 600,
-          fontSize: '0.8125rem',
-          height: '36px',
-          borderRadius: '20px',
+          fontSize: '0.75rem',
+          height: '32px',
+          borderRadius: '16px',
           '& .MuiChip-icon': {
             color: '#FFFFFF',
-            fontSize: '18px',
+            fontSize: '16px',
           },
         }}
       />
@@ -101,13 +101,14 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
               sx: {
                 backgroundColor: '#0A1628',
                 border: '1px solid rgba(201, 162, 39, 0.3)',
-                borderRadius: '12px',
+                borderRadius: '10px',
                 marginTop: '4px',
+                maxHeight: '280px',
                 '& .MuiMenuItem-root': {
-                  padding: '12px 16px',
-                  fontSize: '0.9375rem',
+                  padding: '10px 14px',
+                  fontSize: '0.875rem',
                   color: '#FFFFFF',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
                   '&:last-child': {
                     borderBottom: 'none',
                   },
@@ -127,7 +128,7 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
           sx={{
             backgroundColor: 'linear-gradient(135deg, #E8D5A3 0%, #D4C085 100%)',
             background: 'linear-gradient(135deg, #E8D5A3 0%, #D4C085 100%)',
-            borderRadius: '12px',
+            borderRadius: '10px',
             '& .MuiOutlinedInput-notchedOutline': {
               border: '2px solid #C9A227',
             },
@@ -138,21 +139,20 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
               border: '2px solid #C9A227',
             },
             '& .MuiSelect-select': {
-              padding: '14px 16px',
+              padding: '12px 14px',
               color: '#0A1628',
               fontWeight: 600,
-              fontSize: '0.9375rem',
+              fontSize: '0.875rem',
             },
           }}
         >
           {configurationsData.map((config) => (
             <MenuItem key={config.id} value={config.id}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, width: '100%' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, width: '100%' }}>
                 <span style={{ fontWeight: 600 }}>{config.type}</span>
-                <span style={{ color: '#C9A227' }}>-</span>
-                <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{config.sqft} sq.ft</span>
-                <span style={{ color: '#C9A227' }}>-</span>
-                <span style={{ color: '#C9A227', fontWeight: 600 }}>
+                <span style={{ color: '#C9A227', fontSize: '0.75rem' }}>•</span>
+                <span style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.8125rem' }}>{config.sqft} sq.ft</span>
+                <span style={{ marginLeft: 'auto', color: '#C9A227', fontWeight: 600, fontSize: '0.8125rem' }}>
                   ₹{config.priceDisplay} {config.priceUnit}*
                 </span>
               </Box>
@@ -166,10 +166,10 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
         <motion.div
           key={selectedConfig}
           className={styles.configDetails}
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.25 }}
         >
           {/* Config Type Header */}
           <div className={styles.configHeader}>
@@ -192,7 +192,7 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
             </div>
           </div>
 
-          {/* Price Display */}
+          {/* Price Display - Inline */}
           <div className={styles.configPriceBox}>
             <Typography className={styles.configPriceLabel}>
               Starting from
@@ -202,9 +202,9 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
             </Typography>
           </div>
 
-          {/* Features List */}
+          {/* Features List - 2 Column Grid */}
           <div className={styles.configFeatures}>
-            {currentConfig.features.map((feature, index) => (
+            {currentConfig.features.slice(0, 4).map((feature, index) => (
               <motion.div
                 key={feature}
                 className={styles.configFeature}
@@ -219,9 +219,9 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails }
             ))}
           </div>
 
-          {/* View Details Button */}
+          {/* View Details Button - Enhanced with Pulse */}
           <motion.button
-            className={styles.viewDetailsBtn}
+            className={`${styles.viewDetailsBtn} ${styles.viewDetailsBtnPulse}`}
             onClick={onViewDetails}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
