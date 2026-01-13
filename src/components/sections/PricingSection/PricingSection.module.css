@@ -1,8 +1,1015 @@
 /* ============================================
-   PricingSection Styles - Placeholder
+   PricingSection Styles - Nambiar District 25 Phase 2
+   Pricing configuration and EMI calculator
    ============================================ */
-.section {
+
+/* ========== Main Section ========== */
+.pricingSection {
   position: relative;
-  padding: 4rem 0;
-  background-color: #FFFFFF;
+  padding: 5rem 0;
+  background-color: #0A1628;
+  overflow: hidden;
+}
+
+/* ========== Background Elements ========== */
+.bgPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(201, 162, 39, 0.03) 1px, transparent 0);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgGradientLeft {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 40%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgGradientRight {
+  position: absolute;
+  bottom: 10%;
+  right: -10%;
+  width: 40%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========== Section Header ========== */
+.sectionHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.pricingBadge {
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  position: relative;
+}
+
+.goldText {
+  color: #C9A227;
+  font-style: italic;
+}
+
+/* Title Underline */
+.titleUnderline {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.underlineBar {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  border-radius: 4px;
+}
+
+.sectionSubtitle {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.priceHighlight {
+  color: #C9A227;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* ========== Configuration Card ========== */
+.configCard {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #0D1E36 0%, #132742 100%);
+  border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.configBadge {
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.dropdownLabel {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.configDropdown {
+  margin-bottom: 1.5rem;
+}
+
+.dropdownIcon {
+  font-size: 24px;
+  color: #0A1628;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ========== Configuration Details ========== */
+.configDetails {
+  background: linear-gradient(135deg, #0A1628 0%, #0D1E36 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.configHeader {
+  margin-bottom: 1.25rem;
+}
+
+.configType {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.configSpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.configSpec {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.configSpec svg {
+  font-size: 18px;
+  color: #C9A227;
+}
+
+/* Price Box */
+.configPriceBox {
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.08) 100%);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.configPriceLabel {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25rem;
+}
+
+.configPrice {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #C9A227;
+}
+
+/* Features List */
+.configFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.configFeature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.featureIcon {
+  font-size: 20px;
+  color: #4CAF50;
+  flex-shrink: 0;
+}
+
+/* View Details Button */
+.viewDetailsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #E8D5A3 0%, #D4C085 100%);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0A1628;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.viewDetailsBtn:hover {
+  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 162, 39, 0.3);
+}
+
+.viewDetailsBtn svg {
+  font-size: 20px;
+}
+
+/* ========== EMI Calculator Card ========== */
+.emiCard {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.emiBadge {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.emiTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0A1628;
+  margin-bottom: 1.5rem;
+}
+
+/* ========== Sliders Section ========== */
+.emiSliders {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.sliderLabel {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.sliderValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #C9A227;
+}
+
+.sliderRange {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+}
+
+.sliderRange span {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+}
+
+/* ========== EMI Results ========== */
+.emiResults {
+  background: linear-gradient(135deg, #0A1628 0%, #0D1E36 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.emiMain {
+  text-align: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+.emiMainLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.emiMainValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* EMI Breakdown */
+.emiBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.emiBreakdownItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.breakdownLabel {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.breakdownValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.totalRow {
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.breakdownLabelTotal {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #C9A227;
+}
+
+.breakdownValueTotal {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #C9A227;
+}
+
+/* EMI Note */
+.emiNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-top: auto;
+}
+
+.emiNote svg {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.emiNote p {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+}
+
+.emiNote strong {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ========== Info Cards Section ========== */
+.infoCards {
+  position: relative;
+  z-index: 1;
+  margin-top: 3rem;
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.infoCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(201, 162, 39, 0.3);
+}
+
+.infoIconWrapper {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.infoCard:hover .infoIconWrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.infoIconWrapper svg {
+  font-size: 26px;
+}
+
+.infoTitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.infoSubtitle {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ========== Disclaimer ========== */
+.disclaimer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.disclaimer svg {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disclaimer p {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}
+
+/* ========== Responsive Styles ========== */
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .pricingSection {
+    padding: 6rem 0;
+  }
+
+  .configCard,
+  .emiCard {
+    padding: 2.5rem;
+  }
+
+  .configType {
+    font-size: 2rem;
+  }
+
+  .configPrice {
+    font-size: 2.25rem;
+  }
+
+  .emiTitle {
+    font-size: 1.75rem;
+  }
+
+  .emiMainValue {
+    font-size: 3rem;
+  }
+
+  .infoCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .infoIconWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .infoIconWrapper svg {
+    font-size: 30px;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .pricingSection {
+    padding: 5rem 0;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pricingSection {
+    padding: 4rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2.5rem;
+  }
+
+  .configCard,
+  .emiCard {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .configType {
+    font-size: 1.5rem;
+  }
+
+  .configPrice {
+    font-size: 1.75rem;
+  }
+
+  .emiTitle {
+    font-size: 1.375rem;
+  }
+
+  .emiMainValue {
+    font-size: 2.25rem;
+  }
+
+  .infoCards {
+    margin-top: 2.5rem;
+  }
+
+  .infoCard {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .infoIconWrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .infoIconWrapper svg {
+    font-size: 24px;
+  }
+
+  .infoTitle {
+    font-size: 0.875rem;
+  }
+
+  .infoSubtitle {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .pricingSection {
+    padding: 3rem 0;
+  }
+
+  .bgPattern {
+    background-size: 30px 30px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+
+  .priceHighlight {
+    font-size: 1.125rem;
+  }
+
+  .underlineBar {
+    width: 50px;
+    height: 3px;
+  }
+
+  .configCard,
+  .emiCard {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .configBadge,
+  .emiBadge {
+    margin-bottom: 1rem;
+  }
+
+  .dropdownLabel {
+    font-size: 0.875rem;
+  }
+
+  .configDetails {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .configType {
+    font-size: 1.375rem;
+  }
+
+  .configSpecs {
+    gap: 0.75rem;
+  }
+
+  .configSpec {
+    font-size: 0.8125rem;
+  }
+
+  .configSpec svg {
+    font-size: 16px;
+  }
+
+  .configPriceBox {
+    padding: 0.875rem 1rem;
+    border-radius: 10px;
+  }
+
+  .configPriceLabel {
+    font-size: 0.75rem;
+  }
+
+  .configPrice {
+    font-size: 1.75rem;
+  }
+
+  .configFeatures {
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .configFeature {
+    font-size: 0.875rem;
+    gap: 0.625rem;
+  }
+
+  .featureIcon {
+    font-size: 18px;
+  }
+
+  .viewDetailsBtn {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9375rem;
+    border-radius: 10px;
+    gap: 0.625rem;
+  }
+
+  .viewDetailsBtn svg {
+    font-size: 18px;
+  }
+
+  .emiTitle {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .emiSliders {
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sliderLabel {
+    font-size: 0.875rem;
+  }
+
+  .sliderValue {
+    font-size: 0.9375rem;
+  }
+
+  .sliderRange span {
+    font-size: 0.6875rem;
+  }
+
+  .emiResults {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .emiMainLabel {
+    font-size: 0.6875rem;
+  }
+
+  .emiMainValue {
+    font-size: 2rem;
+  }
+
+  .emiBreakdown {
+    gap: 0.625rem;
+  }
+
+  .emiBreakdownItem {
+    padding: 0.625rem 0.875rem;
+    border-radius: 8px;
+  }
+
+  .breakdownLabel {
+    font-size: 0.875rem;
+  }
+
+  .breakdownValue {
+    font-size: 0.9375rem;
+  }
+
+  .breakdownLabelTotal {
+    font-size: 0.875rem;
+  }
+
+  .breakdownValueTotal {
+    font-size: 1rem;
+  }
+
+  .emiNote {
+    padding: 0.625rem;
+    gap: 0.375rem;
+  }
+
+  .emiNote svg {
+    font-size: 16px;
+  }
+
+  .emiNote p {
+    font-size: 0.6875rem;
+  }
+
+  .infoCards {
+    margin-top: 2rem;
+  }
+
+  .infoCard {
+    padding: 1rem 0.5rem;
+    border-radius: 12px;
+  }
+
+  .infoIconWrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+  }
+
+  .infoIconWrapper svg {
+    font-size: 22px;
+  }
+
+  .infoTitle {
+    font-size: 0.8125rem;
+  }
+
+  .infoSubtitle {
+    font-size: 0.6875rem;
+  }
+
+  .disclaimer {
+    margin-top: 1.5rem;
+    padding: 0.875rem 1rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .disclaimer svg {
+    font-size: 18px;
+  }
+
+  .disclaimer p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small Mobile (max-width: 374px) */
+@media (max-width: 374px) {
+  .pricingSection {
+    padding: 2.5rem 0;
+  }
+
+  .configCard,
+  .emiCard {
+    padding: 1rem;
+  }
+
+  .configType {
+    font-size: 1.25rem;
+  }
+
+  .configPrice {
+    font-size: 1.5rem;
+  }
+
+  .configSpecs {
+    gap: 0.5rem;
+  }
+
+  .configSpec {
+    font-size: 0.75rem;
+  }
+
+  .configFeature {
+    font-size: 0.8125rem;
+  }
+
+  .viewDetailsBtn {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .emiTitle {
+    font-size: 1.125rem;
+  }
+
+  .emiMainValue {
+    font-size: 1.75rem;
+  }
+
+  .breakdownLabel {
+    font-size: 0.8125rem;
+  }
+
+  .breakdownValue {
+    font-size: 0.875rem;
+  }
+
+  .infoCard {
+    padding: 0.875rem 0.375rem;
+  }
+
+  .infoIconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .infoIconWrapper svg {
+    font-size: 20px;
+  }
+
+  .infoTitle {
+    font-size: 0.75rem;
+  }
+
+  .infoSubtitle {
+    font-size: 0.625rem;
+  }
+}
+
+/* ========== Hover Effects (Pointer Devices) ========== */
+@media (hover: hover) {
+  .infoCard:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ========== Animations ========== */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(201, 162, 39, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ========== Reduced Motion ========== */
+@media (prefers-reduced-motion: reduce) {
+  .configCard,
+  .emiCard,
+  .infoCard,
+  .viewDetailsBtn,
+  .infoIconWrapper {
+    transition: none;
+  }
+
+  .infoCard:hover,
+  .viewDetailsBtn:hover {
+    transform: none;
+  }
+
+  .infoCard:hover .infoIconWrapper {
+    transform: none;
+  }
+}
+
+/* ========== Focus Styles for Accessibility ========== */
+.viewDetailsBtn:focus-visible,
+.infoCard:focus-visible {
+  outline: 2px solid #C9A227;
+  outline-offset: 2px;
+}
+
+/* ========== Print Styles ========== */
+@media print {
+  .pricingSection {
+    padding: 2rem 0;
+    background: white;
+    color: black;
+  }
+
+  .bgPattern,
+  .bgGradientLeft,
+  .bgGradientRight {
+    display: none;
+  }
+
+  .configCard,
+  .emiCard {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+
+  .configDetails,
+  .emiResults {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+  }
+
+  .infoCard {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+  }
+
+  .goldText,
+  .priceHighlight,
+  .configPrice,
+  .sliderValue,
+  .breakdownLabelTotal,
+  .breakdownValueTotal {
+    color: #0A1628 !important;
+  }
+
+  .sectionTitle,
+  .configType,
+  .emiTitle,
+  .emiMainValue,
+  .infoTitle {
+    color: #0A1628 !important;
+  }
 }
