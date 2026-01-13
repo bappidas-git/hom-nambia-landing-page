@@ -292,6 +292,13 @@
   text-decoration: none;
   border-radius: var(--radius-lg);
   transition: all var(--transition-fast);
+  /* Button reset styles */
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
 }
 
 .mobileNavLink:hover,
