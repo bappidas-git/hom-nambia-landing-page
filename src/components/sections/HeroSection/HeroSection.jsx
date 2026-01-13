@@ -118,14 +118,24 @@ const HeroSection = () => {
 
   return (
     <section className={styles.heroSection} id="home">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Overlay - Responsive */}
       <div className={styles.heroBg}>
-        <img
-          src="https://placehold.co/1920x900/0A1628/1A3352?text=Hero+Building+1920x900"
-          alt="District 25 Building"
-          className={styles.heroImage}
-          loading="eager"
-        />
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcSet="/assets/images/hero/hero-mobile.jpg"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcSet="/assets/images/hero/hero-building.jpg"
+          />
+          <img
+            src="/assets/images/hero/hero-building.jpg"
+            alt="District 25 Building"
+            className={styles.heroImage}
+            loading="eager"
+          />
+        </picture>
         <div className={styles.heroOverlay} />
       </div>
 
