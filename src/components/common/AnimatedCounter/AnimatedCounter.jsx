@@ -4,7 +4,7 @@
    ============================================ */
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, useInView, useSpring, useTransform } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import styles from './AnimatedCounter.module.css';
 
 const AnimatedCounter = ({
@@ -25,35 +25,32 @@ const AnimatedCounter = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-50px" });
+  const [displayValue, setDisplayValue] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const animationRef = useRef(null);
 
-  // Parse value (handle strings like "100+" or "24/7")
+  const valueString = String(value);
+
+  // Check if value is a special format like "24/7" that shouldn't be animated
+  const isSpecialFormat = /^\d+\/\d+$/.test(valueString.trim());
+
+  // Parse value (handle strings like "100+" or "4000+")
   const parseValue = useCallback((val) => {
     if (typeof val === 'number') return val;
-    const numMatch = String(val).match(/[\d.]+/);
+    const numMatch = String(val).match(/^[\d.]+/);
     return numMatch ? parseFloat(numMatch[0]) : 0;
   }, []);
 
   const numericValue = parseValue(value);
 
-  // Extract non-numeric parts (like "+" in "100+")
-  const valueString = String(value);
-  const trailingSuffix = valueString.replace(/[\d.,\s]/g, '').trim();
+  // Extract trailing suffix (like "+" in "100+")
+  const extractSuffix = useCallback((val) => {
+    const str = String(val);
+    const match = str.match(/^[\d.,\s]+(.*)$/);
+    return match ? match[1].trim() : '';
+  }, []);
 
-  // Spring animation
-  const spring = useSpring(0, {
-    stiffness: 50,
-    damping: 20,
-    duration: duration * 1000
-  });
-
-  // Transform to rounded value
-  const display = useTransform(spring, (latest) => {
-    if (decimals > 0) {
-      return latest.toFixed(decimals);
-    }
-    return Math.round(latest);
-  });
+  const trailingSuffix = extractSuffix(value);
 
   // Format number with separator
   const formatNumber = useCallback((num) => {
@@ -63,17 +60,47 @@ const AnimatedCounter = ({
     return parts.join('.');
   }, [separator]);
 
-  // Trigger animation when in view
+  // Animate counter when in view
   useEffect(() => {
-    if (isInView && !hasAnimated) {
+    if (isInView && !hasAnimated && !isSpecialFormat) {
       const timeoutId = setTimeout(() => {
-        spring.set(numericValue);
-        setHasAnimated(true);
+        const startTime = performance.now();
+        const startValue = 0;
+        const endValue = numericValue;
+        const durationMs = duration * 1000;
+
+        const animate = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / durationMs, 1);
+
+          // Ease-out cubic function for smooth animation
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const currentValue = startValue + (endValue - startValue) * easeOut;
+
+          if (decimals > 0) {
+            setDisplayValue(parseFloat(currentValue.toFixed(decimals)));
+          } else {
+            setDisplayValue(Math.round(currentValue));
+          }
+
+          if (progress < 1) {
+            animationRef.current = requestAnimationFrame(animate);
+          } else {
+            setHasAnimated(true);
+          }
+        };
+
+        animationRef.current = requestAnimationFrame(animate);
       }, delay * 1000);
 
-      return () => clearTimeout(timeoutId);
+      return () => {
+        clearTimeout(timeoutId);
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+      };
     }
-  }, [isInView, hasAnimated, numericValue, spring, delay]);
+  }, [isInView, hasAnimated, numericValue, duration, delay, decimals, isSpecialFormat]);
 
   // Build class names
   const classNames = [
@@ -83,14 +110,27 @@ const AnimatedCounter = ({
     className
   ].filter(Boolean).join(' ');
 
+  // For special formats like "24/7", display as-is without animation
+  if (isSpecialFormat) {
+    return (
+      <div ref={ref} className={classNames} {...props}>
+        {icon && <div className={styles.icon}>{icon}</div>}
+        <div className={styles.valueWrapper}>
+          <span className={styles.prefix}>{prefix}</span>
+          <span className={styles.value}>{valueString}</span>
+          <span className={styles.suffix}>{suffix}</span>
+        </div>
+        {label && <div className={styles.label}>{label}</div>}
+      </div>
+    );
+  }
+
   return (
     <div ref={ref} className={classNames} {...props}>
       {icon && <div className={styles.icon}>{icon}</div>}
       <div className={styles.valueWrapper}>
         <span className={styles.prefix}>{prefix}</span>
-        <motion.span className={styles.value}>
-          {display.get() !== undefined ? formatNumber(Math.round(display.get())) : '0'}
-        </motion.span>
+        <span className={styles.value}>{formatNumber(displayValue)}</span>
         <span className={styles.suffix}>{suffix || trailingSuffix}</span>
       </div>
       {label && <div className={styles.label}>{label}</div>}
