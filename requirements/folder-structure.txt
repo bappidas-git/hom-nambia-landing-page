@@ -1,0 +1,158 @@
+nambiar-district25-phase2/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   ├── manifest.json
+│   └── robots.txt
+│
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── logos/
+│   │   │   │   ├── nambiar-logo.png
+│   │   │   │   ├── district25-logo.png
+│   │   │   │   └── nambiar-icon.png
+│   │   │   ├── hero/
+│   │   │   │   ├── hero-building.jpg
+│   │   │   │   └── hero-mobile.jpg
+│   │   │   ├── buildings/
+│   │   │   │   ├── tower-main.jpg
+│   │   │   │   └── tower-bw.jpg
+│   │   │   ├── amenities/
+│   │   │   │   ├── clubhouse.jpg
+│   │   │   │   ├── pool.jpg
+│   │   │   │   ├── sports.jpg
+│   │   │   │   ├── spa.jpg
+│   │   │   │   ├── garden.jpg
+│   │   │   │   ├── gym.jpg
+│   │   │   │   ├── library.jpg
+│   │   │   │   ├── kids-area.jpg
+│   │   │   │   └── amphitheatre.jpg
+│   │   │   ├── floor-plans/
+│   │   │   │   ├── 2bhk-plan.jpg
+│   │   │   │   ├── 3bhk-plan.jpg
+│   │   │   │   ├── 3bhk-2t-plan.jpg
+│   │   │   │   ├── 4bhk-plan.jpg
+│   │   │   │   └── 4.5bhk-plan.jpg
+│   │   │   └── gallery/
+│   │   │       ├── interior-1.jpg
+│   │   │       ├── interior-2.jpg
+│   │   │       └── exterior-1.jpg
+│   │   │
+│   │   ├── lottie/
+│   │   │   ├── building-animation.json
+│   │   │   ├── location-pin.json
+│   │   │   ├── security-shield.json
+│   │   │   ├── tree-growing.json
+│   │   │   ├── family-home.json
+│   │   │   └── calculator.json
+│   │   │
+│   │   └── fonts/
+│   │       └── (if custom fonts needed)
+│   │
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Header/
+│   │   │   │   ├── Header.jsx
+│   │   │   │   └── Header.module.css
+│   │   │   ├── Footer/
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   └── Footer.module.css
+│   │   │   ├── MobileNavigation/
+│   │   │   │   ├── MobileNavigation.jsx
+│   │   │   │   └── MobileNavigation.module.css
+│   │   │   ├── MobileDrawer/
+│   │   │   │   ├── MobileDrawer.jsx
+│   │   │   │   └── MobileDrawer.module.css
+│   │   │   ├── SectionTitle/
+│   │   │   │   ├── SectionTitle.jsx
+│   │   │   │   └── SectionTitle.module.css
+│   │   │   ├── Button/
+│   │   │   │   ├── Button.jsx
+│   │   │   │   └── Button.module.css
+│   │   │   ├── Card/
+│   │   │   │   ├── Card.jsx
+│   │   │   │   └── Card.module.css
+│   │   │   ├── Modal/
+│   │   │   │   ├── Modal.jsx
+│   │   │   │   └── Modal.module.css
+│   │   │   ├── LeadForm/
+│   │   │   │   ├── LeadForm.jsx
+│   │   │   │   └── LeadForm.module.css
+│   │   │   └── AnimatedCounter/
+│   │   │       ├── AnimatedCounter.jsx
+│   │   │       └── AnimatedCounter.module.css
+│   │   │
+│   │   └── sections/
+│   │       ├── HeroSection/
+│   │       │   ├── HeroSection.jsx
+│   │       │   └── HeroSection.module.css
+│   │       ├── OverviewSection/
+│   │       │   ├── OverviewSection.jsx
+│   │       │   └── OverviewSection.module.css
+│   │       ├── ProjectHighlights/
+│   │       │   ├── ProjectHighlights.jsx
+│   │       │   └── ProjectHighlights.module.css
+│   │       ├── AmenitiesSection/
+│   │       │   ├── AmenitiesSection.jsx
+│   │       │   └── AmenitiesSection.module.css
+│   │       ├── PricingSection/
+│   │       │   ├── PricingSection.jsx
+│   │       │   ├── ConfigurationSelector.jsx
+│   │       │   ├── EMICalculator.jsx
+│   │       │   └── PricingSection.module.css
+│   │       ├── FloorPlansSection/
+│   │       │   ├── FloorPlansSection.jsx
+│   │       │   └── FloorPlansSection.module.css
+│   │       ├── LocationSection/
+│   │       │   ├── LocationSection.jsx
+│   │       │   └── LocationSection.module.css
+│   │       ├── CTASection/
+│   │       │   ├── CTASection.jsx
+│   │       │   └── CTASection.module.css
+│   │       └── ContactSection/
+│   │           ├── ContactSection.jsx
+│   │           └── ContactSection.module.css
+│   │
+│   ├── hooks/
+│   │   ├── useScrollPosition.js
+│   │   ├── useInView.js
+│   │   ├── useMediaQuery.js
+│   │   └── useLocalStorage.js
+│   │
+│   ├── context/
+│   │   ├── ThemeContext.jsx
+│   │   └── ModalContext.jsx
+│   │
+│   ├── data/
+│   │   ├── amenitiesData.js
+│   │   ├── configurationsData.js
+│   │   ├── highlightsData.js
+│   │   ├── locationData.js
+│   │   └── floorPlansData.js
+│   │
+│   ├── utils/
+│   │   ├── helpers.js
+│   │   ├── emiCalculator.js
+│   │   ├── formatters.js
+│   │   └── validators.js
+│   │
+│   ├── styles/
+│   │   ├── global.css
+│   │   ├── variables.css
+│   │   ├── animations.css
+│   │   └── responsive.css
+│   │
+│   ├── theme/
+│   │   └── muiTheme.js
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   └── index.js
+│
+├── .env
+├── .env.example
+├── .gitignore
+├── package.json
+├── README.md
+└── jsconfig.json
