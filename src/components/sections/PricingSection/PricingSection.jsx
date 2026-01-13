@@ -1,6 +1,6 @@
 /* ============================================
    PricingSection Component - Nambiar District 25 Phase 2
-   Redesigned with compact layout & enhanced CTA
+   Redesigned with full-width config card & EMI popup modal
    ============================================ */
 
 import React, { useState, useRef } from 'react';
@@ -8,14 +8,13 @@ import { motion, useInView } from 'framer-motion';
 import {
   Container,
   Typography,
-  Grid,
   Chip,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
 import { Icon } from '@iconify/react';
 import ConfigurationSelector from './ConfigurationSelector';
-import EMICalculator from './EMICalculator';
+import EMICalculatorModal from './EMICalculatorModal';
 import { configurationsData, priceRange } from '../../../data/configurationsData';
 import { useModal } from '../../../context/ModalContext';
 import styles from './PricingSection.module.css';
@@ -61,6 +60,9 @@ const PricingSection = () => {
   // Selected configuration state
   const [selectedConfigId, setSelectedConfigId] = useState(1);
 
+  // EMI Modal state
+  const [isEMIModalOpen, setIsEMIModalOpen] = useState(false);
+
   // Get current selected configuration
   const selectedConfig = configurationsData.find(c => c.id === selectedConfigId) || configurationsData[0];
 
@@ -93,6 +95,15 @@ const PricingSection = () => {
       subtitle: 'Our experts will help you find the perfect home',
       source: 'pricing_main_cta',
     });
+  };
+
+  // Handle EMI Modal
+  const handleOpenEMI = () => {
+    setIsEMIModalOpen(true);
+  };
+
+  const handleCloseEMI = () => {
+    setIsEMIModalOpen(false);
   };
 
   // Info cards data
@@ -204,23 +215,14 @@ const PricingSection = () => {
             </motion.div>
           )}
 
-          {/* Main Content Grid - Compact */}
+          {/* Full Width Configuration Card */}
           <motion.div variants={itemVariants}>
-            <Grid container spacing={isMobile ? 1.5 : 2.5} alignItems="stretch">
-              {/* Configuration Selector */}
-              <Grid item xs={12} md={6}>
-                <ConfigurationSelector
-                  selectedConfig={selectedConfigId}
-                  onConfigChange={handleConfigChange}
-                  onViewDetails={handleViewDetails}
-                />
-              </Grid>
-
-              {/* EMI Calculator */}
-              <Grid item xs={12} md={6}>
-                <EMICalculator propertyPrice={selectedConfig.price} />
-              </Grid>
-            </Grid>
+            <ConfigurationSelector
+              selectedConfig={selectedConfigId}
+              onConfigChange={handleConfigChange}
+              onViewDetails={handleViewDetails}
+              onOpenEMI={handleOpenEMI}
+            />
           </motion.div>
 
           {/* Info Cards Strip - Horizontal Pill Layout */}
@@ -276,6 +278,14 @@ const PricingSection = () => {
           </motion.div>
         </motion.div>
       </Container>
+
+      {/* EMI Calculator Modal */}
+      <EMICalculatorModal
+        isOpen={isEMIModalOpen}
+        onClose={handleCloseEMI}
+        propertyPrice={selectedConfig.price}
+        configType={selectedConfig.type}
+      />
     </section>
   );
 };
