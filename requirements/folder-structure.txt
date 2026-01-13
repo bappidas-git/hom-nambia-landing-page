@@ -9,35 +9,35 @@ nambiar-district25-phase2/
 │   ├── assets/
 │   │   ├── images/
 │   │   │   ├── logos/
-│   │   │   │   ├── nambiar-logo.png
-│   │   │   │   ├── district25-logo.png
-│   │   │   │   └── nambiar-icon.png
+│   │   │   │   ├── nambiar-logo.png - 180 x 60 Nambiar Builders main logo
+│   │   │   │   ├── district25-logo.png - 140 x 50 District 25 project logo
+│   │   │   │   └── nambiar-icon.png - 80 x 80 Nambiar icon (yellow/blue geometric)
 │   │   │   ├── hero/
-│   │   │   │   ├── hero-building.jpg
-│   │   │   │   └── hero-mobile.jpg
+│   │   │   │   ├── hero-building.jpg - 1920 x 900 Hero background - building at night/dusk
+│   │   │   │   └── hero-mobile.jpg - 768 x 800 Hero background for mobile
 │   │   │   ├── buildings/
-│   │   │   │   ├── tower-main.jpg
-│   │   │   │   └── tower-bw.jpg
+│   │   │   │   ├── tower-main.jpg - 800 x 1000 Main tower image (color) for overview
+│   │   │   │   └── tower-bw.jpg - 600 x 800 Black & white tower for project highlights
 │   │   │   ├── amenities/
-│   │   │   │   ├── clubhouse.jpg
-│   │   │   │   ├── pool.jpg
-│   │   │   │   ├── sports.jpg
-│   │   │   │   ├── spa.jpg
-│   │   │   │   ├── garden.jpg
-│   │   │   │   ├── gym.jpg
-│   │   │   │   ├── library.jpg
-│   │   │   │   ├── kids-area.jpg
-│   │   │   │   └── amphitheatre.jpg
+│   │   │   │   ├── clubhouse.jpg - 800 x 500 Main clubhouse exterior
+│   │   │   │   ├── pool.jpg - 400 x 300 Olympic swimming pool
+│   │   │   │   ├── sports.jpg - 400 x 300 Indoor sports courts
+│   │   │   │   ├── spa.jpg - 400 x 300 Spa & wellness center
+│   │   │   │   ├── garden.jpg - 400 x 300 Themed gardens
+│   │   │   │   ├── gym.jpg - 400 x 300 Modern gymnasium
+│   │   │   │   ├── library.jpg - 400 x 300 Library & study rooms
+│   │   │   │   ├── kids-area.jpg - 400 x 300 Kids play area
+│   │   │   │   └── amphitheatre.jpg - 400 x 300 Outdoor amphitheatre
 │   │   │   ├── floor-plans/
-│   │   │   │   ├── 2bhk-plan.jpg
-│   │   │   │   ├── 3bhk-plan.jpg
-│   │   │   │   ├── 3bhk-2t-plan.jpg
-│   │   │   │   ├── 4bhk-plan.jpg
-│   │   │   │   └── 4.5bhk-plan.jpg
+│   │   │   │   ├── 2bhk-plan.jpg - 800 x 600 2 BHK floor plan layout
+│   │   │   │   ├── 3bhk-plan.jpg - 800 x 600 3 BHK floor plan layout
+│   │   │   │   ├── 3bhk-2t-plan.jpg - 800 x 600 3 BHK 2T floor plan layout
+│   │   │   │   ├── 4bhk-plan.jpg - 800 x 600 4 BHK floor plan layout
+│   │   │   │   └── 4.5bhk-plan.jpg - 800 x 600 4.5 BHK floor plan layout
 │   │   │   └── gallery/
-│   │   │       ├── interior-1.jpg
-│   │   │       ├── interior-2.jpg
-│   │   │       └── exterior-1.jpg
+│   │   │       ├── interior-1.jpg - 600 x 400 Living room interior
+│   │   │       ├── interior-2.jpg - 600 x 400Kitchen interior
+│   │   │       └── exterior-1.jpg - 600 x 400 External view of towers
 │   │   │
 │   │   ├── lottie/
 │   │   │   ├── building-animation.json
