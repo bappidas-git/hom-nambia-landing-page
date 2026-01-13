@@ -1,23 +1,118 @@
-*,
-*::after,
-*::before{
-	margin:0;
-	padding:0;
-	box-sizing: inherit;
+/* ============================================
+   App-specific Styles - Nambiar District 25 Phase 2
+   Real Estate Landing Page
+   ============================================ */
+
+/* Note: Most global styles are in /styles folder
+   This file contains app-level overrides if needed */
+
+/* App wrapper styles */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-a:link, a:visited{
-	text-decoration: none;
-	color:inherit;
+/* Main content area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-body{
-	font-family: sans-serif;
-	line-height: 1.6;
-	box-sizing: border-box;
+/* Section common styles */
+.section-wrapper {
+  position: relative;
+  width: 100%;
 }
 
-img{
+/* Background patterns */
+.pattern-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(circle, var(--medium-gray) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.3;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(to right, var(--medium-gray) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--medium-gray) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.2;
+}
+
+.pattern-plus {
+  background-image:
+    linear-gradient(var(--medium-gray) 1px, transparent 1px),
+    linear-gradient(90deg, var(--medium-gray) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center;
+  opacity: 0.15;
+}
+
+/* Scroll behavior adjustments */
+.scroll-mt-header {
+  scroll-margin-top: var(--header-height);
+}
+
+/* Mobile bottom padding for fixed nav */
+@media screen and (max-width: 1023px) {
+  .main-content {
+    padding-bottom: var(--mobile-nav-height);
+  }
+}
+
+/* Smooth scroll offset for sections */
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+/* Ensure images maintain aspect ratio */
+.responsive-image {
   width: 100%;
   height: auto;
+  object-fit: cover;
+}
+
+/* Lazy loading fade-in effect */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Custom focus outlines for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--accent-gold);
+  color: var(--primary-dark);
+}
+
+/* Print media adjustments */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .main-content {
+    padding-bottom: 0;
+  }
 }
