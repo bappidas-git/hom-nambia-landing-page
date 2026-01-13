@@ -1,17 +1,23 @@
 /* ============================================
    PricingSection Styles - Nambiar District 25 Phase 2
-   Pricing configuration and EMI calculator
+   Redesigned with gradient background, compact layout & enhanced CTA
    ============================================ */
 
-/* ========== Main Section ========== */
+/* ========== Main Section - New Gradient Background ========== */
 .pricingSection {
   position: relative;
-  padding: 5rem 0;
-  background-color: #0A1628;
+  padding: 4rem 0;
+  background: linear-gradient(180deg,
+    #0F1F35 0%,
+    #162942 30%,
+    #1A3350 50%,
+    #162942 70%,
+    #0F1F35 100%
+  );
   overflow: hidden;
 }
 
-/* ========== Background Elements ========== */
+/* ========== Background Elements - New Design ========== */
 .bgPattern {
   position: absolute;
   top: 0;
@@ -19,42 +25,65 @@
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(201, 162, 39, 0.03) 1px, transparent 0);
-  background-size: 40px 40px;
+    radial-gradient(circle at 2px 2px, rgba(201, 162, 39, 0.04) 1px, transparent 0);
+  background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
 }
 
 .bgGradientLeft {
   position: absolute;
-  top: 20%;
-  left: -10%;
-  width: 40%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+  top: 0;
+  left: -5%;
+  width: 35%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.06) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
 .bgGradientRight {
   position: absolute;
-  bottom: 10%;
-  right: -10%;
-  width: 40%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.06) 0%, transparent 70%);
+  top: 0;
+  right: -5%;
+  width: 35%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.04) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* ========== Section Header ========== */
+/* Decorative Corner Accents */
+.bgAccentTopRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(225deg, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgAccentBottomLeft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========== Section Header - Compact ========== */
 .sectionHeader {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .pricingBadge {
@@ -74,19 +103,19 @@
 .titleUnderline {
   display: flex;
   justify-content: center;
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
 }
 
 .underlineBar {
-  width: 60px;
-  height: 4px;
+  width: 50px;
+  height: 3px;
   background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .sectionSubtitle {
-  margin-top: 1rem;
-  font-size: 1.125rem;
+  margin-top: 0.75rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
@@ -94,53 +123,60 @@
 .priceHighlight {
   color: #C9A227;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
-/* ========== Configuration Card ========== */
+/* ========== Main Content Layout - Compact Grid ========== */
+.mainContent {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== Configuration Card - Compact Design ========== */
 .configCard {
   position: relative;
   z-index: 1;
-  background: linear-gradient(135deg, #0D1E36 0%, #132742 100%);
-  border-radius: 24px;
-  padding: 2rem;
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  background: linear-gradient(145deg, rgba(13, 30, 54, 0.95) 0%, rgba(19, 39, 66, 0.95) 100%);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 162, 39, 0.25);
   height: 100%;
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(10px);
 }
 
 .configBadge {
   align-self: flex-start;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .dropdownLabel {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
 .configDropdown {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .dropdownIcon {
-  font-size: 24px;
+  font-size: 22px;
   color: #0A1628;
   position: absolute;
-  right: 16px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
 }
 
-/* ========== Configuration Details ========== */
+/* ========== Configuration Details - Compact ========== */
 .configDetails {
-  background: linear-gradient(135deg, #0A1628 0%, #0D1E36 100%);
-  border-radius: 16px;
-  padding: 1.5rem;
+  background: linear-gradient(145deg, rgba(10, 22, 40, 0.9) 0%, rgba(13, 30, 54, 0.9) 100%);
+  border-radius: 14px;
+  padding: 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   flex: 1;
   display: flex;
@@ -148,12 +184,12 @@
 }
 
 .configHeader {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .configType {
   font-family: 'Playfair Display', serif;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #FFFFFF;
   margin-bottom: 0.5rem;
@@ -162,127 +198,165 @@
 .configSpecs {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .configSpec {
   display: flex;
   align-items: center;
-  gap: 0.375rem;
-  font-size: 0.875rem;
+  gap: 0.25rem;
+  font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .configSpec svg {
-  font-size: 18px;
+  font-size: 16px;
   color: #C9A227;
 }
 
-/* Price Box */
+/* Price Box - Compact */
 .configPriceBox {
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.08) 100%);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.25rem;
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.18) 0%, rgba(201, 162, 39, 0.08) 100%);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .configPriceLabel {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 0.25rem;
 }
 
 .configPrice {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #C9A227;
 }
 
-/* Features List */
+/* Features List - Compact Grid */
 .configFeatures {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
   flex: 1;
 }
 
 .configFeature {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.9375rem;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.85);
 }
 
 .featureIcon {
-  font-size: 20px;
+  font-size: 16px;
   color: #4CAF50;
   flex-shrink: 0;
 }
 
-/* View Details Button */
+/* ========== Enhanced CTA Button ========== */
 .viewDetailsBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.625rem;
   width: 100%;
-  padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #E8D5A3 0%, #D4C085 100%);
+  padding: 0.875rem 1.25rem;
+  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 50%, #C9A227 100%);
+  background-size: 200% 100%;
   border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 700;
   color: #0A1628;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+}
+
+.viewDetailsBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
 }
 
 .viewDetailsBtn:hover {
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  background-position: 100% 0;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(201, 162, 39, 0.3);
+  box-shadow: 0 8px 25px rgba(201, 162, 39, 0.45);
+}
+
+.viewDetailsBtn:hover::before {
+  left: 100%;
 }
 
 .viewDetailsBtn svg {
-  font-size: 20px;
+  font-size: 18px;
 }
 
-/* ========== EMI Calculator Card ========== */
+/* CTA Pulse Animation */
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(201, 162, 39, 0.5);
+  }
+}
+
+.viewDetailsBtnPulse {
+  animation: ctaPulse 2s ease-in-out infinite;
+}
+
+/* ========== EMI Calculator Card - Compact ========== */
 .emiCard {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  border-radius: 24px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 1.5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
 .emiBadge {
   align-self: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .emiTitle {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #0A1628;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-/* ========== Sliders Section ========== */
+/* ========== Sliders Section - Compact ========== */
 .emiSliders {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .sliderGroup {
@@ -294,17 +368,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.375rem;
 }
 
 .sliderLabel {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: #374151;
 }
 
 .sliderValue {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   color: #C9A227;
 }
@@ -312,19 +386,19 @@
 .sliderRange {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.25rem;
+  margin-top: 0.125rem;
 }
 
 .sliderRange span {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   color: #9CA3AF;
 }
 
-/* ========== EMI Results ========== */
+/* ========== EMI Results - Compact ========== */
 .emiResults {
-  background: linear-gradient(135deg, #0A1628 0%, #0D1E36 100%);
-  border-radius: 16px;
-  padding: 1.5rem;
+  background: linear-gradient(145deg, #0A1628 0%, #0D1E36 100%);
+  border-radius: 14px;
+  padding: 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -332,50 +406,50 @@
 
 .emiMain {
   text-align: center;
-  padding-bottom: 1.25rem;
+  padding-bottom: 0.875rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .emiMainLabel {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .emiMainValue {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #FFFFFF;
 }
 
-/* EMI Breakdown */
+/* EMI Breakdown - Compact */
 .emiBreakdown {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .emiBreakdownItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .breakdownLabel {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .breakdownValue {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #FFFFFF;
 }
@@ -386,127 +460,247 @@
 }
 
 .breakdownLabelTotal {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: #C9A227;
 }
 
 .breakdownValueTotal {
-  font-size: 1.125rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   color: #C9A227;
 }
 
-/* EMI Note */
+/* EMI Note - Compact */
 .emiNote {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-  padding: 0.75rem;
+  gap: 0.375rem;
+  padding: 0.5rem;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  border-radius: 6px;
   margin-top: auto;
 }
 
 .emiNote svg {
-  font-size: 18px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .emiNote p {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   color: rgba(255, 255, 255, 0.5);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .emiNote strong {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* ========== Info Cards Section ========== */
+/* ========== Info Cards Section - Horizontal Strip ========== */
 .infoCards {
   position: relative;
   z-index: 1;
-  margin-top: 3rem;
+  margin-top: 2rem;
+}
+
+.infoCardsStrip {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .infoCard {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  background: rgba(255, 255, 255, 0.04);
+  gap: 0.625rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
-  height: 100%;
 }
 
 .infoCard:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   border-color: rgba(201, 162, 39, 0.3);
+  transform: translateY(-2px);
 }
 
 .infoIconWrapper {
-  width: 52px;
-  height: 52px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  margin-bottom: 0.75rem;
+  border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
 .infoCard:hover .infoIconWrapper {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1);
 }
 
 .infoIconWrapper svg {
-  font-size: 26px;
+  font-size: 18px;
+}
+
+.infoTextWrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .infoTitle {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: 0.25rem;
+  line-height: 1.2;
 }
 
 .infoSubtitle {
-  font-size: 0.8125rem;
+  font-size: 0.6875rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ========== Disclaimer ========== */
+/* ========== Disclaimer - Compact ========== */
 .disclaimer {
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  margin-top: 2rem;
-  padding: 1rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .disclaimer svg {
-  font-size: 20px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.4);
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
 .disclaimer p {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.5);
-  line-height: 1.6;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ========== Floating CTA Button ========== */
+.floatingCta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.mainCtaBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 50%, #C9A227 100%);
+  background-size: 200% 100%;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0A1628;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow:
+    0 6px 20px rgba(201, 162, 39, 0.4),
+    0 0 40px rgba(201, 162, 39, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: mainCtaPulse 2.5s ease-in-out infinite;
+}
+
+.mainCtaBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.mainCtaBtn:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 10px 30px rgba(201, 162, 39, 0.5),
+    0 0 60px rgba(201, 162, 39, 0.3);
+}
+
+.mainCtaBtn:hover::before {
+  left: 100%;
+}
+
+.mainCtaBtn svg {
+  font-size: 20px;
+}
+
+@keyframes mainCtaPulse {
+  0%, 100% {
+    box-shadow:
+      0 6px 20px rgba(201, 162, 39, 0.4),
+      0 0 40px rgba(201, 162, 39, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 8px 30px rgba(201, 162, 39, 0.55),
+      0 0 60px rgba(201, 162, 39, 0.35);
+  }
+}
+
+/* ========== Quick Config Strip ========== */
+.quickConfigStrip {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.quickConfigChip {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quickConfigChip:hover {
+  background: rgba(201, 162, 39, 0.1);
+  border-color: rgba(201, 162, 39, 0.3);
+  color: #FFFFFF;
+}
+
+.quickConfigChipActive {
+  background: rgba(201, 162, 39, 0.2);
+  border-color: #C9A227;
+  color: #C9A227;
+  font-weight: 600;
 }
 
 /* ========== Responsive Styles ========== */
@@ -514,383 +708,32 @@
 /* Large Desktop (1440px+) */
 @media (min-width: 1440px) {
   .pricingSection {
-    padding: 6rem 0;
-  }
-
-  .configCard,
-  .emiCard {
-    padding: 2.5rem;
-  }
-
-  .configType {
-    font-size: 2rem;
-  }
-
-  .configPrice {
-    font-size: 2.25rem;
-  }
-
-  .emiTitle {
-    font-size: 1.75rem;
-  }
-
-  .emiMainValue {
-    font-size: 3rem;
-  }
-
-  .infoCard {
-    padding: 2rem 1.5rem;
-  }
-
-  .infoIconWrapper {
-    width: 60px;
-    height: 60px;
-  }
-
-  .infoIconWrapper svg {
-    font-size: 30px;
-  }
-}
-
-/* Desktop (1024px - 1439px) */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .pricingSection {
     padding: 5rem 0;
   }
-}
-
-/* Tablet (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .pricingSection {
-    padding: 4rem 0;
-  }
-
-  .sectionHeader {
-    margin-bottom: 2.5rem;
-  }
 
   .configCard,
   .emiCard {
-    padding: 1.5rem;
-    border-radius: 20px;
+    padding: 2rem;
   }
 
   .configType {
-    font-size: 1.5rem;
-  }
-
-  .configPrice {
     font-size: 1.75rem;
   }
 
-  .emiTitle {
-    font-size: 1.375rem;
-  }
-
-  .emiMainValue {
-    font-size: 2.25rem;
-  }
-
-  .infoCards {
-    margin-top: 2.5rem;
-  }
-
-  .infoCard {
-    padding: 1.25rem 0.75rem;
-  }
-
-  .infoIconWrapper {
-    width: 48px;
-    height: 48px;
-  }
-
-  .infoIconWrapper svg {
-    font-size: 24px;
-  }
-
-  .infoTitle {
-    font-size: 0.875rem;
-  }
-
-  .infoSubtitle {
-    font-size: 0.75rem;
-  }
-}
-
-/* Mobile (max-width: 767px) */
-@media (max-width: 767px) {
-  .pricingSection {
-    padding: 3rem 0;
-  }
-
-  .bgPattern {
-    background-size: 30px 30px;
-  }
-
-  .sectionHeader {
-    margin-bottom: 2rem;
-  }
-
-  .sectionSubtitle {
-    font-size: 1rem;
-  }
-
-  .priceHighlight {
-    font-size: 1.125rem;
-  }
-
-  .underlineBar {
-    width: 50px;
-    height: 3px;
-  }
-
-  .configCard,
-  .emiCard {
-    padding: 1.25rem;
-    border-radius: 16px;
-  }
-
-  .configBadge,
-  .emiBadge {
-    margin-bottom: 1rem;
-  }
-
-  .dropdownLabel {
-    font-size: 0.875rem;
-  }
-
-  .configDetails {
-    padding: 1.25rem;
-    border-radius: 12px;
-  }
-
-  .configType {
-    font-size: 1.375rem;
-  }
-
-  .configSpecs {
-    gap: 0.75rem;
-  }
-
-  .configSpec {
-    font-size: 0.8125rem;
-  }
-
-  .configSpec svg {
-    font-size: 16px;
-  }
-
-  .configPriceBox {
-    padding: 0.875rem 1rem;
-    border-radius: 10px;
-  }
-
-  .configPriceLabel {
-    font-size: 0.75rem;
-  }
-
   .configPrice {
-    font-size: 1.75rem;
-  }
-
-  .configFeatures {
-    gap: 0.625rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .configFeature {
-    font-size: 0.875rem;
-    gap: 0.625rem;
-  }
-
-  .featureIcon {
-    font-size: 18px;
-  }
-
-  .viewDetailsBtn {
-    padding: 0.875rem 1.25rem;
-    font-size: 0.9375rem;
-    border-radius: 10px;
-    gap: 0.625rem;
-  }
-
-  .viewDetailsBtn svg {
-    font-size: 18px;
-  }
-
-  .emiTitle {
-    font-size: 1.25rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .emiSliders {
-    gap: 1.25rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .sliderLabel {
-    font-size: 0.875rem;
-  }
-
-  .sliderValue {
-    font-size: 0.9375rem;
-  }
-
-  .sliderRange span {
-    font-size: 0.6875rem;
-  }
-
-  .emiResults {
-    padding: 1.25rem;
-    border-radius: 12px;
-  }
-
-  .emiMainLabel {
-    font-size: 0.6875rem;
-  }
-
-  .emiMainValue {
     font-size: 2rem;
   }
 
-  .emiBreakdown {
-    gap: 0.625rem;
-  }
-
-  .emiBreakdownItem {
-    padding: 0.625rem 0.875rem;
-    border-radius: 8px;
-  }
-
-  .breakdownLabel {
-    font-size: 0.875rem;
-  }
-
-  .breakdownValue {
-    font-size: 0.9375rem;
-  }
-
-  .breakdownLabelTotal {
-    font-size: 0.875rem;
-  }
-
-  .breakdownValueTotal {
-    font-size: 1rem;
-  }
-
-  .emiNote {
-    padding: 0.625rem;
-    gap: 0.375rem;
-  }
-
-  .emiNote svg {
-    font-size: 16px;
-  }
-
-  .emiNote p {
-    font-size: 0.6875rem;
-  }
-
-  .infoCards {
-    margin-top: 2rem;
-  }
-
-  .infoCard {
-    padding: 1rem 0.5rem;
-    border-radius: 12px;
-  }
-
-  .infoIconWrapper {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    margin-bottom: 0.5rem;
-  }
-
-  .infoIconWrapper svg {
-    font-size: 22px;
-  }
-
-  .infoTitle {
-    font-size: 0.8125rem;
-  }
-
-  .infoSubtitle {
-    font-size: 0.6875rem;
-  }
-
-  .disclaimer {
-    margin-top: 1.5rem;
-    padding: 0.875rem 1rem;
-    gap: 0.5rem;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .disclaimer svg {
-    font-size: 18px;
-  }
-
-  .disclaimer p {
-    font-size: 0.75rem;
-  }
-}
-
-/* Small Mobile (max-width: 374px) */
-@media (max-width: 374px) {
-  .pricingSection {
-    padding: 2.5rem 0;
-  }
-
-  .configCard,
-  .emiCard {
-    padding: 1rem;
-  }
-
-  .configType {
-    font-size: 1.25rem;
-  }
-
-  .configPrice {
+  .emiTitle {
     font-size: 1.5rem;
   }
 
-  .configSpecs {
-    gap: 0.5rem;
-  }
-
-  .configSpec {
-    font-size: 0.75rem;
-  }
-
-  .configFeature {
-    font-size: 0.8125rem;
-  }
-
-  .viewDetailsBtn {
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
-  }
-
-  .emiTitle {
-    font-size: 1.125rem;
-  }
-
   .emiMainValue {
-    font-size: 1.75rem;
-  }
-
-  .breakdownLabel {
-    font-size: 0.8125rem;
-  }
-
-  .breakdownValue {
-    font-size: 0.875rem;
+    font-size: 2.5rem;
   }
 
   .infoCard {
-    padding: 0.875rem 0.375rem;
+    padding: 0.875rem 1.25rem;
   }
 
   .infoIconWrapper {
@@ -902,6 +745,72 @@
     font-size: 20px;
   }
 
+  .mainCtaBtn {
+    padding: 1.125rem 3rem;
+    font-size: 1.0625rem;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .pricingSection {
+    padding: 4rem 0;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pricingSection {
+    padding: 3.5rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 1.75rem;
+  }
+
+  .configCard,
+  .emiCard {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .configType {
+    font-size: 1.375rem;
+  }
+
+  .configPrice {
+    font-size: 1.5rem;
+  }
+
+  .configFeatures {
+    grid-template-columns: 1fr;
+  }
+
+  .emiTitle {
+    font-size: 1.125rem;
+  }
+
+  .emiMainValue {
+    font-size: 1.75rem;
+  }
+
+  .infoCards {
+    margin-top: 1.75rem;
+  }
+
+  .infoCard {
+    padding: 0.625rem 0.875rem;
+  }
+
+  .infoIconWrapper {
+    width: 32px;
+    height: 32px;
+  }
+
+  .infoIconWrapper svg {
+    font-size: 16px;
+  }
+
   .infoTitle {
     font-size: 0.75rem;
   }
@@ -909,12 +818,346 @@
   .infoSubtitle {
     font-size: 0.625rem;
   }
+
+  .mainCtaBtn {
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .pricingSection {
+    padding: 2.5rem 0;
+  }
+
+  .bgPattern {
+    background-size: 24px 24px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 1.5rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.9375rem;
+  }
+
+  .priceHighlight {
+    font-size: 1rem;
+  }
+
+  .underlineBar {
+    width: 40px;
+    height: 2px;
+  }
+
+  .configCard,
+  .emiCard {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .configBadge,
+  .emiBadge {
+    margin-bottom: 0.75rem;
+  }
+
+  .dropdownLabel {
+    font-size: 0.8125rem;
+  }
+
+  .configDetails {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .configType {
+    font-size: 1.25rem;
+  }
+
+  .configSpecs {
+    gap: 0.5rem;
+  }
+
+  .configSpec {
+    font-size: 0.75rem;
+  }
+
+  .configSpec svg {
+    font-size: 14px;
+  }
+
+  .configPriceBox {
+    padding: 0.75rem 0.875rem;
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .configPriceLabel {
+    font-size: 0.6875rem;
+  }
+
+  .configPrice {
+    font-size: 1.5rem;
+  }
+
+  .configFeatures {
+    grid-template-columns: 1fr;
+    gap: 0.375rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .configFeature {
+    font-size: 0.75rem;
+    gap: 0.375rem;
+  }
+
+  .featureIcon {
+    font-size: 14px;
+  }
+
+  .viewDetailsBtn {
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+    border-radius: 8px;
+    gap: 0.5rem;
+  }
+
+  .viewDetailsBtn svg {
+    font-size: 16px;
+  }
+
+  .emiTitle {
+    font-size: 1.125rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .emiSliders {
+    gap: 0.875rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .sliderLabel {
+    font-size: 0.75rem;
+  }
+
+  .sliderValue {
+    font-size: 0.8125rem;
+  }
+
+  .sliderRange span {
+    font-size: 0.625rem;
+  }
+
+  .emiResults {
+    padding: 0.875rem;
+    border-radius: 10px;
+  }
+
+  .emiMainLabel {
+    font-size: 0.625rem;
+  }
+
+  .emiMainValue {
+    font-size: 1.75rem;
+  }
+
+  .emiBreakdown {
+    gap: 0.375rem;
+  }
+
+  .emiBreakdownItem {
+    padding: 0.5rem 0.625rem;
+    border-radius: 6px;
+  }
+
+  .breakdownLabel {
+    font-size: 0.75rem;
+  }
+
+  .breakdownValue {
+    font-size: 0.8125rem;
+  }
+
+  .breakdownLabelTotal {
+    font-size: 0.75rem;
+  }
+
+  .breakdownValueTotal {
+    font-size: 0.875rem;
+  }
+
+  .emiNote {
+    padding: 0.375rem;
+    gap: 0.25rem;
+  }
+
+  .emiNote svg {
+    font-size: 12px;
+  }
+
+  .emiNote p {
+    font-size: 0.625rem;
+  }
+
+  .infoCards {
+    margin-top: 1.5rem;
+  }
+
+  .infoCardsStrip {
+    gap: 0.375rem;
+  }
+
+  .infoCard {
+    padding: 0.5rem 0.75rem;
+    border-radius: 30px;
+  }
+
+  .infoIconWrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .infoIconWrapper svg {
+    font-size: 14px;
+  }
+
+  .infoTitle {
+    font-size: 0.6875rem;
+  }
+
+  .infoSubtitle {
+    font-size: 0.5625rem;
+  }
+
+  .disclaimer {
+    margin-top: 1rem;
+    padding: 0.625rem 0.75rem;
+    gap: 0.375rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .disclaimer svg {
+    font-size: 14px;
+  }
+
+  .disclaimer p {
+    font-size: 0.6875rem;
+  }
+
+  .floatingCta {
+    margin-top: 1.25rem;
+  }
+
+  .mainCtaBtn {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    gap: 0.5rem;
+  }
+
+  .mainCtaBtn svg {
+    font-size: 18px;
+  }
+
+  .quickConfigStrip {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .quickConfigChip {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.6875rem;
+  }
+}
+
+/* Small Mobile (max-width: 374px) */
+@media (max-width: 374px) {
+  .pricingSection {
+    padding: 2rem 0;
+  }
+
+  .configCard,
+  .emiCard {
+    padding: 0.875rem;
+  }
+
+  .configType {
+    font-size: 1.125rem;
+  }
+
+  .configPrice {
+    font-size: 1.375rem;
+  }
+
+  .configSpecs {
+    gap: 0.375rem;
+  }
+
+  .configSpec {
+    font-size: 0.6875rem;
+  }
+
+  .configFeature {
+    font-size: 0.6875rem;
+  }
+
+  .viewDetailsBtn {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.75rem;
+  }
+
+  .emiTitle {
+    font-size: 1rem;
+  }
+
+  .emiMainValue {
+    font-size: 1.5rem;
+  }
+
+  .breakdownLabel {
+    font-size: 0.6875rem;
+  }
+
+  .breakdownValue {
+    font-size: 0.75rem;
+  }
+
+  .infoCard {
+    padding: 0.375rem 0.5rem;
+  }
+
+  .infoIconWrapper {
+    width: 24px;
+    height: 24px;
+  }
+
+  .infoIconWrapper svg {
+    font-size: 12px;
+  }
+
+  .infoTitle {
+    font-size: 0.625rem;
+  }
+
+  .infoSubtitle {
+    display: none;
+  }
+
+  .mainCtaBtn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8125rem;
+  }
 }
 
 /* ========== Hover Effects (Pointer Devices) ========== */
 @media (hover: hover) {
   .infoCard:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
   }
 }
 
@@ -937,29 +1180,48 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 /* ========== Reduced Motion ========== */
 @media (prefers-reduced-motion: reduce) {
   .configCard,
   .emiCard,
   .infoCard,
   .viewDetailsBtn,
+  .mainCtaBtn,
   .infoIconWrapper {
     transition: none;
+    animation: none;
   }
 
   .infoCard:hover,
-  .viewDetailsBtn:hover {
+  .viewDetailsBtn:hover,
+  .mainCtaBtn:hover {
     transform: none;
   }
 
   .infoCard:hover .infoIconWrapper {
     transform: none;
   }
+
+  .viewDetailsBtn::before,
+  .mainCtaBtn::before {
+    display: none;
+  }
 }
 
 /* ========== Focus Styles for Accessibility ========== */
 .viewDetailsBtn:focus-visible,
-.infoCard:focus-visible {
+.mainCtaBtn:focus-visible,
+.infoCard:focus-visible,
+.quickConfigChip:focus-visible {
   outline: 2px solid #C9A227;
   outline-offset: 2px;
 }
@@ -974,7 +1236,9 @@
 
   .bgPattern,
   .bgGradientLeft,
-  .bgGradientRight {
+  .bgGradientRight,
+  .bgAccentTopRight,
+  .bgAccentBottomLeft {
     display: none;
   }
 
@@ -1011,5 +1275,9 @@
   .emiMainValue,
   .infoTitle {
     color: #0A1628 !important;
+  }
+
+  .floatingCta {
+    display: none;
   }
 }
