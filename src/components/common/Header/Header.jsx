@@ -8,8 +8,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Box, Container, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import { Icon } from '@iconify/react';
 import styles from './Header.module.css';
-import Button from '../Button/Button';
-import { useModal } from '../../../context/ModalContext';
 
 // Navigation items
 const navItems = [
@@ -28,7 +26,6 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
-  const { openLeadForm } = useModal();
 
   // Handle scroll event
   const handleScroll = useCallback(() => {
@@ -168,14 +165,13 @@ const Header = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
             >
-              <Button
-                variant="primary"
-                size="small"
-                onClick={() => openLeadForm({ source: 'header' })}
-                className={styles.ctaButton}
+              <a
+                href="tel:+919513159908"
+                className={styles.callButton}
               >
-                Book Site Visit
-              </Button>
+                <Icon icon="mdi:phone" className={styles.callButtonIcon} />
+                +91 95131 59908
+              </a>
             </motion.div>
           )}
 
@@ -239,16 +235,14 @@ const Header = () => {
                 ))}
               </ul>
               <div className={styles.mobileNavCTA}>
-                <Button
-                  variant="primary"
-                  fullWidth
-                  onClick={() => {
-                    openLeadForm({ source: 'mobile-header' });
-                    setIsMobileMenuOpen(false);
-                  }}
+                <a
+                  href="tel:+919513159908"
+                  className={styles.mobileCallButton}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Book Site Visit
-                </Button>
+                  <Icon icon="mdi:phone" className={styles.callButtonIcon} />
+                  +91 95131 59908
+                </a>
               </div>
             </nav>
           </motion.div>
