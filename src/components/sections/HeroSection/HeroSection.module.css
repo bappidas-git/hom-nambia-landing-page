@@ -260,12 +260,13 @@
 /* ========== Lottie Animation ========== */
 .lottieWrapper {
   position: absolute;
-  right: -100px;
-  bottom: -50px;
-  width: 200px;
-  height: 200px;
-  opacity: 0.3;
-  z-index: -1;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  height: 250px;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .lottieAnimation {

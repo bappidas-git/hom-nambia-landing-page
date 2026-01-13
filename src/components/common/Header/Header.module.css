@@ -191,7 +191,8 @@
 }
 
 .callButton:hover {
-  background: var(--accent-gold-dark, #b8922a);
+  background: var(--primary-dark);
+  color: var(--accent-gold);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(201, 162, 39, 0.3);
 }
@@ -217,7 +218,8 @@
 }
 
 .mobileCallButton:hover {
-  background: var(--accent-gold-dark, #b8922a);
+  background: var(--primary-dark);
+  color: var(--accent-gold);
 }
 
 .iconLogo {

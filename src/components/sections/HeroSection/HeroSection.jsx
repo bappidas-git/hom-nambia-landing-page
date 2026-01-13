@@ -282,6 +282,7 @@ const HeroSection = () => {
                   <LeadForm
                     variant="hero"
                     showMessage={true}
+                    showTitle={false}
                     submitText="Submit"
                   />
                 </div>
