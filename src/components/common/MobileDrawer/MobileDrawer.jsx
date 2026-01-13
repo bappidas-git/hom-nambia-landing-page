@@ -99,12 +99,20 @@ const MobileDrawer = ({
 
   // Handle menu item click
   const handleMenuClick = (item) => {
-    // Close drawer first to reset body overflow
+    // Store the target href before closing
+    const targetHref = item.href;
+
+    // Close drawer first
     onClose();
 
-    // Then scroll after drawer closes and body overflow is reset
+    // Reset body overflow immediately to enable scrolling
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+
+    // Scroll after a brief delay to allow drawer close animation to start
     setTimeout(() => {
-      const element = document.querySelector(item.href);
+      const element = document.querySelector(targetHref);
       if (element) {
         const headerOffset = 80;
         const elementPosition = element.getBoundingClientRect().top;
@@ -115,7 +123,7 @@ const MobileDrawer = ({
           behavior: 'smooth',
         });
       }
-    }, 150);
+    }, 50);
   };
 
   // Animation variants for staggered menu items
