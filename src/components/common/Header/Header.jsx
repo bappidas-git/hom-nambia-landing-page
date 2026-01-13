@@ -58,7 +58,7 @@ const Header = ({ forceCloseMenu = false }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // Smooth scroll to section
+  // Smooth scroll to section (for desktop navigation)
   const scrollToSection = (e, href) => {
     e.preventDefault();
     const targetId = href.substring(1);
@@ -76,6 +76,35 @@ const Header = ({ forceCloseMenu = false }) => {
     }
 
     setIsMobileMenuOpen(false);
+  };
+
+  // Handle mobile menu item click (close menu first, then scroll with delay)
+  const handleMobileMenuClick = (e, href) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Store the target href before closing
+    const targetHref = href;
+
+    // Close menu first
+    setIsMobileMenuOpen(false);
+
+    // Scroll after a brief delay to allow menu close animation to start
+    setTimeout(() => {
+      const targetId = targetHref.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 50);
   };
 
   // Animation variants
@@ -230,14 +259,14 @@ const Header = ({ forceCloseMenu = false }) => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    <a
-                      href={item.href}
-                      onClick={(e) => scrollToSection(e, item.href)}
+                    <button
+                      type="button"
+                      onClick={(e) => handleMobileMenuClick(e, item.href)}
                       className={`${styles.mobileNavLink} ${activeSection === item.href.substring(1) ? styles.active : ''}`}
                     >
                       <Icon icon={getNavIcon(item.label)} className={styles.mobileNavIcon} />
                       {item.label}
-                    </a>
+                    </button>
                   </motion.li>
                 ))}
               </ul>
