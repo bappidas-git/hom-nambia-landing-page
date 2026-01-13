@@ -132,7 +132,192 @@
   z-index: 1;
 }
 
-/* ========== Configuration Card - Compact Design ========== */
+/* ========== Full Width Configuration Card - New Design ========== */
+.fullWidthConfigCard {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(145deg, rgba(13, 30, 54, 0.95) 0%, rgba(19, 39, 66, 0.95) 100%);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  display: grid;
+  grid-template-columns: 280px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Left Section - Selector */
+.configLeftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Center Section - Details */
+.configCenterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(10, 22, 40, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.configMainInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.configTypeMain {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.configSpecsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.specItem svg {
+  font-size: 16px;
+  color: #C9A227;
+}
+
+.specDivider {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.75rem;
+}
+
+/* Price Display */
+.configPriceMain {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.18) 0%, rgba(201, 162, 39, 0.08) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+.priceLabelMain {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.priceValueMain {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #C9A227;
+}
+
+/* Features Row */
+.configFeaturesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.featureTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.625rem;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  border-radius: 20px;
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.featureTag svg {
+  font-size: 12px;
+  color: #4CAF50;
+}
+
+/* Right Section - CTAs */
+.configRightSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  min-width: 160px;
+}
+
+.viewDetailsBtnCompact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 50%, #C9A227 100%);
+  background-size: 200% 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0A1628;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+}
+
+.viewDetailsBtnCompact:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 162, 39, 0.45);
+}
+
+.viewDetailsBtnCompact svg {
+  font-size: 16px;
+}
+
+.emiCalcBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  border: 2px solid #C9A227;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #C9A227;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.emiCalcBtn:hover {
+  background: rgba(201, 162, 39, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.2);
+}
+
+.emiCalcBtn svg {
+  font-size: 16px;
+}
+
+/* ========== Configuration Card - Compact Design (Legacy) ========== */
 .configCard {
   position: relative;
   z-index: 1;
@@ -711,6 +896,30 @@
     padding: 5rem 0;
   }
 
+  .fullWidthConfigCard {
+    padding: 1.5rem;
+    gap: 2rem;
+    grid-template-columns: 300px 1fr auto;
+  }
+
+  .configTypeMain {
+    font-size: 1.75rem;
+  }
+
+  .priceValueMain {
+    font-size: 1.5rem;
+  }
+
+  .configRightSection {
+    min-width: 180px;
+  }
+
+  .viewDetailsBtnCompact,
+  .emiCalcBtn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
   .configCard,
   .emiCard {
     padding: 1.25rem;
@@ -768,6 +977,41 @@
     margin-bottom: 1.75rem;
   }
 
+  /* Full Width Card - Tablet */
+  .fullWidthConfigCard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .configLeftSection {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+  }
+
+  .configCenterSection {
+    padding: 1rem;
+  }
+
+  .configTypeMain {
+    font-size: 1.375rem;
+  }
+
+  .priceValueMain {
+    font-size: 1.25rem;
+  }
+
+  .configRightSection {
+    flex-direction: row;
+    min-width: unset;
+  }
+
+  .viewDetailsBtnCompact,
+  .emiCalcBtn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+  }
+
   .configCard,
   .emiCard {
     padding: 1.25rem;
@@ -823,6 +1067,19 @@
     padding: 0.875rem 2rem;
     font-size: 0.9375rem;
   }
+
+  /* Modal Tablet */
+  .emiModal {
+    max-width: 520px;
+  }
+
+  .modalBreakdownGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .emiHeroValue {
+    font-size: 2rem;
+  }
 }
 
 /* Mobile (max-width: 767px) */
@@ -850,6 +1107,88 @@
   .underlineBar {
     width: 40px;
     height: 2px;
+  }
+
+  /* Full Width Card - Mobile */
+  .fullWidthConfigCard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .configLeftSection {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.875rem;
+  }
+
+  .configCenterSection {
+    padding: 0.875rem;
+    gap: 0.625rem;
+  }
+
+  .configTypeMain {
+    font-size: 1.25rem;
+  }
+
+  .configSpecsRow {
+    gap: 0.5rem;
+  }
+
+  .specItem {
+    font-size: 0.75rem;
+  }
+
+  .specItem svg {
+    font-size: 14px;
+  }
+
+  .specDivider {
+    font-size: 0.625rem;
+  }
+
+  .configPriceMain {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.625rem 0.75rem;
+  }
+
+  .priceLabelMain {
+    font-size: 0.6875rem;
+  }
+
+  .priceValueMain {
+    font-size: 1.375rem;
+  }
+
+  .configFeaturesRow {
+    gap: 0.375rem;
+  }
+
+  .featureTag {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.625rem;
+  }
+
+  .featureTag svg {
+    font-size: 10px;
+  }
+
+  .configRightSection {
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: unset;
+  }
+
+  .viewDetailsBtnCompact {
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .emiCalcBtn {
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
   }
 
   .configCard,
@@ -1073,6 +1412,134 @@
     padding: 0.375rem 0.75rem;
     font-size: 0.6875rem;
   }
+
+  /* Modal Mobile */
+  .modalOverlay {
+    padding: 0.75rem;
+  }
+
+  .emiModal {
+    max-width: 100%;
+    max-height: 95vh;
+    border-radius: 16px;
+  }
+
+  .modalHeader {
+    padding: 1rem 1.25rem;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .modalTitleSection {
+    gap: 0.75rem;
+  }
+
+  .modalIconWrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .modalIconWrapper svg {
+    font-size: 20px;
+  }
+
+  .modalTitle {
+    font-size: 1.125rem;
+  }
+
+  .modalSubtitle {
+    font-size: 0.75rem;
+  }
+
+  .modalCloseBtn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .modalCloseBtn svg {
+    font-size: 18px;
+  }
+
+  .modalContent {
+    padding: 1.25rem;
+  }
+
+  .modalSliders {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .modalSliderHeader {
+    flex-wrap: wrap;
+  }
+
+  .sliderLabelWithIcon svg {
+    font-size: 16px;
+  }
+
+  .modalSliderLabel {
+    font-size: 0.8125rem;
+  }
+
+  .modalSliderValue {
+    font-size: 0.9375rem;
+  }
+
+  .modalResults {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .emiHeroLabel {
+    font-size: 0.6875rem;
+  }
+
+  .emiHeroValue {
+    font-size: 1.875rem;
+  }
+
+  .modalBreakdownGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .modalBreakdownItem {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+  }
+
+  .breakdownIconWrapper {
+    margin-bottom: 0;
+    width: 32px;
+    height: 32px;
+  }
+
+  .breakdownIconWrapper svg {
+    font-size: 16px;
+  }
+
+  .breakdownItemLabel {
+    font-size: 0.625rem;
+  }
+
+  .breakdownItemValue {
+    font-size: 0.875rem;
+  }
+
+  .modalNote {
+    padding: 0.625rem;
+  }
+
+  .modalNote svg {
+    font-size: 12px;
+  }
+
+  .modalNote p {
+    font-size: 0.625rem;
+  }
 }
 
 /* Small Mobile (max-width: 374px) */
@@ -1159,6 +1626,250 @@
   .infoCard:hover {
     transform: translateY(-2px);
   }
+}
+
+/* ========== EMI Calculator Modal ========== */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.emiModal {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8F9FA 100%);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(145deg, #0A1628 0%, #132742 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.modalTitleSection {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.modalIconWrapper {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  border-radius: 12px;
+}
+
+.modalIconWrapper svg {
+  font-size: 22px;
+  color: #0A1628;
+}
+
+.modalTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.modalSubtitle {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.125rem;
+}
+
+.modalCloseBtn {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: all 0.2s ease !important;
+}
+
+.modalCloseBtn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #FFFFFF !important;
+}
+
+.modalCloseBtn svg {
+  font-size: 20px;
+}
+
+.modalContent {
+  padding: 1.5rem;
+}
+
+.modalSliders {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.modalSliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modalSliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sliderLabelWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sliderLabelWithIcon svg {
+  font-size: 18px;
+  color: #C9A227;
+}
+
+.modalSliderLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.modalSliderValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #C9A227;
+}
+
+.modalSliderRange {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalSliderRange span {
+  font-size: 0.6875rem;
+  color: #9CA3AF;
+}
+
+/* Modal Results */
+.modalResults {
+  background: linear-gradient(145deg, #0A1628 0%, #132742 100%);
+  border-radius: 16px;
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+.modalEmiHero {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+.emiHeroLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.375rem;
+}
+
+.emiHeroValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.modalBreakdownGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.modalBreakdownItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.breakdownIconWrapper {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.breakdownIconWrapper svg {
+  font-size: 18px;
+}
+
+.breakdownItemLabel {
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25rem;
+}
+
+.breakdownItemValue {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.modalNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.modalNote svg {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.modalNote p {
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.4;
+}
+
+.modalNote strong {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ========== Animations ========== */
