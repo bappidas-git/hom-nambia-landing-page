@@ -1,0 +1,342 @@
+/* ============================================
+   Header Component Styles - Nambiar District 25 Phase 2
+   ============================================ */
+
+/* Header Base */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  padding: var(--space-3) 0;
+  background: transparent;
+  transition: all var(--transition-base);
+}
+
+/* Scrolled State */
+.header.scrolled {
+  background: var(--white);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  padding: var(--space-2) 0;
+}
+
+.header.scrolled .navLink {
+  color: var(--primary-dark);
+}
+
+.header.scrolled .navLink:hover,
+.header.scrolled .navLink.active {
+  color: var(--accent-gold);
+}
+
+.header.scrolled .mainLogo {
+  filter: brightness(1);
+}
+
+.header.scrolled .tagline {
+  color: var(--text-gray);
+}
+
+.header.scrolled .menuIcon {
+  color: var(--primary-dark);
+}
+
+/* Header Container */
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+/* Logo Section */
+.logoSection {
+  flex-shrink: 0;
+}
+
+.logoLink {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-decoration: none;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.mainLogo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter var(--transition-base);
+}
+
+.scrolled .mainLogo {
+  filter: none;
+}
+
+.logoDivider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: background var(--transition-base);
+}
+
+.scrolled .logoDivider {
+  background: var(--border-gray);
+}
+
+.projectLogo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter var(--transition-base);
+}
+
+.scrolled .projectLogo {
+  filter: none;
+}
+
+.tagline {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  transition: color var(--transition-base);
+}
+
+/* Desktop Navigation */
+.desktopNav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  position: relative;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--white);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transform: translateX(-50%);
+  transition: width var(--transition-fast);
+  border-radius: var(--radius-full);
+}
+
+.navLink:hover,
+.navLink.active {
+  color: var(--accent-gold);
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  width: 60%;
+}
+
+/* Right Section */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+.ctaButton {
+  white-space: nowrap;
+}
+
+.iconLogo {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-alt) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.iconLogoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Menu Button */
+.menuButton {
+  display: none;
+  padding: var(--space-2);
+  color: var(--white);
+  transition: color var(--transition-fast);
+}
+
+.menuIcon {
+  font-size: 28px;
+  color: inherit;
+}
+
+/* Mobile Navigation */
+.mobileNav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.mobileNavContent {
+  padding: var(--space-4);
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--primary-dark);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+}
+
+.mobileNavLink:hover,
+.mobileNavLink.active {
+  background: var(--light-gray);
+  color: var(--accent-gold);
+}
+
+.mobileNavIcon {
+  font-size: 22px;
+  color: var(--text-gray);
+  transition: color var(--transition-fast);
+}
+
+.mobileNavLink:hover .mobileNavIcon,
+.mobileNavLink.active .mobileNavIcon {
+  color: var(--accent-gold);
+}
+
+.mobileNavCTA {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-gray);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .ctaButton {
+    display: none;
+  }
+
+  .headerContainer {
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: var(--space-2) 0;
+  }
+
+  .logoWrapper {
+    gap: var(--space-2);
+  }
+
+  .mainLogo {
+    height: 28px;
+  }
+
+  .projectLogo {
+    height: 22px;
+  }
+
+  .logoDivider {
+    height: 24px;
+  }
+
+  .tagline {
+    font-size: 10px;
+  }
+
+  .iconLogo {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoDivider {
+    display: none;
+  }
+
+  .projectLogo {
+    display: none;
+  }
+
+  .iconLogo {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Animation States */
+.header.scrolled .iconLogo {
+  transform: scale(0.9);
+}
+
+/* Focus States */
+.navLink:focus-visible,
+.mobileNavLink:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
