@@ -99,23 +99,23 @@ const MobileDrawer = ({
 
   // Handle menu item click
   const handleMenuClick = (item) => {
-    // Smooth scroll to section
-    const element = document.querySelector(item.href);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    // Close drawer first to reset body overflow
+    onClose();
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-
-    // Close drawer after navigation
+    // Then scroll after drawer closes and body overflow is reset
     setTimeout(() => {
-      onClose();
-    }, 200);
+      const element = document.querySelector(item.href);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }, 150);
   };
 
   // Animation variants for staggered menu items

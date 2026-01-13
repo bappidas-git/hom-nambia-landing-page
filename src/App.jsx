@@ -398,7 +398,7 @@ const App = () => {
           </a>
 
           {/* Header/Navigation */}
-          <Header />
+          <Header forceCloseMenu={isDrawerOpen} />
 
           {/* Main Content */}
           <main id="main-content" className="main-content">
