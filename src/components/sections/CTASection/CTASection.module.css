@@ -1,8 +1,382 @@
 /* ============================================
-   CTASection Styles - Placeholder
+   CTASection Styles - Nambiar District 25 Phase 2
+   "Ready to Experience the SOHO Life?" call-to-action section
    ============================================ */
+
+/* Section Container */
 .section {
   position: relative;
-  padding: 4rem 0;
-  background-color: #FFFFFF;
+  padding: var(--space-16) 0;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #B8941F 50%, var(--accent-gold-light) 100%);
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.bgPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 35%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Floating Elements */
+.floatingElement1,
+.floatingElement2,
+.floatingElement3 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floatingElement1 {
+  top: 15%;
+  left: 8%;
+  font-size: 4rem;
+}
+
+.floatingElement2 {
+  top: 25%;
+  right: 10%;
+  font-size: 2.5rem;
+}
+
+.floatingElement3 {
+  bottom: 20%;
+  left: 15%;
+  font-size: 3rem;
+}
+
+/* Content Container */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+}
+
+/* Lottie Animation Wrapper */
+.animationWrapper {
+  flex-shrink: 0;
+  display: none;
+}
+
+.lottiePlayer {
+  width: 200px;
+  height: 200px;
+}
+
+/* Text Content */
+.textContent {
+  text-align: center;
+  max-width: 700px;
+}
+
+/* Pre-title */
+.preTitle {
+  display: inline-block;
+  padding: var(--space-2) var(--space-5);
+  background: rgba(10, 22, 40, 0.15);
+  border-radius: var(--radius-full);
+  color: var(--primary-dark);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  margin-bottom: var(--space-4);
+  backdrop-filter: blur(4px);
+}
+
+/* Main Title */
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: var(--fw-bold);
+  color: var(--primary-dark);
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-4);
+}
+
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-dark);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+}
+
+/* Description */
+.description {
+  font-size: var(--fs-md);
+  color: rgba(10, 22, 40, 0.8);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CTA Buttons */
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  min-width: 220px;
+  box-shadow: 0 8px 25px rgba(10, 22, 40, 0.3);
+}
+
+.primaryBtn:hover {
+  box-shadow: 0 12px 35px rgba(10, 22, 40, 0.4);
+}
+
+.secondaryBtn {
+  min-width: 160px;
+  background: transparent;
+  border: 2px solid var(--primary-dark);
+  color: var(--primary-dark);
+}
+
+.secondaryBtn:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+}
+
+/* Trust Indicators */
+.trustIndicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--primary-dark);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+}
+
+.trustIcon {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+  opacity: 0.9;
+}
+
+.trustDivider {
+  width: 1px;
+  height: 20px;
+  background: rgba(10, 22, 40, 0.3);
+}
+
+/* Corner Decorations */
+.cornerDecoration1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  pointer-events: none;
+}
+
+.cornerDecoration2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(315deg, rgba(10, 22, 40, 0.1) 0%, transparent 70%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+
+/* Responsive Styles */
+@media (min-width: 1024px) {
+  .content {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .animationWrapper {
+    display: block;
+  }
+
+  .textContent {
+    text-align: left;
+  }
+
+  .ctaButtons {
+    justify-content: flex-start;
+  }
+
+  .trustIndicators {
+    justify-content: flex-start;
+  }
+
+  .lottiePlayer {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .floatingElement1,
+  .floatingElement2,
+  .floatingElement3 {
+    display: none;
+  }
+
+  .preTitle {
+    padding: var(--space-1) var(--space-4);
+    font-size: 10px;
+  }
+
+  .title {
+    font-size: var(--fs-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .highlight::after {
+    height: 3px;
+    bottom: 1px;
+  }
+
+  .description {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--space-6);
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .trustIndicators {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .trustDivider {
+    display: none;
+  }
+
+  .trustItem {
+    font-size: var(--fs-xs);
+  }
+
+  .cornerDecoration1,
+  .cornerDecoration2 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-10) 0;
+  }
+
+  .title {
+    font-size: var(--fs-xl);
+  }
+
+  .description {
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+  }
+
+  .ctaButtons {
+    gap: var(--space-2);
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    min-width: unset;
+    max-width: 100%;
+  }
+
+  .trustItem {
+    font-size: 11px;
+  }
+
+  .trustIcon {
+    font-size: 1rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .primaryBtn:hover,
+  .secondaryBtn:hover {
+    transform: none;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .floatingElement1,
+  .floatingElement2,
+  .floatingElement3 {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .section {
+    background: var(--light-gray);
+    padding: var(--space-8) 0;
+  }
+
+  .bgPattern,
+  .floatingElement1,
+  .floatingElement2,
+  .floatingElement3,
+  .cornerDecoration1,
+  .cornerDecoration2,
+  .animationWrapper {
+    display: none;
+  }
+
+  .ctaButtons {
+    display: none;
+  }
 }
