@@ -15,6 +15,10 @@ import styles from './HeroSection.module.css';
 // Import lottie animations
 import buildingAnimation from '../../../assets/lottie/building-animation.json';
 
+// Import hero images
+import heroBuildingImg from '../../../assets/images/hero/hero-building.jpg';
+import heroMobileImg from '../../../assets/images/hero/hero-mobile.jpg';
+
 // Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -121,7 +125,7 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div className={styles.heroBg}>
         <img
-          src="https://placehold.co/1920x900/0A1628/1A3352?text=Hero+Building+1920x900"
+          src={isMobile ? heroMobileImg : heroBuildingImg}
           alt="District 25 Building"
           className={styles.heroImage}
           loading="eager"
