@@ -1,6 +1,7 @@
 /* ============================================
    CTASection Styles - Nambiar District 25 Phase 2
    "Ready to Experience the SOHO Life?" call-to-action section
+   Desktop-optimized with innovative split layout
    ============================================ */
 
 /* Section Container */
@@ -26,7 +27,8 @@
 /* Floating Elements */
 .floatingElement1,
 .floatingElement2,
-.floatingElement3 {
+.floatingElement3,
+.floatingElement4 {
   position: absolute;
   display: flex;
   align-items: center;
@@ -54,6 +56,13 @@
   font-size: 3rem;
 }
 
+.floatingElement4 {
+  bottom: 30%;
+  right: 8%;
+  font-size: 2rem;
+  display: none;
+}
+
 /* Content Container */
 .content {
   position: relative;
@@ -64,10 +73,63 @@
   gap: var(--space-12);
 }
 
-/* Lottie Animation Wrapper */
-.animationWrapper {
-  flex-shrink: 0;
+/* ============================================
+   Visual Showcase (Desktop Only)
+   ============================================ */
+.visualShowcase {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  flex-shrink: 0;
+}
+
+/* Animation Card with Glassmorphism */
+.animationCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(10, 22, 40, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+.animationCardGlow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  animation: rotateGlow 10s linear infinite;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animationCardLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(10, 22, 40, 0.1);
+  border-radius: var(--radius-full);
+  color: var(--primary-dark);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.animationCardLabel svg {
+  font-size: 1.25rem;
 }
 
 .lottiePlayer {
@@ -75,7 +137,64 @@
   height: 200px;
 }
 
-/* Text Content */
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(10, 22, 40, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.statIconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(10, 22, 40, 0.1);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-2);
+}
+
+.statIcon {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--primary-dark);
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: var(--fs-xs);
+  color: rgba(10, 22, 40, 0.7);
+  font-weight: var(--fw-medium);
+}
+
+/* ============================================
+   Text Content
+   ============================================ */
 .textContent {
   text-align: center;
   max-width: 700px;
@@ -164,8 +283,73 @@
   color: var(--white);
 }
 
-/* Trust Indicators */
+/* ============================================
+   Trust Indicators - Desktop Cards (Hidden by default)
+   ============================================ */
 .trustIndicators {
+  display: none;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.trustCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(10, 22, 40, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.trustCard:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.trustIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(10, 22, 40, 0.1);
+  border-radius: var(--radius-lg);
+  flex-shrink: 0;
+}
+
+.trustIcon {
+  font-size: 1.35rem;
+  color: var(--primary-dark);
+}
+
+.trustContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trustLabel {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--primary-dark);
+  line-height: 1.2;
+}
+
+.trustSubtext {
+  font-size: var(--fs-xs);
+  color: rgba(10, 22, 40, 0.6);
+  font-weight: var(--fw-medium);
+}
+
+/* ============================================
+   Trust Indicators - Mobile/Tablet (Simple)
+   ============================================ */
+.trustIndicatorsMobile {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,7 +366,7 @@
   font-weight: var(--fw-medium);
 }
 
-.trustIcon {
+.trustItemIcon {
   font-size: 1.25rem;
   color: var(--primary-dark);
   opacity: 0.9;
@@ -217,43 +401,230 @@
   pointer-events: none;
 }
 
-/* Responsive Styles */
+/* ============================================
+   Desktop Styles (1024px and above)
+   ============================================ */
 @media (min-width: 1024px) {
+  .section {
+    padding: var(--space-20) 0;
+  }
+
   .content {
     flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-16);
     text-align: left;
   }
 
-  .animationWrapper {
-    display: block;
+  /* Show Visual Showcase on Desktop */
+  .visualShowcase {
+    display: flex;
+    flex: 0 0 420px;
+  }
+
+  .animationCard {
+    padding: var(--space-10);
+  }
+
+  .lottiePlayer {
+    width: 280px;
+    height: 280px;
   }
 
   .textContent {
     text-align: left;
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .title {
+    font-size: clamp(2.25rem, 3.5vw, 3rem);
+    margin-bottom: var(--space-5);
+  }
+
+  .description {
+    font-size: var(--fs-lg);
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
   }
 
   .ctaButtons {
     justify-content: flex-start;
+    gap: var(--space-5);
   }
 
+  .primaryBtn {
+    min-width: 240px;
+  }
+
+  .secondaryBtn {
+    min-width: 180px;
+  }
+
+  /* Show Desktop Trust Cards, Hide Mobile */
   .trustIndicators {
+    display: flex;
     justify-content: flex-start;
   }
 
-  .lottiePlayer {
-    width: 250px;
-    height: 250px;
+  .trustIndicatorsMobile {
+    display: none;
+  }
+
+  /* Enhanced Floating Elements for Desktop */
+  .floatingElement1 {
+    top: 10%;
+    left: 5%;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.12);
+  }
+
+  .floatingElement2 {
+    top: 15%;
+    right: 8%;
+    font-size: 3rem;
+  }
+
+  .floatingElement3 {
+    bottom: 15%;
+    left: 3%;
+    font-size: 4rem;
+  }
+
+  .floatingElement4 {
+    display: flex;
+    bottom: 25%;
+    right: 5%;
+    font-size: 2.5rem;
+  }
+
+  .cornerDecoration1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .cornerDecoration2 {
+    width: 300px;
+    height: 300px;
   }
 }
 
-@media (max-width: 768px) {
+/* Large Desktop (1280px and above) */
+@media (min-width: 1280px) {
+  .content {
+    gap: var(--space-20);
+  }
+
+  .visualShowcase {
+    flex: 0 0 480px;
+  }
+
+  .animationCard {
+    padding: var(--space-12);
+  }
+
+  .lottiePlayer {
+    width: 320px;
+    height: 320px;
+  }
+
+  .statsGrid {
+    gap: var(--space-5);
+  }
+
+  .statCard {
+    padding: var(--space-5);
+  }
+
+  .statIconWrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .statIcon {
+    font-size: 1.5rem;
+  }
+
+  .statValue {
+    font-size: var(--fs-2xl);
+  }
+
+  .statLabel {
+    font-size: var(--fs-sm);
+  }
+
+  .trustCard {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .trustIconWrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .trustIcon {
+    font-size: 1.5rem;
+  }
+
+  .trustLabel {
+    font-size: var(--fs-base);
+  }
+}
+
+/* Extra Large Desktop (1440px and above) */
+@media (min-width: 1440px) {
+  .section {
+    padding: var(--space-24) 0;
+  }
+
+  .visualShowcase {
+    flex: 0 0 520px;
+  }
+
+  .lottiePlayer {
+    width: 360px;
+    height: 360px;
+  }
+
+  .title {
+    font-size: 3.25rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+}
+
+/* ============================================
+   Tablet Styles (768px - 1023px)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section {
+    padding: var(--space-14) 0;
+  }
+
+  .title {
+    font-size: var(--fs-3xl);
+  }
+
+  .ctaButtons {
+    gap: var(--space-4);
+  }
+}
+
+/* ============================================
+   Mobile Styles (below 768px)
+   ============================================ */
+@media (max-width: 767px) {
   .section {
     padding: var(--space-12) 0;
   }
 
   .floatingElement1,
   .floatingElement2,
-  .floatingElement3 {
+  .floatingElement3,
+  .floatingElement4 {
     display: none;
   }
 
@@ -289,7 +660,7 @@
     max-width: 280px;
   }
 
-  .trustIndicators {
+  .trustIndicatorsMobile {
     flex-direction: column;
     gap: var(--space-2);
   }
@@ -309,7 +680,8 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Small Mobile (below 480px) */
+@media (max-width: 479px) {
   .section {
     padding: var(--space-10) 0;
   }
@@ -337,29 +709,55 @@
     font-size: 11px;
   }
 
-  .trustIcon {
+  .trustItemIcon {
     font-size: 1rem;
   }
 }
 
-/* Touch Device Optimizations */
+/* ============================================
+   Touch Device Optimizations
+   ============================================ */
 @media (hover: none) and (pointer: coarse) {
   .primaryBtn:hover,
   .secondaryBtn:hover {
     transform: none;
   }
-}
 
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .floatingElement1,
-  .floatingElement2,
-  .floatingElement3 {
-    animation: none;
+  .statCard:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .trustCard:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.2);
   }
 }
 
-/* Print Styles */
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .floatingElement1,
+  .floatingElement2,
+  .floatingElement3,
+  .floatingElement4 {
+    animation: none;
+  }
+
+  .animationCardGlow {
+    animation: none;
+  }
+
+  .statCard,
+  .trustCard {
+    transition: none;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
 @media print {
   .section {
     background: var(--light-gray);
@@ -370,13 +768,23 @@
   .floatingElement1,
   .floatingElement2,
   .floatingElement3,
+  .floatingElement4,
   .cornerDecoration1,
   .cornerDecoration2,
-  .animationWrapper {
+  .visualShowcase,
+  .animationCardGlow {
     display: none;
   }
 
   .ctaButtons {
     display: none;
+  }
+
+  .trustIndicators {
+    display: none;
+  }
+
+  .trustIndicatorsMobile {
+    display: flex;
   }
 }

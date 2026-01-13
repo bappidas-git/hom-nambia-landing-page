@@ -1,6 +1,7 @@
 /* ============================================
    CTASection Component - Nambiar District 25 Phase 2
    "Ready to Experience the SOHO Life?" call-to-action section
+   Desktop-optimized with innovative split layout
    ============================================ */
 
 import React from 'react';
@@ -40,6 +41,18 @@ const CTASection = () => {
     },
   };
 
+  const scaleVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
   const floatVariants = {
     initial: { y: 0 },
     animate: {
@@ -52,9 +65,28 @@ const CTASection = () => {
     },
   };
 
+  const pulseVariants = {
+    initial: { scale: 1 },
+    animate: {
+      scale: [1, 1.05, 1],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
   const handleScheduleVisit = () => {
     openSiteVisit({ source: 'cta-section' });
   };
+
+  // Stats data for desktop showcase
+  const stats = [
+    { value: '25+', label: 'Years Excellence', icon: 'mdi:trophy-award' },
+    { value: '750+', label: 'Happy Families', icon: 'mdi:home-heart' },
+    { value: '15+', label: 'Projects Delivered', icon: 'mdi:office-building' },
+  ];
 
   return (
     <section id="cta" className={styles.section}>
@@ -91,7 +123,17 @@ const CTASection = () => {
         <Icon icon="mdi:key-variant" />
       </motion.div>
 
-      <Container maxWidth="lg">
+      <motion.div
+        className={styles.floatingElement4}
+        variants={floatVariants}
+        initial="initial"
+        animate="animate"
+        style={{ animationDelay: '1.5s' }}
+      >
+        <Icon icon="mdi:diamond-stone" />
+      </motion.div>
+
+      <Container maxWidth="xl">
         <motion.div
           className={styles.content}
           variants={containerVariants}
@@ -99,17 +141,44 @@ const CTASection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {/* Lottie Animation */}
-          <motion.div variants={itemVariants} className={styles.animationWrapper}>
-            <Player
-              autoplay
-              loop
-              src={familyHomeAnimation}
-              className={styles.lottiePlayer}
-            />
+          {/* Left Side - Visual Showcase (Desktop) */}
+          <motion.div variants={itemVariants} className={styles.visualShowcase}>
+            {/* Main Animation Card */}
+            <div className={styles.animationCard}>
+              <div className={styles.animationCardGlow} />
+              <Player
+                autoplay
+                loop
+                src={familyHomeAnimation}
+                className={styles.lottiePlayer}
+              />
+              <div className={styles.animationCardLabel}>
+                <Icon icon="mdi:home-city" />
+                <span>Your Dream Home Awaits</span>
+              </div>
+            </div>
+
+            {/* Stats Cards - Desktop Only */}
+            <div className={styles.statsGrid}>
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className={styles.statCard}
+                  variants={scaleVariants}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className={styles.statIconWrapper}>
+                    <Icon icon={stat.icon} className={styles.statIcon} />
+                  </div>
+                  <div className={styles.statValue}>{stat.value}</div>
+                  <div className={styles.statLabel}>{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Text Content */}
+          {/* Right Side - Content */}
           <motion.div variants={itemVariants} className={styles.textContent}>
             <Typography variant="overline" className={styles.preTitle}>
               Don't Miss This Opportunity
@@ -128,15 +197,17 @@ const CTASection = () => {
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className={styles.ctaButtons}>
-              <Button
-                variant="secondary"
-                size="large"
-                endIcon="mdi:arrow-right"
-                onClick={handleScheduleVisit}
-                className={styles.primaryBtn}
-              >
-                Schedule a Site Visit
-              </Button>
+              <motion.div variants={pulseVariants} initial="initial" animate="animate">
+                <Button
+                  variant="secondary"
+                  size="large"
+                  endIcon="mdi:arrow-right"
+                  onClick={handleScheduleVisit}
+                  className={styles.primaryBtn}
+                >
+                  Schedule a Site Visit
+                </Button>
+              </motion.div>
 
               <Button
                 variant="dark"
@@ -149,20 +220,62 @@ const CTASection = () => {
               </Button>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Trust Indicators - Enhanced Cards */}
             <motion.div variants={itemVariants} className={styles.trustIndicators}>
+              <motion.div
+                className={styles.trustCard}
+                whileHover={{ scale: 1.02, y: -2 }}
+              >
+                <div className={styles.trustIconWrapper}>
+                  <Icon icon="mdi:shield-check" className={styles.trustIcon} />
+                </div>
+                <div className={styles.trustContent}>
+                  <span className={styles.trustLabel}>RERA Registered</span>
+                  <span className={styles.trustSubtext}>Government Approved</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className={styles.trustCard}
+                whileHover={{ scale: 1.02, y: -2 }}
+              >
+                <div className={styles.trustIconWrapper}>
+                  <Icon icon="mdi:bank" className={styles.trustIcon} />
+                </div>
+                <div className={styles.trustContent}>
+                  <span className={styles.trustLabel}>Bank Loan Approved</span>
+                  <span className={styles.trustSubtext}>Easy Financing</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className={styles.trustCard}
+                whileHover={{ scale: 1.02, y: -2 }}
+              >
+                <div className={styles.trustIconWrapper}>
+                  <Icon icon="mdi:account-group" className={styles.trustIcon} />
+                </div>
+                <div className={styles.trustContent}>
+                  <span className={styles.trustLabel}>750+ Families</span>
+                  <span className={styles.trustSubtext}>Trust Nambiar</span>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Mobile/Tablet Trust Indicators (Simple) */}
+            <motion.div variants={itemVariants} className={styles.trustIndicatorsMobile}>
               <div className={styles.trustItem}>
-                <Icon icon="mdi:shield-check" className={styles.trustIcon} />
+                <Icon icon="mdi:shield-check" className={styles.trustItemIcon} />
                 <span>RERA Registered</span>
               </div>
               <div className={styles.trustDivider} />
               <div className={styles.trustItem}>
-                <Icon icon="mdi:bank" className={styles.trustIcon} />
+                <Icon icon="mdi:bank" className={styles.trustItemIcon} />
                 <span>Bank Loan Approved</span>
               </div>
               <div className={styles.trustDivider} />
               <div className={styles.trustItem}>
-                <Icon icon="mdi:account-group" className={styles.trustIcon} />
+                <Icon icon="mdi:account-group" className={styles.trustItemIcon} />
                 <span>750+ Happy Families</span>
               </div>
             </motion.div>
