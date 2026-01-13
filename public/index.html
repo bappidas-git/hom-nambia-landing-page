@@ -2,11 +2,202 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>React App</title>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <!-- Viewport & Mobile Optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A1628" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="District 25" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Nambiar District 25 Phase 2 - Premium 2, 3 & 4 BHK apartments in Bangalore's most promising location. 100 acres integrated township with world-class amenities. RERA registered." />
+    <meta name="keywords" content="Nambiar District 25, Phase 2, Bangalore apartments, luxury flats, 2 BHK, 3 BHK, 4 BHK, premium apartments, integrated township, RERA registered, Bangalore real estate" />
+    <meta name="author" content="Nambiar Builders" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="%PUBLIC_URL%/" />
+    <meta property="og:title" content="Nambiar District 25 Phase 2 - Premium Apartments in Bangalore" />
+    <meta property="og:description" content="Experience luxury living at Nambiar District 25 Phase 2. 2, 3 & 4 BHK premium apartments with world-class amenities in 100 acres integrated township." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+    <meta property="og:site_name" content="Nambiar District 25 Phase 2" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="%PUBLIC_URL%/" />
+    <meta name="twitter:title" content="Nambiar District 25 Phase 2 - Premium Apartments in Bangalore" />
+    <meta name="twitter:description" content="Experience luxury living at Nambiar District 25 Phase 2. Premium apartments with world-class amenities." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="%PUBLIC_URL%/" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="%PUBLIC_URL%/apple-touch-icon-167x167.png" />
+
+    <!-- Preconnect to external resources for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://placehold.co" />
+
+    <!-- Preload critical fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      as="style"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Iconify for icons -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+
+    <!-- Page Title -->
+    <title>Nambiar District 25 Phase 2 | Premium Apartments in Bangalore | 2, 3 & 4 BHK</title>
+
+    <!-- Structured Data / JSON-LD for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Nambiar District 25 Phase 2",
+        "description": "Premium 2, 3 & 4 BHK apartments in Bangalore's most promising location. 100 acres integrated township.",
+        "url": "%PUBLIC_URL%/",
+        "logo": "%PUBLIC_URL%/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "12.9716",
+          "longitude": "77.5946"
+        },
+        "priceRange": "Starting from Rs. 1.70 Cr*",
+        "telephone": "+91-80-1234-5678",
+        "openingHours": "Mo-Su 09:00-19:00",
+        "sameAs": []
+      }
+    </script>
+
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      /* Critical CSS for instant render */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        background-color: #FFFFFF;
+      }
+
+      /* Initial loading state */
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Loading spinner */
+      .initial-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #0A1628 0%, #132742 100%);
+        z-index: 9999;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .initial-loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loader-content {
+        text-align: center;
+      }
+
+      .loader-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 24px;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+
+      .loader-spinner {
+        width: 48px;
+        height: 48px;
+        border: 3px solid rgba(201, 162, 39, 0.2);
+        border-top-color: #C9A227;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.05); opacity: 0.8; }
+      }
+
+      /* Safe area for notched devices */
+      @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        body { padding-bottom: env(safe-area-inset-bottom); }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- Initial loader (hidden when React mounts) -->
+    <div class="initial-loader" id="initial-loader">
+      <div class="loader-content">
+        <div class="loader-spinner" style="margin: 0 auto;"></div>
+      </div>
+    </div>
+
+    <!-- React Root -->
     <div id="root"></div>
+
+    <!-- Hide initial loader when React is ready -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var loader = document.getElementById('initial-loader');
+          if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(function() {
+              loader.style.display = 'none';
+            }, 300);
+          }
+        }, 100);
+      });
+    </script>
   </body>
 </html>
