@@ -5,16 +5,10 @@
 
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Box, Container, Typography, Grid, Chip, useMediaQuery, useTheme } from '@mui/material';
+import { Container, Typography, Grid, Chip, useMediaQuery, useTheme } from '@mui/material';
 import { Icon } from '@iconify/react';
-import Lottie from 'lottie-react';
 import AnimatedCounter from '../../common/AnimatedCounter/AnimatedCounter';
 import styles from './OverviewSection.module.css';
-
-// Import lottie animations
-import treeAnimation from '../../../assets/lottie/tree-growing.json';
-import familyAnimation from '../../../assets/lottie/family-home.json';
-import securityAnimation from '../../../assets/lottie/security-shield.json';
 
 // Animation variants
 const containerVariants = {
@@ -63,7 +57,6 @@ const statsCards = [
     sublabel: 'Integrated Township',
     color: '#C9A227',
     bgColor: '#FEF9E7',
-    lottie: null,
   },
   {
     icon: 'mdi:tree',
@@ -72,7 +65,6 @@ const statsCards = [
     sublabel: 'Green Living',
     color: '#4CAF50',
     bgColor: '#E8F5E9',
-    lottie: treeAnimation,
   },
   {
     icon: 'mdi:account-group',
@@ -81,7 +73,6 @@ const statsCards = [
     sublabel: 'Happy Residents',
     color: '#9C27B0',
     bgColor: '#F3E5F5',
-    lottie: familyAnimation,
   },
   {
     icon: 'mdi:shield-check',
@@ -90,7 +81,6 @@ const statsCards = [
     sublabel: 'Safe & Secure',
     color: '#FF9800',
     bgColor: '#FFF3E0',
-    lottie: securityAnimation,
   },
 ];
 
@@ -185,20 +175,11 @@ const OverviewSection = () => {
                       className={styles.statsIconWrapper}
                       style={{ backgroundColor: card.bgColor }}
                     >
-                      {card.lottie ? (
-                        <Lottie
-                          animationData={card.lottie}
-                          loop={true}
-                          className={styles.statsLottie}
-                          style={{ width: 36, height: 36 }}
-                        />
-                      ) : (
-                        <Icon
-                          icon={card.icon}
-                          className={styles.statsIcon}
-                          style={{ color: card.color }}
-                        />
-                      )}
+                      <Icon
+                        icon={card.icon}
+                        className={styles.statsIcon}
+                        style={{ color: card.color }}
+                      />
                     </div>
                     <div className={styles.statsContent}>
                       <AnimatedCounter

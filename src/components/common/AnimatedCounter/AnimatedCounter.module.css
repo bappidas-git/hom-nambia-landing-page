@@ -19,7 +19,7 @@
 
 /* Value */
 .value {
-  font-family: var(--font-heading);
+  font-family: 'Inter', var(--font-primary), sans-serif;
   font-size: var(--fs-4xl);
   font-weight: var(--fw-bold);
   line-height: 1;
@@ -30,7 +30,7 @@
 /* Prefix & Suffix */
 .prefix,
 .suffix {
-  font-family: var(--font-heading);
+  font-family: 'Inter', var(--font-primary), sans-serif;
   font-size: var(--fs-2xl);
   font-weight: var(--fw-bold);
   color: inherit;
