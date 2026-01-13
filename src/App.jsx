@@ -21,6 +21,7 @@ import HeroSection from './components/sections/HeroSection/HeroSection';
 import Footer from './components/common/Footer/Footer';
 import Modal from './components/common/Modal/Modal';
 import MobileNavigation from './components/common/MobileNavigation/MobileNavigation';
+import MobileDrawer from './components/common/MobileDrawer/MobileDrawer';
 
 // Lazy loaded sections for performance (Below the fold)
 const OverviewSection = lazy(() =>
@@ -343,6 +344,11 @@ const useIdlePreload = () => {
 const App = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleMenuClick = () => setIsDrawerOpen(true);
+  const handleDrawerClose = () => setIsDrawerOpen(false);
+  const handleDrawerOpen = () => setIsDrawerOpen(true);
 
   // Enable idle preloading
   useIdlePreload();
@@ -451,7 +457,19 @@ const App = () => {
           <Footer />
 
           {/* Mobile Bottom Navigation */}
-          {isMobile && <MobileNavigation />}
+          {isMobile && (
+            <>
+              <MobileNavigation
+                onMenuClick={handleMenuClick}
+                isDrawerOpen={isDrawerOpen}
+              />
+              <MobileDrawer
+                open={isDrawerOpen}
+                onClose={handleDrawerClose}
+                onOpen={handleDrawerOpen}
+              />
+            </>
+          )}
 
           {/* Back to Top Button */}
           <BackToTopButton />
