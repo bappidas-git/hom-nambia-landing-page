@@ -20,12 +20,19 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
-const Header = () => {
+const Header = ({ forceCloseMenu = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
+
+  // Close mobile menu when bottom drawer opens
+  useEffect(() => {
+    if (forceCloseMenu && isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [forceCloseMenu]);
 
   // Handle scroll event
   const handleScroll = useCallback(() => {

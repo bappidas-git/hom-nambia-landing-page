@@ -198,6 +198,7 @@
 /* Drawer Footer */
 .drawerFooter {
   padding: 0 8px 16px;
+  padding-bottom: 90px; /* Account for MobileNavigation bar height */
   margin-top: auto;
 }
 
@@ -384,6 +385,6 @@
 /* Safe area for notched devices */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .drawerFooter {
-    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    padding-bottom: calc(90px + env(safe-area-inset-bottom));
   }
 }
