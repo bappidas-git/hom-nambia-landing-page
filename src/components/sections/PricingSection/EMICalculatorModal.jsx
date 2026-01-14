@@ -167,7 +167,7 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
                     EMI Calculator
                   </Typography>
                   {configType && (
-                    <Typography className={styles.modalSubtitle}>
+                    <Typography className={styles.modalSubtitle} sx={{ color: '#D9DCE0 !important' }}>
                       For {configType} - {formatAmount(propertyPrice)}
                     </Typography>
                   )}
@@ -272,7 +272,7 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
               >
                 {/* Monthly EMI - Hero */}
                 <div className={styles.modalEmiHero}>
-                  <Typography className={styles.emiHeroLabel}>
+                  <Typography className={styles.emiHeroLabel} sx={{ color: '#C8CBCF !important' }}>
                     Your Monthly EMI
                   </Typography>
                   <Typography className={styles.emiHeroValue}>
@@ -287,7 +287,7 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
                       <Icon icon="mdi:cash-check" style={{ color: '#4CAF50' }} />
                     </div>
                     <div>
-                      <Typography className={styles.breakdownItemLabel}>Principal</Typography>
+                      <Typography className={styles.breakdownItemLabel} sx={{ color: '#D9DCE0 !important' }}>Principal</Typography>
                       <Typography className={styles.breakdownItemValue}>
                         {formatAmount(emiBreakdown.principal)}
                       </Typography>
@@ -299,7 +299,7 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
                       <Icon icon="mdi:chart-line" style={{ color: '#F44336' }} />
                     </div>
                     <div>
-                      <Typography className={styles.breakdownItemLabel}>Total Interest</Typography>
+                      <Typography className={styles.breakdownItemLabel} sx={{ color: '#D9DCE0 !important' }}>Total Interest</Typography>
                       <Typography className={styles.breakdownItemValue}>
                         {formatAmount(emiBreakdown.totalInterest)}
                       </Typography>
@@ -311,7 +311,7 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
                       <Icon icon="mdi:wallet-outline" style={{ color: '#C9A227' }} />
                     </div>
                     <div>
-                      <Typography className={styles.breakdownItemLabel}>Total Amount</Typography>
+                      <Typography className={styles.breakdownItemLabel} sx={{ color: '#D9DCE0 !important' }}>Total Amount</Typography>
                       <Typography className={styles.breakdownItemValue} style={{ color: '#C9A227' }}>
                         {formatAmount(emiBreakdown.totalAmount)}
                       </Typography>
@@ -322,7 +322,7 @@ const EMICalculatorModal = ({ isOpen, onClose, propertyPrice = 17000000, configT
                 {/* Note */}
                 <div className={styles.modalNote}>
                   <Icon icon="mdi:information-outline" />
-                  <Typography>
+                  <Typography sx={{ color: '#C8CBCF !important' }}>
                     <strong>Note:</strong> This is an approximate calculation. Actual EMI may vary based on bank's terms and conditions.
                   </Typography>
                 </div>

@@ -80,7 +80,7 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
         />
 
         {/* Dropdown Label */}
-        <Typography className={styles.dropdownLabel}>
+        <Typography className={styles.dropdownLabel} sx={{ color: '#E6E8EA !important' }}>
           Choose Your Apartment Type
         </Typography>
 
@@ -199,7 +199,7 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
 
           {/* Price Display */}
           <div className={styles.configPriceMain}>
-            <Typography className={styles.priceLabelMain}>Starting from</Typography>
+            <Typography className={styles.priceLabelMain} sx={{ color: '#D9DCE0 !important' }}>Starting from</Typography>
             <Typography className={styles.priceValueMain}>
               ₹{currentConfig.priceDisplay} {currentConfig.priceUnit}*
             </Typography>
@@ -214,6 +214,7 @@ const ConfigurationSelector = ({ selectedConfig, onConfigChange, onViewDetails, 
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
+                style={{ color: '#D9DCE0' }}
               >
                 <Icon icon="mdi:check-circle" />
                 {feature}

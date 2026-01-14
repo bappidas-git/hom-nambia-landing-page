@@ -98,7 +98,7 @@ const ContactSection = () => {
                 </Typography>
 
                 {/* Description */}
-                <Typography variant="body1" className={styles.description}>
+                <Typography variant="body1" className={styles.description} sx={{ color: '#cdd0d5 !important' }}>
                   Experience luxury living at its finest. Get in touch with our team to learn more
                   about Nambiar District 25 Phase 2 and schedule your exclusive site visit today.
                 </Typography>
@@ -133,7 +133,7 @@ const ContactSection = () => {
                             {item.content}
                           </a>
                         ) : (
-                          <Typography variant="body2" className={styles.contactContent}>
+                          <Typography variant="body2" className={styles.contactContent} sx={{ color: '#b8bcc2 !important' }}>
                             {item.content}
                           </Typography>
                         )}
