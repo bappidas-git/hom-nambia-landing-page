@@ -4,8 +4,8 @@
    lazy loading, and performance optimizations
    ============================================ */
 
-import React, { Suspense, lazy, useEffect, useState, memo, useCallback } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect, useState, memo } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CircularProgress, useMediaQuery, useTheme, Skeleton, Box } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -346,16 +346,10 @@ const useIdlePreload = () => {
 };
 
 // ===========================================
-// Lead Form Drawer Wrapper (needs access to navigate)
+// Lead Form Drawer Wrapper
 // ===========================================
 const LeadFormDrawerWrapper = () => {
-  const navigate = useNavigate();
   const { isDrawerOpen, drawerConfig, closeLeadDrawer } = useModal();
-
-  const handleLeadSuccess = useCallback(() => {
-    // Navigate to thank you page after successful lead submission
-    navigate('/thank-you');
-  }, [navigate]);
 
   return (
     <LeadFormDrawer
@@ -364,7 +358,6 @@ const LeadFormDrawerWrapper = () => {
       title={drawerConfig.title}
       subtitle={drawerConfig.subtitle}
       source={drawerConfig.source}
-      onSubmitSuccess={handleLeadSuccess}
     />
   );
 };
