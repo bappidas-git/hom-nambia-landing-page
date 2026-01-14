@@ -52,7 +52,7 @@
 /* Description */
 .description {
   font-size: var(--fs-md);
-  color: rgba(255, 255, 255, 0.8);
+  color: #CDD0D5;
   line-height: var(--lh-relaxed);
   margin-bottom: var(--space-8);
   max-width: 500px;
@@ -121,7 +121,7 @@
 }
 
 .contactContent {
-  color: rgba(255, 255, 255, 0.7);
+  color: #B8BCC2;
   font-size: var(--fs-sm);
   line-height: 1.5;
 }
@@ -145,7 +145,7 @@
 }
 
 .socialTitle {
-  color: rgba(255, 255, 255, 0.6);
+  color: #A3A9B0;
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
   margin-bottom: var(--space-3);

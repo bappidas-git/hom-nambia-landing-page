@@ -72,7 +72,7 @@
 }
 
 .mapAddress {
-  color: rgba(255, 255, 255, 0.9);
+  color: #E6E8EA;
   margin-bottom: var(--space-4);
   max-width: 300px;
 }
@@ -137,7 +137,7 @@
 }
 
 .connectivityDesc {
-  color: rgba(255, 255, 255, 0.85);
+  color: #D9DCE0;
   font-size: var(--fs-xs);
   line-height: 1.4;
   display: block;
@@ -381,7 +381,7 @@
 }
 
 .featureDesc {
-  color: rgba(255, 255, 255, 0.85);
+  color: #D9DCE0;
   font-size: var(--fs-sm);
 }
 
