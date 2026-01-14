@@ -469,6 +469,13 @@ const LeadForm = ({
           </Button>
         </motion.div>
 
+        {/* Privacy Note */}
+        <Typography variant="caption" className={styles.privacyNote}>
+          By submitting, you agree to our{' '}
+          <a href="#privacy" className={styles.privacyLink}>Privacy Policy</a>
+          {' '}and consent to receive communications about Nambiar District 25.
+        </Typography>
+
         {/* Status Messages */}
         <AnimatePresence>
           {submitStatus && (

@@ -12,8 +12,6 @@ import {
   TextField,
   InputAdornment,
   CircularProgress,
-  Switch,
-  FormControlLabel,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
@@ -37,7 +35,6 @@ const initialFormState = {
   mobile: '',
   email: '',
   message: '',
-  scheduleVisit: false,
 };
 
 // Initial error state
@@ -99,7 +96,7 @@ const ContactSection = () => {
 
   // Handle input change
   const handleChange = useCallback((field) => (event) => {
-    let value = field === 'scheduleVisit' ? event.target.checked : event.target.value;
+    let value = event.target.value;
 
     // Special handling for mobile number - only allow digits
     if (field === 'mobile') {
@@ -203,9 +200,7 @@ const ContactSection = () => {
       Swal.fire({
         icon: 'success',
         title: 'Thank You!',
-        text: formData.scheduleVisit
-          ? 'We have received your site visit request. Our team will contact you shortly to confirm the schedule.'
-          : 'We have received your enquiry. Our team will contact you within 24 hours.',
+        text: 'Our team will contact you within 24 hours.',
         confirmButtonColor: '#C9A227',
         confirmButtonText: 'Great!',
         timer: 4000,
@@ -442,20 +437,6 @@ const ContactSection = () => {
                     }}
                   />
 
-                  {/* Schedule Visit Toggle */}
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        checked={formData.scheduleVisit}
-                        onChange={handleChange('scheduleVisit')}
-                        color="primary"
-                        className={styles.switch}
-                      />
-                    }
-                    label="I want to schedule a site visit"
-                    className={styles.scheduleToggle}
-                  />
-
                   {/* Submit Button */}
                   <Button
                     type="submit"
@@ -471,7 +452,7 @@ const ContactSection = () => {
                         <span>Submitting...</span>
                       </Box>
                     ) : (
-                      'Submit Enquiry'
+                      'Submit'
                     )}
                   </Button>
 

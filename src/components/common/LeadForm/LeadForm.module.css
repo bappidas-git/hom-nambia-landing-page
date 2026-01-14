@@ -383,6 +383,26 @@
   }
 }
 
+/* Privacy Note */
+.privacyNote {
+  display: block;
+  text-align: center;
+  color: var(--text-gray);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.privacyLink {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.privacyLink:hover {
+  text-decoration: underline;
+}
+
 /* Print Styles */
 @media print {
   .formContainer {
