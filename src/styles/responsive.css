@@ -307,14 +307,14 @@
     display: none;
   }
 
-  /* Add padding to body for fixed bottom nav */
+  /* Add padding to body for fixed bottom nav + safe area for notched devices */
   body {
-    padding-bottom: var(--mobile-nav-height);
+    padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px));
   }
 
   /* Adjust scroll for mobile */
   html {
-    scroll-padding-bottom: calc(var(--mobile-nav-height) + 20px);
+    scroll-padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px) + 20px);
   }
 }
 
