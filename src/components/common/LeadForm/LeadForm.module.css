@@ -306,7 +306,11 @@
 
   .textField :global(.MuiInputBase-input) {
     padding: 12px 14px;
-    font-size: 0.9rem;
+    font-size: 16px; /* Prevent iOS zoom on focus - must be 16px or larger */
+  }
+
+  .countryCode {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
   }
 
   .submitButton {
