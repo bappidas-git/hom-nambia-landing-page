@@ -310,6 +310,7 @@ const LegalModal = ({ isOpen, onClose, title, children }) => {
 const Footer = () => {
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [termsModalOpen, setTermsModalOpen] = useState(false);
+  const [disclaimerExpanded, setDisclaimerExpanded] = useState(false);
 
   return (
     <>
@@ -324,43 +325,50 @@ const Footer = () => {
               <span className={styles.reraNumber}>PRM/KA/RERA/1251/446/PR/171015/005205</span>
             </div>
 
-            {/* Disclaimer Section */}
-            <div className={styles.disclaimerSection}>
-              <div className={styles.disclaimerHeader}>
-                <Icon icon="mdi:information-outline" className={styles.disclaimerIcon} />
-                <h4 className={styles.disclaimerTitle}>Important Disclaimer</h4>
-              </div>
-              <div className={styles.disclaimerContent}>
-                <p className={styles.disclaimerText}>
-                  <strong>General Notice:</strong> The content, information, and materials presented on this website
-                  are intended solely for general informational and reference purposes. Nothing contained herein
-                  shall be construed as an offer, invitation, solicitation, or commitment to purchase, sell, or
-                  avail any property or service.
-                </p>
-                <p className={styles.disclaimerText}>
-                  <strong>Pricing & Availability:</strong> All prices, specifications, dimensions, floor plans,
-                  amenities, and other details mentioned are indicative and subject to change without prior notice
-                  at the sole discretion of Nambiar Builders. The availability of specific units, configurations,
-                  or offerings is not guaranteed and remains subject to real-time inventory status.
-                </p>
-                <p className={styles.disclaimerText}>
-                  <strong>Visual Representations:</strong> All photographs, images, renders, artist impressions,
-                  and visualizations displayed are for illustrative and representational purposes only. Actual
-                  property, views, surroundings, and finishes may vary from the representations shown.
-                </p>
-                <p className={styles.disclaimerText}>
-                  <strong>Marketing Partner Disclosure:</strong> This is not an official Nambiar Builders website.
-                  This website is owned, operated, and maintained by <strong>H.O.M Advisory</strong>, the authorized
-                  channel partner and marketing associate of Nambiar Builders for the promotion, advertisement,
-                  and sale of Nambiar District 25 Phase 2.
-                </p>
-                <p className={styles.disclaimerText}>
-                  <strong>Due Diligence Advisory:</strong> Prospective buyers and investors are strongly advised to
-                  independently verify all information, conduct their own due diligence, and seek professional
-                  legal and financial advice before making any purchase decision. Please visit the official
-                  Nambiar Builders office or RERA portal for authentic and updated information.
-                </p>
-              </div>
+            {/* Compact Disclaimer Bar */}
+            <div className={styles.compactDisclaimer}>
+              <span className={styles.disclaimerLine}>
+                <Icon icon="mdi:information-outline" className={styles.disclaimerInfoIcon} />
+                <span className={styles.disclaimerSummary}>
+                  This website is operated by <strong>H.O.M Advisory</strong>, authorized channel partner of Nambiar Builders.
+                  All content is for informational purposes only; prices, specifications & visuals are indicative and subject to change.
+                </span>
+                <button
+                  className={styles.disclaimerToggle}
+                  onClick={() => setDisclaimerExpanded(!disclaimerExpanded)}
+                  aria-expanded={disclaimerExpanded}
+                  aria-label={disclaimerExpanded ? "Collapse disclaimer" : "Expand disclaimer"}
+                >
+                  <span className={styles.readMoreText}>{disclaimerExpanded ? 'Less' : 'More'}</span>
+                  <Icon
+                    icon={disclaimerExpanded ? "mdi:chevron-up" : "mdi:chevron-down"}
+                    className={styles.toggleIcon}
+                  />
+                </button>
+              </span>
+              <AnimatePresence>
+                {disclaimerExpanded && (
+                  <motion.div
+                    className={styles.disclaimerExpanded}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
+                  >
+                    <p className={styles.disclaimerFullText}>
+                      The content on this website is provided solely for general informational and reference purposes
+                      and shall not be construed as an offer, invitation, solicitation, or commitment of any kind;
+                      all prices, specifications, dimensions, floor plans, amenities, and related details are indicative
+                      and subject to change without prior notice at the sole discretion of Nambiar Builders, with
+                      availability subject to real-time inventory; all photographs, images, renders, and visual
+                      representations are for illustrative purposes only and actual properties, views, and finishes
+                      may vary; this is not an official Nambiar Builders website and is owned, operated, and maintained
+                      by <strong>H.O.M Advisory</strong>, the authorized channel partner and marketing associate of
+                      Nambiar Builders for the promotion and sale of Nambiar District 25 Phase 2.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             {/* Footer Links & Copyright */}
