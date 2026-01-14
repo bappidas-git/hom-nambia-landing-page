@@ -205,6 +205,13 @@
   font-size: var(--fs-sm);
 }
 
+/* Form Content - override unified form container padding */
+.formContent {
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 /* Form Styles */
 .form {
   display: flex;

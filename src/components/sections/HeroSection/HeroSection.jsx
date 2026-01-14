@@ -5,11 +5,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box, Container, Typography, Grid, Chip, useMediaQuery, useTheme } from '@mui/material';
+import { Container, Typography, Grid, Chip, useMediaQuery, useTheme } from '@mui/material';
 import { Icon } from '@iconify/react';
 import Lottie from 'lottie-react';
-import { useModal } from '../../../context/ModalContext';
-import LeadForm from '../../common/LeadForm/LeadForm';
+import UnifiedLeadForm from '../../common/UnifiedLeadForm/UnifiedLeadForm';
 import styles from './HeroSection.module.css';
 
 // Import lottie animations
@@ -117,8 +116,6 @@ const quickFeatures = [
 const HeroSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  const { openSiteVisit } = useModal();
 
   return (
     <section className={styles.heroSection} id="home">
@@ -283,11 +280,16 @@ const HeroSection = () => {
                   </Typography>
                 </div>
                 <div className={styles.formBody}>
-                  <LeadForm
+                  <UnifiedLeadForm
                     variant="hero"
-                    showMessage={true}
                     showTitle={false}
-                    submitText="Submit"
+                    showSubtitle={false}
+                    showMessage={true}
+                    showTrustBadges={true}
+                    showConsent={true}
+                    showPhoneButton={false}
+                    submitButtonText="Submit Enquiry"
+                    formId="hero-form"
                   />
                 </div>
               </div>
