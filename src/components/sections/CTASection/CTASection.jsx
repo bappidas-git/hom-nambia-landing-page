@@ -13,7 +13,7 @@ import { useModal } from "../../../context/ModalContext";
 import styles from "./CTASection.module.css";
 
 const CTASection = () => {
-  const { openSiteVisit } = useModal();
+  const { openLeadDrawer } = useModal();
 
   // Animation variants
   const containerVariants = {
@@ -76,7 +76,7 @@ const CTASection = () => {
   };
 
   const handleScheduleVisit = () => {
-    openSiteVisit({ source: "cta-section" });
+    openLeadDrawer('schedule-site-visit');
   };
 
   // Stats data for desktop showcase

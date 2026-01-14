@@ -22,7 +22,7 @@ import locationPinAnimation from '../../../assets/lottie/location-pin.json';
 import styles from './LocationSection.module.css';
 
 const LocationSection = () => {
-  const { openSiteVisit } = useModal();
+  const { openLeadDrawer } = useModal();
   const [activeCategory, setActiveCategory] = useState('all');
 
   // Filter landmarks based on active category
@@ -81,7 +81,7 @@ const LocationSection = () => {
   };
 
   const handleScheduleVisit = () => {
-    openSiteVisit({ source: 'location-section' });
+    openLeadDrawer('schedule-site-visit');
   };
 
   const handleViewOnMap = () => {

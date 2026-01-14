@@ -4,7 +4,8 @@
    lazy loading, and performance optimizations
    ============================================ */
 
-import React, { Suspense, lazy, useEffect, useState, memo } from 'react';
+import React, { Suspense, lazy, useEffect, useState, memo, useCallback } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { CircularProgress, useMediaQuery, useTheme, Skeleton, Box } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,7 +14,7 @@ import './App.css';
 
 // Context Providers
 import { ThemeProvider as CustomThemeProvider } from './context/ThemeContext';
-import { ModalProvider } from './context/ModalContext';
+import { ModalProvider, useModal } from './context/ModalContext';
 
 // Components (Eager loaded for critical path - Above the fold)
 import Header from './components/common/Header/Header';
@@ -22,6 +23,10 @@ import Footer from './components/common/Footer/Footer';
 import Modal from './components/common/Modal/Modal';
 import MobileNavigation from './components/common/MobileNavigation/MobileNavigation';
 import MobileDrawer from './components/common/MobileDrawer/MobileDrawer';
+import LeadFormDrawer from './components/common/LeadFormDrawer/LeadFormDrawer';
+
+// Pages
+const ThankYouPage = lazy(() => import('./pages/ThankYou/ThankYou'));
 
 // Lazy loaded sections for performance (Below the fold)
 const OverviewSection = lazy(() =>
@@ -341,17 +346,135 @@ const useIdlePreload = () => {
 };
 
 // ===========================================
+// Lead Form Drawer Wrapper (needs access to navigate)
+// ===========================================
+const LeadFormDrawerWrapper = () => {
+  const navigate = useNavigate();
+  const { isDrawerOpen, drawerConfig, closeLeadDrawer } = useModal();
+
+  const handleLeadSuccess = useCallback(() => {
+    // Navigate to thank you page after successful lead submission
+    navigate('/thank-you');
+  }, [navigate]);
+
+  return (
+    <LeadFormDrawer
+      isOpen={isDrawerOpen}
+      onClose={closeLeadDrawer}
+      title={drawerConfig.title}
+      subtitle={drawerConfig.subtitle}
+      source={drawerConfig.source}
+      onSubmitSuccess={handleLeadSuccess}
+    />
+  );
+};
+
+// ===========================================
+// Home Page Content Component
+// ===========================================
+const HomePageContent = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
+  const { openLeadDrawer } = useModal();
+
+  const handleMenuClick = () => setIsMobileDrawerOpen(true);
+  const handleMobileDrawerClose = () => setIsMobileDrawerOpen(false);
+  const handleMobileDrawerOpen = () => setIsMobileDrawerOpen(true);
+  const handleEnquiryClick = () => openLeadDrawer('default');
+
+  return (
+    <>
+      {/* Header/Navigation */}
+      <Header forceCloseMenu={isMobileDrawerOpen} />
+
+      {/* Main Content */}
+      <main id="main-content" className="main-content">
+        {/* Hero Section - Critical, loaded immediately */}
+        <HeroSection />
+
+        {/* Lazy loaded sections with error boundaries */}
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
+            <OverviewSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
+            <ProjectHighlights />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={600} variant="skeleton" />}>
+            <AmenitiesSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
+            <PricingSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
+            <FloorPlansSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
+            <LocationSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={300} variant="default" />}>
+            <CTASection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
+            <ContactSection />
+          </Suspense>
+        </ErrorBoundary>
+      </main>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Mobile Bottom Navigation */}
+      {isMobile && (
+        <>
+          <MobileNavigation
+            onMenuClick={handleMenuClick}
+            onEnquiryClick={handleEnquiryClick}
+            isDrawerOpen={isMobileDrawerOpen}
+          />
+          <MobileDrawer
+            open={isMobileDrawerOpen}
+            onClose={handleMobileDrawerClose}
+            onOpen={handleMobileDrawerOpen}
+          />
+        </>
+      )}
+
+      {/* Back to Top Button */}
+      <BackToTopButton />
+
+      {/* Global Modal */}
+      <Modal />
+    </>
+  );
+};
+
+// ===========================================
 // Main App Component
 // ===========================================
 const App = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const handleMenuClick = () => setIsDrawerOpen(true);
-  const handleDrawerClose = () => setIsDrawerOpen(false);
-  const handleDrawerOpen = () => setIsDrawerOpen(true);
-
   // Enable idle preloading
   useIdlePreload();
 
@@ -386,101 +509,40 @@ const App = () => {
   }, []);
 
   return (
-    <CustomThemeProvider>
-      <ModalProvider>
-        <div className="app" id="app-root">
-          {/* Scroll Progress Indicator */}
-          <ScrollProgressIndicator />
+    <BrowserRouter>
+      <CustomThemeProvider>
+        <ModalProvider>
+          <div className="app" id="app-root">
+            {/* Scroll Progress Indicator */}
+            <ScrollProgressIndicator />
 
-          {/* Skip to main content link for accessibility */}
-          <a href="#main-content" className="skip-link">
-            Skip to main content
-          </a>
+            {/* Skip to main content link for accessibility */}
+            <a href="#main-content" className="skip-link">
+              Skip to main content
+            </a>
 
-          {/* Header/Navigation */}
-          <Header forceCloseMenu={isDrawerOpen} />
+            {/* Routes */}
+            <Routes>
+              {/* Home Page */}
+              <Route path="/" element={<HomePageContent />} />
 
-          {/* Main Content */}
-          <main id="main-content" className="main-content">
-            {/* Hero Section - Critical, loaded immediately */}
-            <HeroSection />
-
-            {/* Lazy loaded sections with error boundaries */}
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
-                <OverviewSection />
-              </Suspense>
-            </ErrorBoundary>
-
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
-                <ProjectHighlights />
-              </Suspense>
-            </ErrorBoundary>
-
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoader height={600} variant="skeleton" />}>
-                <AmenitiesSection />
-              </Suspense>
-            </ErrorBoundary>
-
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
-                <PricingSection />
-              </Suspense>
-            </ErrorBoundary>
-
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
-                <FloorPlansSection />
-              </Suspense>
-            </ErrorBoundary>
-
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
-                <LocationSection />
-              </Suspense>
-            </ErrorBoundary>
-
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoader height={300} variant="default" />}>
-                <CTASection />
-              </Suspense>
-            </ErrorBoundary>
-
-            <ErrorBoundary>
-              <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
-                <ContactSection />
-              </Suspense>
-            </ErrorBoundary>
-          </main>
-
-          {/* Footer */}
-          <Footer />
-
-          {/* Mobile Bottom Navigation */}
-          {isMobile && (
-            <>
-              <MobileNavigation
-                onMenuClick={handleMenuClick}
-                isDrawerOpen={isDrawerOpen}
+              {/* Thank You Page */}
+              <Route
+                path="/thank-you"
+                element={
+                  <Suspense fallback={<SectionLoader height={400} variant="default" />}>
+                    <ThankYouPage />
+                  </Suspense>
+                }
               />
-              <MobileDrawer
-                open={isDrawerOpen}
-                onClose={handleDrawerClose}
-                onOpen={handleDrawerOpen}
-              />
-            </>
-          )}
+            </Routes>
 
-          {/* Back to Top Button */}
-          <BackToTopButton />
-
-          {/* Global Modal */}
-          <Modal />
-        </div>
-      </ModalProvider>
-    </CustomThemeProvider>
+            {/* Lead Form Drawer - Available globally */}
+            <LeadFormDrawerWrapper />
+          </div>
+        </ModalProvider>
+      </CustomThemeProvider>
+    </BrowserRouter>
   );
 };
 

@@ -55,7 +55,7 @@ const FloorPlansSection = () => {
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const { openLeadForm } = useModal();
+  const { openLeadDrawer } = useModal();
 
   // State
   const [selectedPlanId, setSelectedPlanId] = useState(3); // Start with 3 BHK Classic (popular)
@@ -99,10 +99,8 @@ const FloorPlansSection = () => {
 
   // Handle request callback
   const handleRequestCallback = (plan) => {
-    openLeadForm({
-      title: 'Request Floor Plan Details',
+    openLeadDrawer('get-price-details', {
       subtitle: `For ${plan.type} - ${plan.sqft} sq.ft`,
-      source: 'floor_plans_section',
     });
   };
 
@@ -378,11 +376,7 @@ const FloorPlansSection = () => {
             </div>
             <motion.button
               className={styles.ctaBtn}
-              onClick={() => openLeadForm({
-                title: 'Get Expert Guidance',
-                subtitle: 'Find your perfect home',
-                source: 'floor_plans_cta',
-              })}
+              onClick={() => openLeadDrawer('request-callback')}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -526,10 +520,8 @@ const FloorPlansSection = () => {
                     </motion.button>
                     <motion.button
                       className={styles.modalSecondaryBtn}
-                      onClick={() => openLeadForm({
-                        title: 'Download Brochure',
+                      onClick={() => openLeadDrawer('download-brochure', {
                         subtitle: `${selectedPlan.type} - ${selectedPlan.sqft} sq.ft`,
-                        source: 'floor_plan_modal',
                       })}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}

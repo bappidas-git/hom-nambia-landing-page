@@ -13,6 +13,7 @@ import {
   Button,
 } from '@mui/material';
 import { Icon } from '@iconify/react';
+import { useModal } from '../../../context/ModalContext';
 import {
   amenitiesCategories,
   amenitiesStats,
@@ -66,6 +67,11 @@ const AmenitiesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [hoveredCard, setHoveredCard] = useState(null);
+  const { openLeadDrawer } = useModal();
+
+  const handleScheduleVisit = () => {
+    openLeadDrawer('schedule-site-visit');
+  };
 
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId);
@@ -296,6 +302,7 @@ const AmenitiesSection = () => {
               <Button
                 variant="contained"
                 className={styles.ctaButton}
+                onClick={handleScheduleVisit}
                 endIcon={<Icon icon="mdi:arrow-right" />}
                 sx={{
                   background: 'linear-gradient(135deg, #C9A227 0%, #E5C96E 100%)',

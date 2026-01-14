@@ -55,7 +55,7 @@ const PricingSection = () => {
   const isSmallMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const { openLeadForm } = useModal();
+  const { openLeadDrawer } = useModal();
 
   // Selected configuration state
   const [selectedConfigId, setSelectedConfigId] = useState(1);
@@ -81,20 +81,14 @@ const PricingSection = () => {
 
   // Handle view details
   const handleViewDetails = () => {
-    openLeadForm({
-      title: 'Get Detailed Pricing',
+    openLeadDrawer('view-pricing', {
       subtitle: `For ${selectedConfig.type} - ${selectedConfig.sqft} sq.ft`,
-      source: 'pricing_section',
     });
   };
 
   // Handle main CTA click
   const handleMainCta = () => {
-    openLeadForm({
-      title: 'Get Best Price Quote',
-      subtitle: 'Our experts will help you find the perfect home',
-      source: 'pricing_main_cta',
-    });
+    openLeadDrawer('get-best-price');
   };
 
   // Handle EMI Modal
