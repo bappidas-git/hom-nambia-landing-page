@@ -49,59 +49,90 @@
   letter-spacing: 0.5px;
 }
 
-/* Disclaimer Section */
-.disclaimerSection {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-xl);
-  padding: var(--space-5);
-  margin-bottom: var(--space-5);
+/* Compact Disclaimer Bar */
+.compactDisclaimer {
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-3) 0;
+  margin-bottom: var(--space-4);
 }
 
-.disclaimerHeader {
+.disclaimerLine {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+  flex-wrap: wrap;
 }
 
-.disclaimerIcon {
-  font-size: 22px;
-  color: var(--accent-gold);
+.disclaimerInfoIcon {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
   flex-shrink: 0;
 }
 
-.disclaimerTitle {
-  font-family: var(--font-heading);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-semibold);
-  color: var(--accent-gold);
-  margin: 0;
+.disclaimerSummary {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.disclaimerSummary strong {
+  color: rgba(201, 162, 39, 0.8);
+  font-weight: var(--fw-medium);
+}
+
+.disclaimerToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  color: rgba(201, 162, 39, 0.7);
+  background: none;
+  border: none;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: color var(--transition-fast);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
 }
 
-.disclaimerContent {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.disclaimerText {
-  font-size: var(--fs-xs);
-  color: rgba(255, 255, 255, 0.75);
-  line-height: var(--lh-relaxed);
-  margin: 0;
-  text-align: justify;
-  text-align-last: left;
-}
-
-.disclaimerText strong {
+.disclaimerToggle:hover {
   color: var(--accent-gold);
-  font-weight: var(--fw-semibold);
+}
+
+.readMoreText {
+  font-size: 10px;
+}
+
+.toggleIcon {
+  font-size: 14px;
+}
+
+.disclaimerExpanded {
+  overflow: hidden;
+}
+
+.disclaimerFullText {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+  margin: var(--space-3) auto 0;
+  padding: var(--space-3);
+  max-width: 900px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-md);
+}
+
+.disclaimerFullText strong {
+  color: rgba(201, 162, 39, 0.75);
+  font-weight: var(--fw-medium);
 }
 
 /* Footer Bottom */
@@ -357,31 +388,22 @@
     word-break: break-all;
   }
 
-  .disclaimerSection {
-    padding: var(--space-4);
+  .compactDisclaimer {
+    padding: var(--space-2) var(--space-3);
   }
 
-  .disclaimerHeader {
-    gap: var(--space-2);
-    margin-bottom: var(--space-3);
-    padding-bottom: var(--space-2);
+  .disclaimerLine {
+    gap: var(--space-1);
   }
 
-  .disclaimerIcon {
-    font-size: 18px;
+  .disclaimerSummary {
+    font-size: 10px;
+    line-height: 1.4;
   }
 
-  .disclaimerTitle {
-    font-size: var(--fs-sm);
-  }
-
-  .disclaimerContent {
-    gap: var(--space-2);
-  }
-
-  .disclaimerText {
-    font-size: 11px;
-    text-align: left;
+  .disclaimerFullText {
+    font-size: 9px;
+    padding: var(--space-2);
   }
 
   .modalBackdrop {
@@ -430,8 +452,24 @@
     font-size: 18px;
   }
 
-  .disclaimerSection {
-    margin-bottom: var(--space-4);
+  .compactDisclaimer {
+    margin-bottom: var(--space-3);
+  }
+
+  .disclaimerInfoIcon {
+    display: none;
+  }
+
+  .disclaimerSummary {
+    font-size: 9px;
+  }
+
+  .disclaimerToggle {
+    font-size: 9px;
+  }
+
+  .toggleIcon {
+    font-size: 12px;
   }
 
   .footerBottom {
@@ -495,7 +533,8 @@
     color: var(--primary-dark);
   }
 
-  .disclaimerText,
+  .disclaimerSummary,
+  .disclaimerFullText,
   .copyright,
   .legalLink {
     color: var(--text-dark-gray);
@@ -517,7 +556,8 @@
 }
 
 /* Accessibility */
-.legalLink:focus-visible {
+.legalLink:focus-visible,
+.disclaimerToggle:focus-visible {
   outline: 2px solid var(--accent-gold);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
