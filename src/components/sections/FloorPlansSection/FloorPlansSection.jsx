@@ -87,9 +87,11 @@ const FloorPlansSection = () => {
     }
   };
 
-  // Handle view floor plan modal
+  // Handle view floor plan - opens lead drawer
   const handleViewPlan = () => {
-    setIsModalOpen(true);
+    openLeadDrawer('view-plan', {
+      subtitle: `For ${selectedPlan.type} - ${selectedPlan.sqft} sq.ft`,
+    });
   };
 
   // Handle close modal

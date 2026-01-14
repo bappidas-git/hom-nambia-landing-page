@@ -85,7 +85,9 @@ const LocationSection = () => {
   };
 
   const handleViewOnMap = () => {
-    window.open(projectLocation.googleMapsUrl, '_blank', 'noopener,noreferrer');
+    openLeadDrawer('view-map', {
+      subtitle: `View ${projectLocation.name} on Google Maps`,
+    });
   };
 
   return (

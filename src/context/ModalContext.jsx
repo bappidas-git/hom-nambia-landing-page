@@ -55,6 +55,14 @@ export const DRAWER_TITLES = {
     title: 'Get Expert Guidance',
     subtitle: 'Our experts will help you choose the perfect home',
   },
+  'view-plan': {
+    title: 'View Floor Plan',
+    subtitle: 'Fill in your details to view the complete floor plan',
+  },
+  'view-map': {
+    title: 'View on Google Maps',
+    subtitle: 'Fill in your details to view the location on Google Maps',
+  },
   'default': {
     title: 'Get Expert Assistance',
     subtitle: 'Fill the form and our experts will get in touch with you',
