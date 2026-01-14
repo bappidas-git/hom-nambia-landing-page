@@ -318,32 +318,6 @@ const ContactSection = () => {
                   ))}
                 </div>
 
-                {/* Social Links */}
-                <motion.div variants={itemVariants} className={styles.socialLinks}>
-                  <Typography variant="subtitle2" className={styles.socialTitle}>
-                    Follow Us
-                  </Typography>
-                  <div className={styles.socialIcons}>
-                    {[
-                      { icon: 'mdi:facebook', href: '#', label: 'Facebook' },
-                      { icon: 'mdi:instagram', href: '#', label: 'Instagram' },
-                      { icon: 'mdi:twitter', href: '#', label: 'Twitter' },
-                      { icon: 'mdi:linkedin', href: '#', label: 'LinkedIn' },
-                      { icon: 'mdi:youtube', href: '#', label: 'YouTube' },
-                    ].map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.href}
-                        className={styles.socialIcon}
-                        aria-label={social.label}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Icon icon={social.icon} />
-                      </a>
-                    ))}
-                  </div>
-                </motion.div>
               </motion.div>
             </Grid>
 
