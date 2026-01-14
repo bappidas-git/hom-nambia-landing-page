@@ -97,6 +97,10 @@ export const ModalProvider = ({ children }) => {
     setModalConfig((prev) => ({ ...prev, ...config }));
     setIsOpen(true);
     // Prevent body scroll when modal is open
+    // Save current scroll position before locking body
+    const scrollY = window.scrollY;
+    document.body.dataset.modalScrollY = scrollY;
+    document.body.style.top = `-${scrollY}px`;
     document.body.classList.add('modal-open');
   }, []);
 
@@ -114,6 +118,13 @@ export const ModalProvider = ({ children }) => {
     });
     // Restore body scroll
     document.body.classList.remove('modal-open');
+    // Restore scroll position after unlocking body
+    const scrollY = document.body.dataset.modalScrollY;
+    document.body.style.top = '';
+    if (scrollY) {
+      window.scrollTo(0, parseInt(scrollY, 10));
+      delete document.body.dataset.modalScrollY;
+    }
   }, []);
 
   // Update modal data
@@ -164,6 +175,10 @@ export const ModalProvider = ({ children }) => {
       ...extraData,
     });
     setIsDrawerOpen(true);
+    // Save current scroll position before locking body
+    const scrollY = window.scrollY;
+    document.body.dataset.scrollY = scrollY;
+    document.body.style.top = `-${scrollY}px`;
     document.body.classList.add('drawer-open');
   }, []);
 
@@ -171,6 +186,13 @@ export const ModalProvider = ({ children }) => {
   const closeLeadDrawer = useCallback(() => {
     setIsDrawerOpen(false);
     document.body.classList.remove('drawer-open');
+    // Restore scroll position after unlocking body
+    const scrollY = document.body.dataset.scrollY;
+    document.body.style.top = '';
+    if (scrollY) {
+      window.scrollTo(0, parseInt(scrollY, 10));
+      delete document.body.dataset.scrollY;
+    }
   }, []);
 
   const value = {
