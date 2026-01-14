@@ -5,13 +5,11 @@
    ============================================ */
 
 import React from 'react';
-import { Container, Box, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
-import { Player } from '@lottiefiles/react-lottie-player';
 import Button from '../../common/Button/Button';
 import { useModal } from '../../../context/ModalContext';
-import familyHomeAnimation from '../../../assets/lottie/family-home.json';
 import styles from './CTASection.module.css';
 
 const CTASection = () => {
@@ -143,18 +141,19 @@ const CTASection = () => {
         >
           {/* Left Side - Visual Showcase (Desktop) */}
           <motion.div variants={itemVariants} className={styles.visualShowcase}>
-            {/* Main Animation Card */}
-            <div className={styles.animationCard}>
-              <div className={styles.animationCardGlow} />
-              <Player
-                autoplay
-                loop
-                src={familyHomeAnimation}
-                className={styles.lottiePlayer}
+            {/* Hero Image Card */}
+            <div className={styles.imageCard}>
+              <div className={styles.imageCardGlow} />
+              <img
+                src="https://placehold.co/400x280/0A1628/D4AF37?text=SOHO+Living&font=playfair-display"
+                alt="SOHO Living at Nambiar District 25"
+                className={styles.heroImage}
               />
-              <div className={styles.animationCardLabel}>
-                <Icon icon="mdi:home-city" />
-                <span>Your Dream Home Awaits</span>
+              <div className={styles.imageOverlay}>
+                <div className={styles.imageLabel}>
+                  <Icon icon="mdi:home-city" />
+                  <span>Your Dream Home Awaits</span>
+                </div>
               </div>
             </div>
 
@@ -165,7 +164,7 @@ const CTASection = () => {
                   key={stat.label}
                   className={styles.statCard}
                   variants={scaleVariants}
-                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileHover={{ scale: 1.03, y: -3 }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <div className={styles.statIconWrapper}>
