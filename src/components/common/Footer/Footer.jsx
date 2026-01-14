@@ -326,13 +326,41 @@ const Footer = () => {
 
             {/* Disclaimer Section */}
             <div className={styles.disclaimerSection}>
-              <p className={styles.disclaimerText}>
-                <strong>Disclaimer:</strong> The content provided on this website is for information purposes only
-                and does not constitute an offer to avail any service. The prices mentioned are subject to change
-                without prior notice, and the availability of properties mentioned is not guaranteed. All images
-                are for representational purposes only. This is not an official Nambiar website. We, H.O.M Advisory,
-                are the authorized marketing partner for advertisement and selling.
-              </p>
+              <div className={styles.disclaimerHeader}>
+                <Icon icon="mdi:information-outline" className={styles.disclaimerIcon} />
+                <h4 className={styles.disclaimerTitle}>Important Disclaimer</h4>
+              </div>
+              <div className={styles.disclaimerContent}>
+                <p className={styles.disclaimerText}>
+                  <strong>General Notice:</strong> The content, information, and materials presented on this website
+                  are intended solely for general informational and reference purposes. Nothing contained herein
+                  shall be construed as an offer, invitation, solicitation, or commitment to purchase, sell, or
+                  avail any property or service.
+                </p>
+                <p className={styles.disclaimerText}>
+                  <strong>Pricing & Availability:</strong> All prices, specifications, dimensions, floor plans,
+                  amenities, and other details mentioned are indicative and subject to change without prior notice
+                  at the sole discretion of Nambiar Builders. The availability of specific units, configurations,
+                  or offerings is not guaranteed and remains subject to real-time inventory status.
+                </p>
+                <p className={styles.disclaimerText}>
+                  <strong>Visual Representations:</strong> All photographs, images, renders, artist impressions,
+                  and visualizations displayed are for illustrative and representational purposes only. Actual
+                  property, views, surroundings, and finishes may vary from the representations shown.
+                </p>
+                <p className={styles.disclaimerText}>
+                  <strong>Marketing Partner Disclosure:</strong> This is not an official Nambiar Builders website.
+                  This website is owned, operated, and maintained by <strong>H.O.M Advisory</strong>, the authorized
+                  channel partner and marketing associate of Nambiar Builders for the promotion, advertisement,
+                  and sale of Nambiar District 25 Phase 2.
+                </p>
+                <p className={styles.disclaimerText}>
+                  <strong>Due Diligence Advisory:</strong> Prospective buyers and investors are strongly advised to
+                  independently verify all information, conduct their own due diligence, and seek professional
+                  legal and financial advice before making any purchase decision. Please visit the official
+                  Nambiar Builders office or RERA portal for authentic and updated information.
+                </p>
+              </div>
             </div>
 
             {/* Footer Links & Copyright */}
