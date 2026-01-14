@@ -505,10 +505,6 @@
     margin-bottom: var(--space-5);
   }
 
-  /* Add padding for mobile navigation */
-  .footer {
-    padding-bottom: 80px;
-  }
 }
 
 /* Print Styles */

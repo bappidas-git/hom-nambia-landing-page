@@ -165,12 +165,7 @@ section[id] {
    Mobile Optimization
    =========================================== */
 
-/* Mobile bottom padding for fixed nav */
-@media screen and (max-width: 1023px) {
-  .main-content {
-    padding-bottom: calc(var(--mobile-nav-height, 70px) + env(safe-area-inset-bottom, 0px));
-  }
-}
+/* Mobile bottom padding handled by body in responsive.css */
 
 /* Native app feel on mobile */
 @media screen and (max-width: 768px) {
