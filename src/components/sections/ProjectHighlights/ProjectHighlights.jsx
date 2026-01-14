@@ -114,14 +114,14 @@ const ProjectHighlights = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isExpanded, setIsExpanded] = useState(false);
-  const { openSiteVisit } = useModal();
+  const { openLeadDrawer } = useModal();
 
   const handleToggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
   const handleScheduleVisit = () => {
-    openSiteVisit({ source: 'project-highlights' });
+    openLeadDrawer('schedule-site-visit');
   };
 
   return (

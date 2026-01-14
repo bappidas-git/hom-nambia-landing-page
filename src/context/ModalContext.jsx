@@ -21,6 +21,46 @@ export const MODAL_TYPES = {
   CUSTOM: 'CUSTOM',
 };
 
+// Drawer title mapping based on source/context
+export const DRAWER_TITLES = {
+  'schedule-site-visit': {
+    title: 'Schedule a Site Visit',
+    subtitle: 'Book your visit and experience the luxury firsthand',
+  },
+  'get-pricing': {
+    title: 'Get Pricing Details',
+    subtitle: 'Get complete pricing information and exclusive offers',
+  },
+  'view-pricing': {
+    title: 'View Pricing',
+    subtitle: 'Get detailed pricing for your selected configuration',
+  },
+  'get-best-price': {
+    title: 'Get Best Price Quote',
+    subtitle: 'Our experts will help you find the best deal',
+  },
+  'get-price-details': {
+    title: 'Get Price Details',
+    subtitle: 'Request detailed pricing for your preferred floor plan',
+  },
+  'request-callback': {
+    title: 'Request a Callback',
+    subtitle: 'Our team will get back to you within 24 hours',
+  },
+  'download-brochure': {
+    title: 'Download Brochure',
+    subtitle: 'Get the complete project brochure with all details',
+  },
+  'expert-guidance': {
+    title: 'Get Expert Guidance',
+    subtitle: 'Our experts will help you choose the perfect home',
+  },
+  'default': {
+    title: 'Get Expert Assistance',
+    subtitle: 'Fill the form and our experts will get in touch with you',
+  },
+};
+
 // Provider component
 export const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +72,14 @@ export const ModalProvider = ({ children }) => {
     closeOnEscape: true,
     fullScreen: false,
     maxWidth: 'sm',
+  });
+
+  // Lead Form Drawer state
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [drawerConfig, setDrawerConfig] = useState({
+    title: DRAWER_TITLES.default.title,
+    subtitle: DRAWER_TITLES.default.subtitle,
+    source: 'general',
   });
 
   // Open modal with type and optional data
@@ -98,16 +146,41 @@ export const ModalProvider = ({ children }) => {
     openModal(MODAL_TYPES.SUCCESS, { message, title });
   }, [openModal]);
 
+  // Open lead form drawer with specific title based on context
+  const openLeadDrawer = useCallback((titleKey = 'default', extraData = {}) => {
+    const titleConfig = DRAWER_TITLES[titleKey] || DRAWER_TITLES.default;
+    setDrawerConfig({
+      title: extraData.title || titleConfig.title,
+      subtitle: extraData.subtitle || titleConfig.subtitle,
+      source: titleKey,
+      ...extraData,
+    });
+    setIsDrawerOpen(true);
+    document.body.classList.add('drawer-open');
+  }, []);
+
+  // Close lead form drawer
+  const closeLeadDrawer = useCallback(() => {
+    setIsDrawerOpen(false);
+    document.body.classList.remove('drawer-open');
+  }, []);
+
   const value = {
     // State
     isOpen,
     modalType,
     modalData,
     modalConfig,
+    // Drawer State
+    isDrawerOpen,
+    drawerConfig,
     // Actions
     openModal,
     closeModal,
     updateModalData,
+    // Drawer Actions
+    openLeadDrawer,
+    closeLeadDrawer,
     // Shorthand methods
     openLeadForm,
     openSiteVisit,
