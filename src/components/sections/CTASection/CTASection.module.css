@@ -84,13 +84,13 @@
   flex-shrink: 0;
 }
 
-/* Animation Card with Glassmorphism */
-.animationCard {
+/* Image Card with Glassmorphism */
+.imageCard {
   position: relative;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   border-radius: var(--radius-2xl);
-  padding: var(--space-8);
+  padding: var(--space-3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow:
     0 8px 32px rgba(10, 22, 40, 0.15),
@@ -98,7 +98,7 @@
   overflow: hidden;
 }
 
-.animationCardGlow {
+.imageCardGlow {
   position: absolute;
   top: -50%;
   left: -50%;
@@ -114,27 +114,40 @@
   to { transform: rotate(360deg); }
 }
 
-.animationCardLabel {
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  justify-content: center;
+}
+
+.imageLabel {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  margin-top: var(--space-4);
   padding: var(--space-2) var(--space-4);
-  background: rgba(10, 22, 40, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
   border-radius: var(--radius-full);
   color: var(--primary-dark);
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
+  box-shadow: 0 4px 12px rgba(10, 22, 40, 0.15);
 }
 
-.animationCardLabel svg {
+.imageLabel svg {
   font-size: 1.25rem;
-}
-
-.lottiePlayer {
-  width: 200px;
-  height: 200px;
 }
 
 /* Stats Grid */
@@ -406,193 +419,282 @@
    ============================================ */
 @media (min-width: 1024px) {
   .section {
-    padding: var(--space-20) 0;
+    padding: var(--space-12) 0;
   }
 
   .content {
     flex-direction: row;
     justify-content: space-between;
-    gap: var(--space-16);
+    align-items: center;
+    gap: var(--space-10);
     text-align: left;
   }
 
   /* Show Visual Showcase on Desktop */
   .visualShowcase {
     display: flex;
-    flex: 0 0 420px;
+    flex: 0 0 340px;
+    gap: var(--space-4);
   }
 
-  .animationCard {
-    padding: var(--space-10);
+  .imageCard {
+    padding: var(--space-3);
   }
 
-  .lottiePlayer {
-    width: 280px;
-    height: 280px;
+  .heroImage {
+    width: 320px;
+    height: 200px;
   }
 
   .textContent {
     text-align: left;
     flex: 1;
-    max-width: 600px;
+    max-width: 580px;
+  }
+
+  .preTitle {
+    margin-bottom: var(--space-3);
   }
 
   .title {
-    font-size: clamp(2.25rem, 3.5vw, 3rem);
-    margin-bottom: var(--space-5);
+    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+    margin-bottom: var(--space-3);
   }
 
   .description {
-    font-size: var(--fs-lg);
+    font-size: var(--fs-base);
     margin-left: 0;
     margin-right: 0;
     max-width: none;
+    margin-bottom: var(--space-5);
   }
 
   .ctaButtons {
     justify-content: flex-start;
-    gap: var(--space-5);
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
   }
 
   .primaryBtn {
-    min-width: 240px;
+    min-width: 200px;
   }
 
   .secondaryBtn {
-    min-width: 180px;
+    min-width: 140px;
   }
 
   /* Show Desktop Trust Cards, Hide Mobile */
   .trustIndicators {
     display: flex;
     justify-content: flex-start;
+    gap: var(--space-3);
+  }
+
+  .trustCard {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .trustIconWrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .trustIcon {
+    font-size: 1.1rem;
+  }
+
+  .trustLabel {
+    font-size: var(--fs-xs);
+  }
+
+  .trustSubtext {
+    font-size: 10px;
   }
 
   .trustIndicatorsMobile {
     display: none;
   }
 
+  /* Stats Grid Compact */
+  .statsGrid {
+    gap: var(--space-2);
+  }
+
+  .statCard {
+    padding: var(--space-3);
+  }
+
+  .statIconWrapper {
+    width: 32px;
+    height: 32px;
+    margin-bottom: var(--space-1);
+  }
+
+  .statIcon {
+    font-size: 1rem;
+  }
+
+  .statValue {
+    font-size: var(--fs-lg);
+  }
+
+  .statLabel {
+    font-size: 10px;
+  }
+
   /* Enhanced Floating Elements for Desktop */
   .floatingElement1 {
     top: 10%;
     left: 5%;
-    font-size: 5rem;
-    color: rgba(255, 255, 255, 0.12);
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.1);
   }
 
   .floatingElement2 {
     top: 15%;
     right: 8%;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .floatingElement3 {
     bottom: 15%;
     left: 3%;
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .floatingElement4 {
     display: flex;
     bottom: 25%;
     right: 5%;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .cornerDecoration1 {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
 
   .cornerDecoration2 {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
 }
 
 /* Large Desktop (1280px and above) */
 @media (min-width: 1280px) {
+  .section {
+    padding: var(--space-14) 0;
+  }
+
   .content {
-    gap: var(--space-20);
+    gap: var(--space-12);
   }
 
   .visualShowcase {
-    flex: 0 0 480px;
+    flex: 0 0 380px;
+    gap: var(--space-4);
   }
 
-  .animationCard {
-    padding: var(--space-12);
+  .imageCard {
+    padding: var(--space-4);
   }
 
-  .lottiePlayer {
-    width: 320px;
-    height: 320px;
+  .heroImage {
+    width: 360px;
+    height: 220px;
+  }
+
+  .title {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+  }
+
+  .description {
+    font-size: var(--fs-md);
   }
 
   .statsGrid {
-    gap: var(--space-5);
+    gap: var(--space-3);
   }
 
   .statCard {
-    padding: var(--space-5);
+    padding: var(--space-3);
   }
 
   .statIconWrapper {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
   }
 
   .statIcon {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 
   .statValue {
-    font-size: var(--fs-2xl);
+    font-size: var(--fs-xl);
   }
 
   .statLabel {
-    font-size: var(--fs-sm);
+    font-size: var(--fs-xs);
   }
 
   .trustCard {
-    padding: var(--space-4) var(--space-5);
+    padding: var(--space-3) var(--space-4);
   }
 
   .trustIconWrapper {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .trustIcon {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .trustLabel {
-    font-size: var(--fs-base);
+    font-size: var(--fs-sm);
+  }
+
+  .trustSubtext {
+    font-size: var(--fs-xs);
   }
 }
 
 /* Extra Large Desktop (1440px and above) */
 @media (min-width: 1440px) {
   .section {
-    padding: var(--space-24) 0;
+    padding: var(--space-16) 0;
+  }
+
+  .content {
+    gap: var(--space-16);
   }
 
   .visualShowcase {
-    flex: 0 0 520px;
+    flex: 0 0 420px;
+    gap: var(--space-5);
   }
 
-  .lottiePlayer {
-    width: 360px;
-    height: 360px;
+  .heroImage {
+    width: 400px;
+    height: 240px;
   }
 
   .title {
-    font-size: 3.25rem;
+    font-size: 2.75rem;
+    margin-bottom: var(--space-4);
   }
 
   .description {
-    font-size: 1.125rem;
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-6);
+  }
+
+  .statValue {
+    font-size: var(--fs-2xl);
+  }
+
+  .trustCard {
+    padding: var(--space-3) var(--space-5);
   }
 }
 
@@ -772,7 +874,7 @@
   .cornerDecoration1,
   .cornerDecoration2,
   .visualShowcase,
-  .animationCardGlow {
+  .imageCardGlow {
     display: none;
   }
 
