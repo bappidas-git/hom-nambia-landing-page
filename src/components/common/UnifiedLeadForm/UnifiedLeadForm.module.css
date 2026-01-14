@@ -651,7 +651,29 @@
 
   .textField :global(.MuiInputBase-input) {
     padding: 12px 14px;
-    font-size: 0.9rem;
+    font-size: 16px; /* Prevent iOS zoom on focus - must be 16px or larger */
+  }
+
+  .countryCode {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+  }
+
+  /* Hero variant mobile overrides */
+  .variantHero .textField :global(.MuiInputBase-input) {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+
+  .variantHero .countryCode {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+  }
+
+  /* Drawer variant mobile overrides */
+  .variantDrawer .textField :global(.MuiInputBase-input) {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+
+  .variantDrawer .countryCode {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
   }
 
   .submitButton {

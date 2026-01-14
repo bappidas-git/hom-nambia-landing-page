@@ -862,6 +862,22 @@ table {
   }
 }
 
+/* ========== iOS Input Zoom Prevention ========== */
+/* iOS Safari zooms on inputs with font-size < 16px - this prevents that */
+@media screen and (max-width: 768px) {
+  input,
+  textarea,
+  select,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"] {
+    font-size: 16px !important;
+  }
+}
+
 /* ========== Mobile Safe Area ========== */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .safe-area-bottom {
