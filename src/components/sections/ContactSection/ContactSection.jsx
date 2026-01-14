@@ -3,14 +3,14 @@
    "A Rare Opportunity to Own Your Dream Home" contact section
    ============================================ */
 
-import React from 'react';
-import { Container, Grid, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
-import { Icon } from '@iconify/react';
-import { Player } from '@lottiefiles/react-lottie-player';
-import UnifiedLeadForm from '../../common/UnifiedLeadForm/UnifiedLeadForm';
-import buildingAnimation from '../../../assets/lottie/building-animation.json';
-import styles from './ContactSection.module.css';
+import React from "react";
+import { Container, Grid, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
+import { Player } from "@lottiefiles/react-lottie-player";
+import UnifiedLeadForm from "../../common/UnifiedLeadForm/UnifiedLeadForm";
+import buildingAnimation from "../../../assets/lottie/building-animation.json";
+import styles from "./ContactSection.module.css";
 
 const ContactSection = () => {
   // Animation variants
@@ -52,26 +52,27 @@ const ContactSection = () => {
   // Contact info items
   const contactInfo = [
     {
-      icon: 'mdi:map-marker-outline',
-      title: 'Visit Us',
-      content: 'Thanisandra Main Road, Near Manyata Tech Park, Bangalore - 560064',
+      icon: "mdi:map-marker-outline",
+      title: "Visit Us",
+      content:
+        "Thanisandra Main Road, Near Manyata Tech Park, Bangalore - 560064",
     },
     {
-      icon: 'mdi:phone-outline',
-      title: 'Call Us',
-      content: '+91 98765 43210',
-      href: 'tel:+919876543210',
+      icon: "mdi:phone-outline",
+      title: "Call Us",
+      content: "+91 98765 43210",
+      href: "tel:+919876543210",
     },
     {
-      icon: 'mdi:email-outline',
-      title: 'Email Us',
-      content: 'sales@nambiardistrict25.com',
-      href: 'mailto:sales@nambiardistrict25.com',
+      icon: "mdi:email-outline",
+      title: "Email Us",
+      content: "sales@nambiardistrict25.com",
+      href: "mailto:sales@nambiardistrict25.com",
     },
     {
-      icon: 'mdi:clock-outline',
-      title: 'Office Hours',
-      content: 'Mon - Sun: 9:30 AM - 7:30 PM',
+      icon: "mdi:clock-outline",
+      title: "Office Hours",
+      content: "Mon - Sun: 9:30 AM - 7:30 PM",
     },
   ];
 
@@ -82,29 +83,36 @@ const ContactSection = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <Grid container spacing={6} alignItems="center">
             {/* Left Side - Content */}
             <Grid item xs={12} lg={6}>
-              <motion.div variants={itemVariants} className={styles.contentWrapper}>
+              <motion.div
+                variants={itemVariants}
+                className={styles.contentWrapper}
+              >
                 {/* Badge */}
                 <span className={styles.badge}>CONTACT US</span>
 
                 {/* Title */}
                 <Typography variant="h2" className={styles.title}>
-                  A Rare Opportunity to Own{' '}
+                  A Rare Opportunity to Own{" "}
                   <span className={styles.highlight}>Your Dream Home</span>
                 </Typography>
 
                 {/* Description */}
-                <Typography variant="body1" className={styles.description} sx={{ color: '#cdd0d5 !important' }}>
-                  Experience luxury living at its finest. Get in touch with our team to learn more
-                  about Nambiar District 25 Phase 2 and schedule your exclusive site visit today.
+                <Typography variant="body1" className={styles.description}>
+                  Experience luxury living at its finest. Get in touch with our
+                  team to learn more about Nambiar District 25 Phase 2 and
+                  schedule your exclusive site visit today.
                 </Typography>
 
                 {/* Lottie Animation (Mobile Only) */}
-                <motion.div variants={itemVariants} className={styles.mobileAnimation}>
+                <motion.div
+                  variants={itemVariants}
+                  className={styles.mobileAnimation}
+                >
                   <Player
                     autoplay
                     loop
@@ -125,7 +133,10 @@ const ContactSection = () => {
                         <Icon icon={item.icon} />
                       </div>
                       <div className={styles.contactText}>
-                        <Typography variant="subtitle2" className={styles.contactTitle}>
+                        <Typography
+                          variant="subtitle2"
+                          className={styles.contactTitle}
+                        >
                           {item.title}
                         </Typography>
                         {item.href ? (
@@ -133,7 +144,10 @@ const ContactSection = () => {
                             {item.content}
                           </a>
                         ) : (
-                          <Typography variant="body2" className={styles.contactContent} sx={{ color: '#b8bcc2 !important' }}>
+                          <Typography
+                            variant="body2"
+                            className={styles.contactContent}
+                          >
                             {item.content}
                           </Typography>
                         )}
@@ -141,13 +155,15 @@ const ContactSection = () => {
                     </motion.div>
                   ))}
                 </div>
-
               </motion.div>
             </Grid>
 
             {/* Right Side - Form */}
             <Grid item xs={12} lg={6}>
-              <motion.div variants={formVariants} className={styles.formWrapper}>
+              <motion.div
+                variants={formVariants}
+                className={styles.formWrapper}
+              >
                 {/* Form Header */}
                 <div className={styles.formHeader}>
                   <Typography variant="h5" className={styles.formTitle}>
