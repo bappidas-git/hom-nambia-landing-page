@@ -4,13 +4,13 @@
    Desktop-optimized with innovative split layout
    ============================================ */
 
-import React from 'react';
-import { Container, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
-import { Icon } from '@iconify/react';
-import Button from '../../common/Button/Button';
-import { useModal } from '../../../context/ModalContext';
-import styles from './CTASection.module.css';
+import React from "react";
+import { Container, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
+import Button from "../../common/Button/Button";
+import { useModal } from "../../../context/ModalContext";
+import styles from "./CTASection.module.css";
 
 const CTASection = () => {
   const { openSiteVisit } = useModal();
@@ -58,7 +58,7 @@ const CTASection = () => {
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: "easeInOut",
       },
     },
   };
@@ -70,20 +70,20 @@ const CTASection = () => {
       transition: {
         duration: 2,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: "easeInOut",
       },
     },
   };
 
   const handleScheduleVisit = () => {
-    openSiteVisit({ source: 'cta-section' });
+    openSiteVisit({ source: "cta-section" });
   };
 
   // Stats data for desktop showcase
   const stats = [
-    { value: '25+', label: 'Years Excellence', icon: 'mdi:trophy-award' },
-    { value: '750+', label: 'Happy Families', icon: 'mdi:home-heart' },
-    { value: '15+', label: 'Projects Delivered', icon: 'mdi:office-building' },
+    { value: "25+", label: "Years Excellence", icon: "mdi:trophy-award" },
+    { value: "750+", label: "Happy Families", icon: "mdi:home-heart" },
+    { value: "15+", label: "Projects Delivered", icon: "mdi:office-building" },
   ];
 
   return (
@@ -106,7 +106,7 @@ const CTASection = () => {
         variants={floatVariants}
         initial="initial"
         animate="animate"
-        style={{ animationDelay: '1s' }}
+        style={{ animationDelay: "1s" }}
       >
         <Icon icon="mdi:star-four-points" />
       </motion.div>
@@ -116,7 +116,7 @@ const CTASection = () => {
         variants={floatVariants}
         initial="initial"
         animate="animate"
-        style={{ animationDelay: '2s' }}
+        style={{ animationDelay: "2s" }}
       >
         <Icon icon="mdi:key-variant" />
       </motion.div>
@@ -126,7 +126,7 @@ const CTASection = () => {
         variants={floatVariants}
         initial="initial"
         animate="animate"
-        style={{ animationDelay: '1.5s' }}
+        style={{ animationDelay: "1.5s" }}
       >
         <Icon icon="mdi:diamond-stone" />
       </motion.div>
@@ -137,7 +137,7 @@ const CTASection = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           {/* Left Side - Visual Showcase (Desktop) */}
           <motion.div variants={itemVariants} className={styles.visualShowcase}>
@@ -145,7 +145,7 @@ const CTASection = () => {
             <div className={styles.imageCard}>
               <div className={styles.imageCardGlow} />
               <img
-                src="https://placehold.co/400x280/0A1628/D4AF37?text=SOHO+Living&font=playfair-display"
+                src="https://placehold.co/400x280/0A1628/D4AF37?text=SOHO+Living+400+X+280"
                 alt="SOHO Living at Nambiar District 25"
                 className={styles.heroImage}
               />
@@ -184,19 +184,23 @@ const CTASection = () => {
             </Typography>
 
             <Typography variant="h2" className={styles.title}>
-              Ready to Experience the{' '}
+              Ready to Experience the{" "}
               <span className={styles.highlight}>SOHO Life?</span>
             </Typography>
 
             <Typography variant="body1" className={styles.description}>
-              Take the first step towards owning your dream home. Schedule a site visit
-              today and discover the perfect blend of luxury, comfort, and convenience
-              at Nambiar District 25 Phase 2.
+              Take the first step towards owning your dream home. Schedule a
+              site visit today and discover the perfect blend of luxury,
+              comfort, and convenience at Nambiar District 25 Phase 2.
             </Typography>
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className={styles.ctaButtons}>
-              <motion.div variants={pulseVariants} initial="initial" animate="animate">
+              <motion.div
+                variants={pulseVariants}
+                initial="initial"
+                animate="animate"
+              >
                 <Button
                   variant="secondary"
                   size="large"
@@ -220,7 +224,10 @@ const CTASection = () => {
             </motion.div>
 
             {/* Trust Indicators - Enhanced Cards */}
-            <motion.div variants={itemVariants} className={styles.trustIndicators}>
+            <motion.div
+              variants={itemVariants}
+              className={styles.trustIndicators}
+            >
               <motion.div
                 className={styles.trustCard}
                 whileHover={{ scale: 1.02, y: -2 }}
@@ -230,7 +237,9 @@ const CTASection = () => {
                 </div>
                 <div className={styles.trustContent}>
                   <span className={styles.trustLabel}>RERA Registered</span>
-                  <span className={styles.trustSubtext}>Government Approved</span>
+                  <span className={styles.trustSubtext}>
+                    Government Approved
+                  </span>
                 </div>
               </motion.div>
 
@@ -262,9 +271,15 @@ const CTASection = () => {
             </motion.div>
 
             {/* Mobile/Tablet Trust Indicators (Simple) */}
-            <motion.div variants={itemVariants} className={styles.trustIndicatorsMobile}>
+            <motion.div
+              variants={itemVariants}
+              className={styles.trustIndicatorsMobile}
+            >
               <div className={styles.trustItem}>
-                <Icon icon="mdi:shield-check" className={styles.trustItemIcon} />
+                <Icon
+                  icon="mdi:shield-check"
+                  className={styles.trustItemIcon}
+                />
                 <span>RERA Registered</span>
               </div>
               <div className={styles.trustDivider} />
@@ -274,7 +289,10 @@ const CTASection = () => {
               </div>
               <div className={styles.trustDivider} />
               <div className={styles.trustItem}>
-                <Icon icon="mdi:account-group" className={styles.trustItemIcon} />
+                <Icon
+                  icon="mdi:account-group"
+                  className={styles.trustItemIcon}
+                />
                 <span>750+ Happy Families</span>
               </div>
             </motion.div>
