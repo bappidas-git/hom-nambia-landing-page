@@ -180,10 +180,11 @@ const AmenitiesSection = () => {
                 key={pill.id}
                 className={`${styles.categoryPill} ${selectedCategory === pill.id ? styles.activePill : ''}`}
                 onClick={() => handleCategoryChange(pill.id)}
+                style={{ color: selectedCategory === pill.id ? '#0A1628' : '#D9DCE0' }}
               >
                 <Icon icon={pill.icon} className={styles.pillIcon} />
-                <span className={styles.pillLabel}>{pill.label}</span>
-                <span className={styles.pillCount}>{pill.count}</span>
+                <span className={styles.pillLabel} style={{ color: 'inherit' }}>{pill.label}</span>
+                <span className={styles.pillCount} style={{ color: 'inherit' }}>{pill.count}</span>
               </button>
             ))}
           </motion.div>
@@ -221,7 +222,7 @@ const AmenitiesSection = () => {
                         style={{ color: amenity.iconColor }}
                       />
                     </div>
-                    <Typography className={styles.amenityName}>
+                    <Typography className={styles.amenityName} sx={{ color: '#F2F3F4 !important' }}>
                       {amenity.name}
                     </Typography>
                     {/* Show description on hover */}
@@ -232,6 +233,7 @@ const AmenitiesSection = () => {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
+                          style={{ color: '#D9DCE0' }}
                         >
                           {amenity.description}
                         </motion.p>
@@ -264,7 +266,7 @@ const AmenitiesSection = () => {
               {/* Scroll Indicators */}
               <div className={styles.scrollIndicator}>
                 <Icon icon="mdi:gesture-swipe-horizontal" />
-                <span>Scroll to explore</span>
+                <span style={{ color: '#B8BCC2' }}>Scroll to explore</span>
               </div>
             </motion.div>
           </AnimatePresence>

@@ -187,7 +187,7 @@ const PricingSection = () => {
               <span className={styles.underlineBar} />
             </div>
 
-            <Typography className={styles.sectionSubtitle}>
+            <Typography className={styles.sectionSubtitle} sx={{ color: '#D9DCE0 !important' }}>
               Starting from <span className={styles.priceHighlight}>₹{priceRange.startingFrom}*</span> onwards
             </Typography>
           </motion.div>
@@ -266,7 +266,7 @@ const PricingSection = () => {
           {/* Disclaimer - Compact */}
           <motion.div variants={itemVariants} className={styles.disclaimer}>
             <Icon icon="mdi:information-outline" />
-            <Typography>
+            <Typography sx={{ color: '#C8CBCF !important' }}>
               *Prices are indicative. GST & charges applicable. Contact sales for latest offers.
             </Typography>
           </motion.div>

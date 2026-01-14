@@ -171,7 +171,7 @@ const LocationSection = () => {
                         <Typography variant="subtitle2" className={styles.connectivityTitle}>
                           {highlight.title}
                         </Typography>
-                        <Typography variant="caption" className={styles.connectivityDesc}>
+                        <Typography variant="caption" className={styles.connectivityDesc} sx={{ color: '#D9DCE0 !important' }}>
                           {highlight.description}
                         </Typography>
                       </div>
@@ -344,7 +344,7 @@ const LocationSection = () => {
                   <Typography variant="subtitle1" className={styles.featureTitle}>
                     {feature.title}
                   </Typography>
-                  <Typography variant="body2" className={styles.featureDesc}>
+                  <Typography variant="body2" className={styles.featureDesc} sx={{ color: '#D9DCE0 !important' }}>
                     {feature.desc}
                   </Typography>
                 </motion.div>
