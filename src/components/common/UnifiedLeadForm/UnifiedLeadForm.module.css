@@ -68,6 +68,10 @@
   border-radius: 0;
 }
 
+.variantHero .form {
+  gap: 12px;
+}
+
 .variantHero .formTitle {
   color: var(--primary-dark) !important;
 }
@@ -76,8 +80,43 @@
   color: var(--text-gray) !important;
 }
 
+.variantHero .textField :global(.MuiOutlinedInput-root) {
+  background: #F8F9FB;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.variantHero .textField :global(.MuiOutlinedInput-notchedOutline) {
+  border-color: #E8ECF0;
+  border-width: 1.5px;
+}
+
+.variantHero .textField :global(.MuiOutlinedInput-root:hover) {
+  background: #FFFFFF;
+}
+
+.variantHero .textField :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
+  border-color: rgba(201, 162, 39, 0.4);
+}
+
+.variantHero .textField :global(.MuiOutlinedInput-root.Mui-focused) {
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.12);
+}
+
+.variantHero .textField :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
+  border-color: #C9A227;
+  border-width: 2px;
+}
+
+.variantHero .textField :global(.MuiInputBase-input) {
+  padding: 12px 14px;
+  font-size: 0.9rem;
+}
+
 .variantHero .inputIcon {
-  color: var(--text-gray);
+  color: #9CA3AF;
+  font-size: 18px;
 }
 
 .variantHero .textField :global(.MuiOutlinedInput-root.Mui-focused) .inputIcon {
@@ -86,26 +125,62 @@
 
 .variantHero .countryCode {
   color: var(--text-dark-gray) !important;
+  font-size: 0.9rem !important;
 }
 
 .variantHero .prefixDivider {
-  color: var(--border-gray);
+  color: #D1D5DB;
+  margin: 0 6px;
+}
+
+.variantHero .submitWrapper {
+  margin-top: 4px;
+}
+
+.variantHero .submitButton {
+  padding: 12px 24px !important;
+  font-size: 0.9375rem !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.35) !important;
+}
+
+.variantHero .submitButton:hover {
+  box-shadow: 0 6px 24px rgba(201, 162, 39, 0.45) !important;
+}
+
+.variantHero .trustBadges {
+  margin-top: 12px;
+  padding-top: 12px;
+  gap: 8px;
+  border-top: 1px solid #F0F1F3;
 }
 
 .variantHero .trustBadge {
-  color: var(--text-gray);
+  color: #6B7280;
+  font-size: 0.75rem;
+  gap: 4px;
 }
 
 .variantHero .trustIcon {
-  color: #4CAF50;
+  color: #10B981;
+  font-size: 14px;
 }
 
 .variantHero .consentText {
-  color: var(--text-gray) !important;
+  color: #9CA3AF !important;
+  font-size: 0.6875rem !important;
+  margin-top: 8px !important;
+  line-height: 1.4 !important;
 }
 
 .variantHero .privacyLink {
   color: var(--accent-gold);
+}
+
+.variantHero .messageField :global(.MuiInputBase-input) {
+  min-height: 60px;
 }
 
 /* ============================================
@@ -190,17 +265,23 @@
   padding: 0;
 }
 
+.variantDrawer .form {
+  gap: 12px;
+}
+
 .variantDrawer .formTitle {
   color: #FFFFFF !important;
+  text-align: center !important;
 }
 
 .variantDrawer .formSubtitle {
   color: rgba(255, 255, 255, 0.7) !important;
+  text-align: center !important;
 }
 
 .variantDrawer .textField :global(.MuiOutlinedInput-root) {
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 .variantDrawer .textField :global(.MuiOutlinedInput-notchedOutline) {
@@ -218,8 +299,8 @@
 
 .variantDrawer .textField :global(.MuiInputBase-input) {
   color: #FFFFFF;
-  padding: 16px 18px;
-  font-size: 1rem;
+  padding: 14px 16px;
+  font-size: 0.9375rem;
 }
 
 .variantDrawer .textField :global(.MuiInputBase-input::placeholder) {
@@ -228,7 +309,7 @@
 
 .variantDrawer .inputIcon {
   color: rgba(255, 255, 255, 0.5);
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .variantDrawer .textField :global(.MuiOutlinedInput-root.Mui-focused) .inputIcon {
@@ -238,23 +319,37 @@
 .variantDrawer .countryCode {
   color: rgba(255, 255, 255, 0.8) !important;
   font-weight: 600 !important;
-  font-size: 1rem !important;
+  font-size: 0.9375rem !important;
 }
 
 .variantDrawer .prefixDivider {
   color: rgba(255, 255, 255, 0.3);
 }
 
+.variantDrawer .submitWrapper {
+  margin-top: 4px;
+}
+
+.variantDrawer .trustBadges {
+  margin-top: 10px;
+  padding-top: 10px;
+  gap: 10px;
+}
+
 .variantDrawer .trustBadge {
   color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
 }
 
 .variantDrawer .trustIcon {
   color: #4CAF50;
+  font-size: 14px;
 }
 
 .variantDrawer .consentText {
   color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.6875rem !important;
+  text-align: center !important;
 }
 
 .variantDrawer .privacyLink {
@@ -262,10 +357,14 @@
 }
 
 .variantDrawer .submitButton {
-  padding: 16px 32px !important;
-  font-size: 1.0625rem !important;
-  border-radius: 14px !important;
-  box-shadow: 0 8px 32px rgba(201, 162, 39, 0.4) !important;
+  padding: 14px 28px !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 24px rgba(201, 162, 39, 0.4) !important;
+}
+
+.variantDrawer .messageField :global(.MuiInputBase-input) {
+  min-height: 50px;
 }
 
 /* ============================================
@@ -483,28 +582,28 @@
 /* Phone Section */
 .phoneSection {
   text-align: center;
-  margin-top: 24px;
-  padding-top: 20px;
+  margin-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .orText {
-  font-size: 0.8125rem !important;
+  font-size: 0.75rem !important;
   color: rgba(255, 255, 255, 0.5) !important;
-  margin-bottom: 12px !important;
+  margin-bottom: 8px !important;
 }
 
 .phoneLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #C9A227;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  padding: 12px 24px;
+  padding: 10px 20px;
   background: rgba(201, 162, 39, 0.1);
-  border-radius: 12px;
+  border-radius: 10px;
   transition: all 0.2s ease;
 }
 
@@ -514,7 +613,7 @@
 }
 
 .phoneLink svg {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* SweetAlert Custom Styles */
