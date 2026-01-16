@@ -416,9 +416,10 @@ const Footer = () => {
                 <Icon
                   icon="mdi:information-outline"
                   className={styles.disclaimerInfoIcon}
+                  style={{ color: '#FFFFFF66' }}
                 />
-                <span className={styles.disclaimerSummary}>
-                  This website is operated by <strong>H.O.M Advisory</strong>,
+                <span className={styles.disclaimerSummary} style={{ color: '#FFFFFF80' }}>
+                  This website is operated by <strong style={{ color: '#C9A227CC' }}>H.O.M Advisory</strong>,
                   authorized channel partner of Nambiar Builders. All content is
                   for informational purposes only; prices, specifications &
                   visuals are indicative and subject to change.
@@ -432,6 +433,7 @@ const Footer = () => {
                       ? "Collapse disclaimer"
                       : "Expand disclaimer"
                   }
+                  style={{ color: '#C9A227B3' }}
                 >
                   <span className={styles.readMoreText}>
                     {disclaimerExpanded ? "Less" : "More"}
@@ -453,7 +455,7 @@ const Footer = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.25, ease: "easeInOut" }}
                   >
-                    <p className={styles.disclaimerFullText}>
+                    <p className={styles.disclaimerFullText} style={{ color: '#FFFFFF73' }}>
                       The content on this website is provided solely for general
                       informational and reference purposes and shall not be
                       construed as an offer, invitation, solicitation, or
@@ -466,7 +468,7 @@ const Footer = () => {
                       are for illustrative purposes only and actual properties,
                       views, and finishes may vary; this is not an official
                       Nambiar Builders website and is owned, operated, and
-                      maintained by <strong>H.O.M Advisory</strong>, the
+                      maintained by <strong style={{ color: '#C9A227BF' }}>H.O.M Advisory</strong>, the
                       authorized channel partner and marketing associate of
                       Nambiar Builders for the promotion and sale of Nambiar
                       District 25 Phase 2.
@@ -478,7 +480,7 @@ const Footer = () => {
 
             {/* Footer Links & Copyright */}
             <div className={styles.footerBottom}>
-              <p className={styles.copyright}>
+              <p className={styles.copyright} style={{ color: '#FFFFFF99' }}>
                 &copy; {new Date().getFullYear()} H.O.M Advisory. All Rights
                 Reserved.
               </p>
@@ -486,13 +488,15 @@ const Footer = () => {
                 <button
                   className={styles.legalLink}
                   onClick={() => setPrivacyModalOpen(true)}
+                  style={{ color: '#FFFFFFB3' }}
                 >
                   Privacy Policy
                 </button>
-                <span className={styles.linkDivider}>|</span>
+                <span className={styles.linkDivider} style={{ color: '#FFFFFF4D' }}>|</span>
                 <button
                   className={styles.legalLink}
                   onClick={() => setTermsModalOpen(true)}
+                  style={{ color: '#FFFFFFB3' }}
                 >
                   Terms & Conditions
                 </button>
@@ -504,7 +508,7 @@ const Footer = () => {
         {/* Developer Credit Bar */}
         <div className={styles.developerBar}>
           <Container maxWidth="xl">
-            <p className={styles.developerText}>
+            <p className={styles.developerText} style={{ color: '#FFFFFF80' }}>
               Designed and Developed by{" "}
               <a
                 href="https://assamdigital.com"

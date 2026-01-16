@@ -238,7 +238,7 @@ const HeroSection = () => {
                       </div>
                       <div className={styles.infoCardContent}>
                         <span className={styles.infoCardValue}>{card.value}</span>
-                        <span className={styles.infoCardLabel}>{card.label}</span>
+                        <span className={styles.infoCardLabel} style={{ color: '#FFFFFFD9' }}>{card.label}</span>
                       </div>
                     </motion.div>
                   ))}
@@ -248,7 +248,7 @@ const HeroSection = () => {
               {/* Quick Features */}
               <motion.div variants={itemVariants} className={styles.quickFeatures}>
                 {quickFeatures.map((feature, index) => (
-                  <div key={index} className={styles.quickFeature}>
+                  <div key={index} className={styles.quickFeature} style={{ color: '#FFFFFFE6' }}>
                     <Icon icon={feature.icon} className={styles.featureIcon} />
                     <span>{feature.text}</span>
                   </div>

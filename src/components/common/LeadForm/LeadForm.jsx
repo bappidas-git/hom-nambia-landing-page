@@ -283,7 +283,7 @@ const LeadForm = ({
             {title}
           </Typography>
           {subtitle && (
-            <Typography variant="body2" className={styles.formSubtitle}>
+            <Typography variant="body2" className={styles.formSubtitle} sx={variant === 'dark' ? { color: '#FFFFFFB3 !important' } : undefined}>
               {subtitle}
             </Typography>
           )}
@@ -318,6 +318,7 @@ const LeadForm = ({
                   <Icon
                     icon="ic:outline-person"
                     className={styles.inputIcon}
+                    style={variant === 'dark' ? { color: '#FFFFFF99' } : undefined}
                   />
                 </InputAdornment>
               ),
@@ -351,10 +352,10 @@ const LeadForm = ({
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start" className={styles.mobilePrefix}>
-                  <Typography variant="body2" className={styles.countryCode}>
+                  <Typography variant="body2" className={styles.countryCode} sx={variant === 'dark' ? { color: '#FFFFFFCC !important' } : undefined}>
                     +91
                   </Typography>
-                  <span className={styles.prefixDivider}>-</span>
+                  <span className={styles.prefixDivider} style={variant === 'dark' ? { color: '#FFFFFF66' } : undefined}>-</span>
                 </InputAdornment>
               ),
               classes: {
@@ -393,6 +394,7 @@ const LeadForm = ({
                   <Icon
                     icon="ic:outline-email"
                     className={styles.inputIcon}
+                    style={variant === 'dark' ? { color: '#FFFFFF99' } : undefined}
                   />
                 </InputAdornment>
               ),
@@ -433,6 +435,7 @@ const LeadForm = ({
                   <Icon
                     icon="ic:outline-message"
                     className={styles.inputIcon}
+                    style={variant === 'dark' ? { color: '#FFFFFF99' } : undefined}
                   />
                 </InputAdornment>
               ),

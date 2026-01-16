@@ -129,7 +129,7 @@ const LeadFormDrawer = ({
                 <Typography variant="h4" id="drawer-title" className={styles.title}>
                   {title}
                 </Typography>
-                <Typography className={styles.subtitle}>
+                <Typography className={styles.subtitle} sx={{ color: '#FFFFFFB3 !important' }}>
                   {subtitle}
                 </Typography>
               </motion.div>

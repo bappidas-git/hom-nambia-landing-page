@@ -154,7 +154,7 @@ const ProjectHighlights = () => {
                     transition={{ delay: 0.5, duration: 0.4 }}
                   >
                     <span className={styles.acresValue}>100</span>
-                    <span className={styles.acresLabel}>Acres</span>
+                    <span className={styles.acresLabel} style={{ color: '#FFFFFFE6' }}>Acres</span>
                   </motion.div>
                 </div>
               </motion.div>

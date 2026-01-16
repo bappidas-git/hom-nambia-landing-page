@@ -188,7 +188,7 @@ const ThankYou = () => {
             <Typography variant="h2" className={styles.title}>
               Thank You, {userName}!
             </Typography>
-            <Typography className={styles.subtitle}>
+            <Typography className={styles.subtitle} sx={{ color: '#FFFFFFB3 !important' }}>
               Your enquiry has been submitted successfully
             </Typography>
           </motion.div>
@@ -202,7 +202,7 @@ const ThankYou = () => {
               <Typography className={styles.noticeTitle}>
                 Our sales expert will contact you within 24 hours
               </Typography>
-              <Typography className={styles.noticeDesc}>
+              <Typography className={styles.noticeDesc} sx={{ color: '#FFFFFFA6 !important' }}>
                 We're excited to help you find your dream home at Nambiar District 25 Phase 2
               </Typography>
             </div>
@@ -210,7 +210,7 @@ const ThankYou = () => {
 
           {/* Project Highlights */}
           <motion.div variants={itemVariants} className={styles.highlightsSection}>
-            <Typography className={styles.sectionLabel}>Project Highlights</Typography>
+            <Typography className={styles.sectionLabel} sx={{ color: '#FFFFFF80 !important' }}>Project Highlights</Typography>
             <div className={styles.highlightsGrid}>
               {projectHighlights.map((item, index) => (
                 <motion.div
@@ -253,11 +253,11 @@ const ThankYou = () => {
                     <Icon icon="mdi:phone" />
                   </div>
                   <div className={styles.contactDetails}>
-                    <span className={styles.contactLabel}>Call Us</span>
+                    <span className={styles.contactLabel} style={{ color: '#FFFFFF80' }}>Call Us</span>
                     <a href={`tel:${contactInfo.phone}`} className={styles.contactValue}>
                       {contactInfo.phone}
                     </a>
-                    <a href={`tel:${contactInfo.altPhone}`} className={styles.contactValueAlt}>
+                    <a href={`tel:${contactInfo.altPhone}`} className={styles.contactValueAlt} style={{ color: '#FFFFFFB3' }}>
                       {contactInfo.altPhone}
                     </a>
                   </div>
@@ -271,7 +271,7 @@ const ThankYou = () => {
                     <Icon icon="mdi:email" />
                   </div>
                   <div className={styles.contactDetails}>
-                    <span className={styles.contactLabel}>Email Us</span>
+                    <span className={styles.contactLabel} style={{ color: '#FFFFFF80' }}>Email Us</span>
                     <a href={`mailto:${contactInfo.email}`} className={styles.contactValue}>
                       {contactInfo.email}
                     </a>
@@ -286,7 +286,7 @@ const ThankYou = () => {
                     <Icon icon="mdi:clock-outline" />
                   </div>
                   <div className={styles.contactDetails}>
-                    <span className={styles.contactLabel}>Working Hours</span>
+                    <span className={styles.contactLabel} style={{ color: '#FFFFFF80' }}>Working Hours</span>
                     <span className={styles.contactValue}>{contactInfo.workingHours}</span>
                   </div>
                 </div>
@@ -299,7 +299,7 @@ const ThankYou = () => {
                     <Icon icon="mdi:map-marker" />
                   </div>
                   <div className={styles.contactDetails}>
-                    <span className={styles.contactLabel}>Visit Us</span>
+                    <span className={styles.contactLabel} style={{ color: '#FFFFFF80' }}>Visit Us</span>
                     <span className={styles.contactValue}>{contactInfo.address}</span>
                   </div>
                 </div>
@@ -309,7 +309,7 @@ const ThankYou = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants} className={styles.quickLinksSection}>
-            <Typography className={styles.sectionLabel}>Explore More</Typography>
+            <Typography className={styles.sectionLabel} sx={{ color: '#FFFFFF80 !important' }}>Explore More</Typography>
             <div className={styles.quickLinksGrid}>
               {quickLinks.map((link, index) => (
                 <motion.a
@@ -334,6 +334,7 @@ const ThankYou = () => {
             <motion.a
               href="/"
               className={styles.backHomeBtn}
+              style={{ color: '#FFFFFFB3' }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

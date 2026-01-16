@@ -98,6 +98,7 @@ const CTASection = () => {
         variants={floatVariants}
         initial="initial"
         animate="animate"
+        style={{ color: '#FFFFFF26' }}
       >
         <Icon icon="mdi:home-variant" />
       </motion.div>
@@ -107,7 +108,7 @@ const CTASection = () => {
         variants={floatVariants}
         initial="initial"
         animate="animate"
-        style={{ animationDelay: "1s" }}
+        style={{ animationDelay: "1s", color: '#FFFFFF26' }}
       >
         <Icon icon="mdi:star-four-points" />
       </motion.div>
@@ -117,7 +118,7 @@ const CTASection = () => {
         variants={floatVariants}
         initial="initial"
         animate="animate"
-        style={{ animationDelay: "2s" }}
+        style={{ animationDelay: "2s", color: '#FFFFFF26' }}
       >
         <Icon icon="mdi:key-variant" />
       </motion.div>
@@ -127,7 +128,7 @@ const CTASection = () => {
         variants={floatVariants}
         initial="initial"
         animate="animate"
-        style={{ animationDelay: "1.5s" }}
+        style={{ animationDelay: "1.5s", color: '#FFFFFF26' }}
       >
         <Icon icon="mdi:diamond-stone" />
       </motion.div>
@@ -172,7 +173,7 @@ const CTASection = () => {
                     <Icon icon={stat.icon} className={styles.statIcon} />
                   </div>
                   <div className={styles.statValue}>{stat.value}</div>
-                  <div className={styles.statLabel}>{stat.label}</div>
+                  <div className={styles.statLabel} style={{ color: '#0A1628B3' }}>{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -189,7 +190,7 @@ const CTASection = () => {
               <span className={styles.highlight}>SOHO Life?</span>
             </Typography>
 
-            <Typography variant="body1" className={styles.description}>
+            <Typography variant="body1" className={styles.description} sx={{ color: '#0A1628CC !important' }}>
               Take the first step towards owning your dream home. Schedule a
               site visit today and discover the perfect blend of luxury,
               comfort, and convenience at Nambiar District 25 Phase 2.
@@ -238,7 +239,7 @@ const CTASection = () => {
                 </div>
                 <div className={styles.trustContent}>
                   <span className={styles.trustLabel}>RERA Registered</span>
-                  <span className={styles.trustSubtext}>
+                  <span className={styles.trustSubtext} style={{ color: '#0A162899' }}>
                     Government Approved
                   </span>
                 </div>
@@ -253,7 +254,7 @@ const CTASection = () => {
                 </div>
                 <div className={styles.trustContent}>
                   <span className={styles.trustLabel}>Bank Loan Approved</span>
-                  <span className={styles.trustSubtext}>Easy Financing</span>
+                  <span className={styles.trustSubtext} style={{ color: '#0A162899' }}>Easy Financing</span>
                 </div>
               </motion.div>
 
@@ -266,7 +267,7 @@ const CTASection = () => {
                 </div>
                 <div className={styles.trustContent}>
                   <span className={styles.trustLabel}>750+ Families</span>
-                  <span className={styles.trustSubtext}>Trust Nambiar</span>
+                  <span className={styles.trustSubtext} style={{ color: '#0A162899' }}>Trust Nambiar</span>
                 </div>
               </motion.div>
             </motion.div>

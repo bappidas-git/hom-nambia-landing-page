@@ -338,7 +338,7 @@ const UnifiedLeadForm = ({
             </Typography>
           )}
           {showSubtitle && subtitle && (
-            <Typography variant="body2" className={styles.formSubtitle}>
+            <Typography variant="body2" className={styles.formSubtitle} sx={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFFB3 !important' } : undefined}>
               {subtitle}
             </Typography>
           )}
@@ -375,7 +375,7 @@ const UnifiedLeadForm = ({
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <Icon icon="mdi:account-outline" className={styles.inputIcon} />
+                  <Icon icon="mdi:account-outline" className={styles.inputIcon} style={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFF80' } : undefined} />
                 </InputAdornment>
               ),
             }}
@@ -408,10 +408,10 @@ const UnifiedLeadForm = ({
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start" className={styles.mobilePrefix}>
-                  <Typography variant="body2" className={styles.countryCode}>
+                  <Typography variant="body2" className={styles.countryCode} sx={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFFCC !important' } : undefined}>
                     +91
                   </Typography>
-                  <span className={styles.prefixDivider}>-</span>
+                  <span className={styles.prefixDivider} style={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFF4D' } : undefined}>-</span>
                 </InputAdornment>
               ),
             }}
@@ -447,7 +447,7 @@ const UnifiedLeadForm = ({
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <Icon icon="mdi:email-outline" className={styles.inputIcon} />
+                  <Icon icon="mdi:email-outline" className={styles.inputIcon} style={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFF80' } : undefined} />
                 </InputAdornment>
               ),
             }}
@@ -482,7 +482,7 @@ const UnifiedLeadForm = ({
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start" className={styles.messageAdornment}>
-                    <Icon icon="mdi:message-outline" className={styles.inputIcon} />
+                    <Icon icon="mdi:message-outline" className={styles.inputIcon} style={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFF80' } : undefined} />
                   </InputAdornment>
                 ),
               }}
@@ -532,15 +532,15 @@ const UnifiedLeadForm = ({
             animate="visible"
             className={styles.trustBadges}
           >
-            <div className={styles.trustBadge}>
+            <div className={styles.trustBadge} style={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFF99' } : undefined}>
               <Icon icon="mdi:shield-check" className={styles.trustIcon} />
               <span>100% Secure</span>
             </div>
-            <div className={styles.trustBadge}>
+            <div className={styles.trustBadge} style={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFF99' } : undefined}>
               <Icon icon="mdi:phone-in-talk" className={styles.trustIcon} />
               <span>Quick Response</span>
             </div>
-            <div className={styles.trustBadge}>
+            <div className={styles.trustBadge} style={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFF99' } : undefined}>
               <Icon icon="mdi:lock" className={styles.trustIcon} />
               <span>Privacy Protected</span>
             </div>
@@ -555,7 +555,7 @@ const UnifiedLeadForm = ({
             initial="hidden"
             animate="visible"
           >
-            <Typography variant="caption" className={styles.consentText}>
+            <Typography variant="caption" className={styles.consentText} sx={(variant === 'dark' || variant === 'drawer') ? { color: '#FFFFFF99 !important' } : undefined}>
               By submitting, you agree to our{' '}
               <a href="#privacy" className={styles.privacyLink}>Privacy Policy</a>
               {' '}and consent to receive communications about Nambiar District 25.
@@ -567,7 +567,7 @@ const UnifiedLeadForm = ({
       {/* Phone Button */}
       {showPhoneButton && (
         <div className={styles.phoneSection}>
-          <Typography className={styles.orText}>Or call us directly</Typography>
+          <Typography className={styles.orText} sx={{ color: '#FFFFFF80 !important' }}>Or call us directly</Typography>
           <a href="tel:+919876543210" className={styles.phoneLink}>
             <Icon icon="mdi:phone" />
             <span>+91 98765 43210</span>
