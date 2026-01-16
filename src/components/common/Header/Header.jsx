@@ -200,11 +200,11 @@ const Header = ({ forceCloseMenu = false }) => {
               transition={{ delay: 0.5, duration: 0.3 }}
             >
               <a
-                href="tel:+919513159908"
+                href="tel:+919632367929"
                 className={styles.callButton}
               >
                 <Icon icon="mdi:phone" className={styles.callButtonIcon} />
-                +91 95131 59908
+                +91-9632367929
               </a>
             </motion.div>
           )}
@@ -270,12 +270,12 @@ const Header = ({ forceCloseMenu = false }) => {
               </ul>
               <div className={styles.mobileNavCTA}>
                 <a
-                  href="tel:+919513159908"
+                  href="tel:+919632367929"
                   className={styles.mobileCallButton}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Icon icon="mdi:phone" className={styles.callButtonIcon} />
-                  +91 95131 59908
+                  +91-9632367929
                 </a>
               </div>
             </nav>

@@ -23,10 +23,10 @@ const projectHighlights = [
 const contactInfo = {
   companyName: 'H.O.M Advisory',
   designation: 'Authorized Marketing Partner',
-  phone: '+91 98765 43210',
-  altPhone: '+91 98765 43211',
-  email: 'sales@homadvisory.in',
-  address: 'Brigade Gateway, Rajajinagar, Bangalore - 560010',
+  phone: '+91-9632367929',
+  altPhone: '+91-9632367929',
+  email: 'sales@nambiardistrict25.com',
+  address: 'CD Road, Dommasandra, Off Sarjapur Road, Bengaluru, Karnataka 562125',
   workingHours: 'Mon - Sun: 9:00 AM - 8:00 PM',
 };
 
