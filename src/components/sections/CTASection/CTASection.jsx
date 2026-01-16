@@ -11,6 +11,7 @@ import { Icon } from "@iconify/react";
 import Button from "../../common/Button/Button";
 import { useModal } from "../../../context/ModalContext";
 import styles from "./CTASection.module.css";
+import clubImage from "../../../assets/images/club-image/club-image.jpg";
 
 const CTASection = () => {
   const { openLeadDrawer } = useModal();
@@ -145,7 +146,7 @@ const CTASection = () => {
             <div className={styles.imageCard}>
               <div className={styles.imageCardGlow} />
               <img
-                src="https://placehold.co/400x280/0A1628/D4AF37?text=SOHO+Living+400+X+280"
+                src={clubImage}
                 alt="SOHO Living at Nambiar District 25"
                 className={styles.heroImage}
               />
