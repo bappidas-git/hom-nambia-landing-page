@@ -315,10 +315,10 @@ const useIdlePreload = () => {
     if ('requestIdleCallback' in window) {
       const sections = [
         () => import('./components/sections/OverviewSection/OverviewSection'),
-        () => import('./components/sections/AmenitiesSection/AmenitiesSection'),
-        () => import('./components/sections/PricingSection/PricingSection'),
         () => import('./components/sections/FloorPlansSection/FloorPlansSection'),
         () => import('./components/sections/LocationSection/LocationSection'),
+        () => import('./components/sections/AmenitiesSection/AmenitiesSection'),
+        () => import('./components/sections/PricingSection/PricingSection'),
         () => import('./components/sections/CTASection/CTASection'),
         () => import('./components/sections/ContactSection/ContactSection'),
       ];
@@ -390,18 +390,6 @@ const HomePageContent = () => {
         </ErrorBoundary>
 
         <ErrorBoundary>
-          <Suspense fallback={<SectionLoader height={600} variant="skeleton" />}>
-            <AmenitiesSection />
-          </Suspense>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
-            <PricingSection />
-          </Suspense>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
             <FloorPlansSection />
           </Suspense>
@@ -410,6 +398,18 @@ const HomePageContent = () => {
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
             <LocationSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={600} variant="skeleton" />}>
+            <AmenitiesSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
+            <PricingSection />
           </Suspense>
         </ErrorBoundary>
 
