@@ -404,10 +404,20 @@ const Footer = () => {
             {/* RERA Badge */}
             <div className={styles.reraBadge}>
               <Icon icon="mdi:shield-check" className={styles.reraIcon} />
-              <span className={styles.reraLabel}>RERA Registered:</span>
-              <span className={styles.reraNumber}>
-                PRM/KA/RERA/1251/446/PR/171015/005205
-              </span>
+              <div className={styles.reraContent}>
+                <div className={styles.reraRow}>
+                  <span className={styles.reraLabel}>Nambiar | Phase 2 RERA:</span>
+                  <span className={styles.reraNumber}>
+                    PRM/KA/RERA/1251/308/PR/200825/008011
+                  </span>
+                </div>
+                <div className={styles.reraRow}>
+                  <span className={styles.reraLabel}>H.O.M Advisory Agent RERA:</span>
+                  <span className={styles.reraNumber}>
+                    PRM/KA/RERA/1251/310/AG/251018/006354
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Compact Disclaimer Bar */}
@@ -418,10 +428,10 @@ const Footer = () => {
                   className={styles.disclaimerInfoIcon}
                 />
                 <span className={styles.disclaimerSummary}>
-                  This website is operated by <strong>H.O.M Advisory</strong>,
-                  authorized channel partner of Nambiar Builders. All content is
-                  for informational purposes only; prices, specifications &
-                  visuals are indicative and subject to change.
+                  This website is owned and operated by <strong>H.O.M Advisory</strong>,
+                  RERA-registered agent & authorized channel partner of Nambiar Builders.
+                  All content is for informational purposes only; prices, specifications
+                  & visuals are indicative and subject to change.
                 </span>
                 <button
                   className={styles.disclaimerToggle}
@@ -454,22 +464,16 @@ const Footer = () => {
                     transition={{ duration: 0.25, ease: "easeInOut" }}
                   >
                     <p className={styles.disclaimerFullText}>
-                      The content on this website is provided solely for general
-                      informational and reference purposes and shall not be
-                      construed as an offer, invitation, solicitation, or
-                      commitment of any kind; all prices, specifications,
-                      dimensions, floor plans, amenities, and related details
-                      are indicative and subject to change without prior notice
-                      at the sole discretion of Nambiar Builders, with
-                      availability subject to real-time inventory; all
-                      photographs, images, renders, and visual representations
-                      are for illustrative purposes only and actual properties,
-                      views, and finishes may vary; this is not an official
-                      Nambiar Builders website and is owned, operated, and
-                      maintained by <strong>H.O.M Advisory</strong>, the
-                      authorized channel partner and marketing associate of
-                      Nambiar Builders for the promotion and sale of Nambiar
-                      District 25 Phase 2.
+                      This website is owned, operated, and maintained by{" "}
+                      <strong>H.O.M Advisory</strong>, a RERA-registered real
+                      estate agent (Reg. No. PRM/KA/RERA/1251/310/AG/251018/006354)
+                      and an authorized channel partner of Nambiar Builders for
+                      the promotion of Nambiar District 25 – Phase 2. This is not
+                      the official website of Nambiar Builders. All prices,
+                      specifications, layouts, floor plans, amenities, and other
+                      details are indicative and subject to change without prior
+                      notice, subject to availability and approvals. Images and
+                      artistic impressions are for illustrative purposes only.
                     </p>
                   </motion.div>
                 )}

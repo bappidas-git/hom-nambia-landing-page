@@ -49,6 +49,21 @@
   letter-spacing: 0.5px;
 }
 
+.reraContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.reraRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
 /* Compact Disclaimer Bar */
 .compactDisclaimer {
   background: rgba(255, 255, 255, 0.03);
@@ -374,9 +389,18 @@
 
   .reraBadge {
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-2);
     padding: var(--space-3);
     text-align: center;
+  }
+
+  .reraContent {
+    gap: var(--space-2);
+  }
+
+  .reraRow {
+    flex-direction: column;
+    gap: var(--space-1);
   }
 
   .reraLabel {
@@ -384,7 +408,7 @@
   }
 
   .reraNumber {
-    font-size: var(--fs-xs);
+    font-size: 10px;
     word-break: break-all;
   }
 
@@ -446,6 +470,22 @@
   .reraBadge {
     padding: var(--space-2);
     margin-bottom: var(--space-4);
+  }
+
+  .reraContent {
+    gap: var(--space-1);
+  }
+
+  .reraRow {
+    gap: 2px;
+  }
+
+  .reraLabel {
+    font-size: 9px;
+  }
+
+  .reraNumber {
+    font-size: 9px;
   }
 
   .reraIcon {
