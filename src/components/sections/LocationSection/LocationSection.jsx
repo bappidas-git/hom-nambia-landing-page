@@ -19,6 +19,7 @@ import {
   getLandmarksByCategory,
 } from '../../../data/locationData';
 import locationPinAnimation from '../../../assets/lottie/location-pin.json';
+import interactiveMapImage from '../../../assets/images/map/interactive-map.jpg';
 import styles from './LocationSection.module.css';
 
 const LocationSection = () => {
@@ -119,8 +120,8 @@ const LocationSection = () => {
                   {/* Google Maps Embed Placeholder - Replace with actual embed */}
                   <div className={styles.mapPlaceholder}>
                     <img
-                      src="https://placehold.co/800x500/0A1628/C9A227?text=Interactive+Map+800x500"
-                      alt="Location Map"
+                      src={interactiveMapImage}
+                      alt="Nambiar District 25 Phase 2 Location Map"
                       className={styles.mapImage}
                       loading="lazy"
                     />
