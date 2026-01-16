@@ -3,6 +3,14 @@
    Floor plan layouts and specifications
    ============================================ */
 
+// Import floor plan images
+import floorPlan2BHK1245 from '../assets/images/floor-plans/2BHK-1245-squre-feet.jpg';
+import floorPlan3BHK1454 from '../assets/images/floor-plans/3BHK-1454-squre-feet.jpg';
+import floorPlan3BHK1695 from '../assets/images/floor-plans/3BHK-1695-squre-feet.jpg';
+import floorPlan3BHK2046 from '../assets/images/floor-plans/3BHK-2046-squre-feet.jpg';
+import floorPlan4BHK2561 from '../assets/images/floor-plans/4BHK-2561-squre-feet.jpg';
+import floorPlan4BHK2990 from '../assets/images/floor-plans/4BHK-2990-squre-feet.jpg';
+
 // Floor plan features common to all units
 export const commonFeatures = [
   'Vaastu-compliant designs',
@@ -54,8 +62,8 @@ export const floorPlansData = [
     bedrooms: 2,
     bathrooms: 2,
     balconies: 1,
-    image: 'https://placehold.co/800x600/0A1628/C9A227?text=2+BHK+Floor+Plan+800x600',
-    thumbnailImage: 'https://placehold.co/400x300/0A1628/C9A227?text=2+BHK+Thumbnail',
+    image: floorPlan2BHK1245,
+    thumbnailImage: floorPlan2BHK1245,
     description: 'Thoughtfully designed 2 BHK apartment with optimal space utilization',
     carpetArea: '1050 sq.ft',
     builtUpArea: '1245 sq.ft',
@@ -97,8 +105,8 @@ export const floorPlansData = [
     bedrooms: 3,
     bathrooms: 2,
     balconies: 2,
-    image: 'https://placehold.co/800x600/0A1628/C9A227?text=3+BHK+2T+Floor+Plan+800x600',
-    thumbnailImage: 'https://placehold.co/400x300/0A1628/C9A227?text=3+BHK+2T+Thumbnail',
+    image: floorPlan3BHK1454,
+    thumbnailImage: floorPlan3BHK1454,
     description: 'Compact 3 BHK layout with smart space utilization',
     carpetArea: '1220 sq.ft',
     builtUpArea: '1454 sq.ft',
@@ -142,8 +150,8 @@ export const floorPlansData = [
     bedrooms: 3,
     bathrooms: 3,
     balconies: 2,
-    image: 'https://placehold.co/800x600/0A1628/C9A227?text=3+BHK+Classic+Floor+Plan+800x600',
-    thumbnailImage: 'https://placehold.co/400x300/0A1628/C9A227?text=3+BHK+Classic+Thumbnail',
+    image: floorPlan3BHK1695,
+    thumbnailImage: floorPlan3BHK1695,
     description: 'Spacious 3 BHK with all bedrooms having attached bathrooms',
     carpetArea: '1420 sq.ft',
     builtUpArea: '1695 sq.ft',
@@ -188,8 +196,8 @@ export const floorPlansData = [
     bedrooms: 3,
     bathrooms: 3,
     balconies: 2,
-    image: 'https://placehold.co/800x600/0A1628/C9A227?text=3+BHK+Premium+Floor+Plan+800x600',
-    thumbnailImage: 'https://placehold.co/400x300/0A1628/C9A227?text=3+BHK+Premium+Thumbnail',
+    image: floorPlan3BHK2046,
+    thumbnailImage: floorPlan3BHK2046,
     description: 'Premium 3 BHK with master suite and walk-in closet',
     carpetArea: '1595 sq.ft',
     builtUpArea: '1900 sq.ft',
@@ -234,8 +242,8 @@ export const floorPlansData = [
     bedrooms: 3,
     bathrooms: 3,
     balconies: 3,
-    image: 'https://placehold.co/800x600/0A1628/C9A227?text=3+BHK+Deluxe+Floor+Plan+800x600',
-    thumbnailImage: 'https://placehold.co/400x300/0A1628/C9A227?text=3+BHK+Deluxe+Thumbnail',
+    image: floorPlan3BHK2046,
+    thumbnailImage: floorPlan3BHK2046,
     description: 'Corner unit deluxe 3 BHK with panoramic views',
     carpetArea: '1718 sq.ft',
     builtUpArea: '2046 sq.ft',
@@ -280,8 +288,8 @@ export const floorPlansData = [
     bedrooms: 4,
     bathrooms: 4,
     balconies: 3,
-    image: 'https://placehold.co/800x600/0A1628/C9A227?text=4+BHK+Luxury+Floor+Plan+800x600',
-    thumbnailImage: 'https://placehold.co/400x300/0A1628/C9A227?text=4+BHK+Luxury+Thumbnail',
+    image: floorPlan4BHK2561,
+    thumbnailImage: floorPlan4BHK2561,
     description: 'Luxurious 4 BHK with grand living spaces and servant quarters',
     carpetArea: '2150 sq.ft',
     builtUpArea: '2561 sq.ft',
@@ -327,8 +335,8 @@ export const floorPlansData = [
     bedrooms: 5,
     bathrooms: 5,
     balconies: 4,
-    image: 'https://placehold.co/800x600/0A1628/C9A227?text=4.5+BHK+Penthouse+Floor+Plan+800x600',
-    thumbnailImage: 'https://placehold.co/400x300/0A1628/C9A227?text=4.5+BHK+Penthouse+Thumbnail',
+    image: floorPlan4BHK2990,
+    thumbnailImage: floorPlan4BHK2990,
     description: 'Exclusive penthouse with double height living and private terrace',
     carpetArea: '2510 sq.ft',
     builtUpArea: '2990 sq.ft',

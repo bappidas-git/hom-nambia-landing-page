@@ -223,6 +223,14 @@ const FloorPlansSection = () => {
                       alt={`${selectedPlan.name} Floor Plan`}
                       className={styles.showcaseImage}
                     />
+                    {/* Blur overlay with preview label - always visible */}
+                    <div className={styles.blurOverlay}>
+                      <div className={styles.previewLabel}>
+                        <Icon icon="mdi:floor-plan" />
+                        <span>Click to View Full Plan</span>
+                      </div>
+                    </div>
+                    {/* Hover overlay with CTA button */}
                     <div className={styles.imageOverlay}>
                       <div className={styles.viewPlanBtn}>
                         <Icon icon="mdi:magnify-plus-outline" />
