@@ -35,18 +35,6 @@ const menuItems = [
     href: '#overview',
   },
   {
-    id: 'amenities',
-    label: 'Amenities',
-    icon: 'ic:outline-interests',
-    href: '#amenities',
-  },
-  {
-    id: 'pricing',
-    label: 'Pricing',
-    icon: 'ic:outline-local-offer',
-    href: '#pricing',
-  },
-  {
     id: 'floor-plans',
     label: 'Floor Plans',
     icon: 'ic:outline-apartment',
@@ -57,6 +45,18 @@ const menuItems = [
     label: 'Location',
     icon: 'ic:outline-location-on',
     href: '#location',
+  },
+  {
+    id: 'amenities',
+    label: 'Amenities',
+    icon: 'ic:outline-interests',
+    href: '#amenities',
+  },
+  {
+    id: 'pricing',
+    label: 'Pricing',
+    icon: 'ic:outline-local-offer',
+    href: '#pricing',
   },
   {
     id: 'contact',

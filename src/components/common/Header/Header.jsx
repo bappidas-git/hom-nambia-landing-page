@@ -18,10 +18,10 @@ import iconLogo from '../../../assets/images/logo/HOM-Icon.png';
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Overview', href: '#overview' },
-  { label: 'Amenities', href: '#amenities' },
-  { label: 'Pricing', href: '#pricing' },
   { label: 'Floor Plans', href: '#floor-plans' },
   { label: 'Location', href: '#location' },
+  { label: 'Amenities', href: '#amenities' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'Contact', href: '#contact' },
 ];
 
