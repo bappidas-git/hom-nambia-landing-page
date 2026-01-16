@@ -34,10 +34,6 @@
   filter: brightness(1);
 }
 
-.header.scrolled .tagline {
-  color: var(--text-gray);
-}
-
 .header.scrolled .menuIcon {
   color: var(--primary-dark);
 }
@@ -70,7 +66,7 @@
 }
 
 .mainLogo {
-  height: 36px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
@@ -102,14 +98,6 @@
 
 .scrolled .projectLogo {
   filter: none;
-}
-
-.tagline {
-  font-size: var(--fs-xs);
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: var(--fw-medium);
-  letter-spacing: var(--ls-wide);
-  transition: color var(--transition-base);
 }
 
 /* Desktop Navigation */
@@ -223,9 +211,9 @@
 }
 
 .iconLogo {
-  width: 50px;
-  height: 50px;
-  border-radius: var(--radius-lg);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: linear-gradient(
     135deg,
@@ -236,12 +224,14 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 4px;
 }
 
 .iconLogoImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
 }
 
 /* Menu Button */
@@ -332,8 +322,8 @@
   }
 
   .iconLogo {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
   }
 }
 
@@ -365,7 +355,7 @@
   }
 
   .mainLogo {
-    height: 28px;
+    height: 40px;
   }
 
   .projectLogo {
@@ -376,13 +366,9 @@
     height: 24px;
   }
 
-  .tagline {
-    font-size: 10px;
-  }
-
   .iconLogo {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
   }
 }
 
@@ -395,9 +381,13 @@
     display: none;
   }
 
+  .mainLogo {
+    height: 36px;
+  }
+
   .iconLogo {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
 }
 
