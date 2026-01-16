@@ -146,6 +146,7 @@ export const SimpleCounter = ({
   duration = 2000,
   className = '',
   label = null,
+  color = 'gold',
   ...props
 }) => {
   const [count, setCount] = useState(0);
