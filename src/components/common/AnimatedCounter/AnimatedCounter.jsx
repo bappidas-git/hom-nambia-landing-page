@@ -120,7 +120,7 @@ const AnimatedCounter = ({
           <span className={styles.value}>{valueString}</span>
           <span className={styles.suffix}>{suffix}</span>
         </div>
-        {label && <div className={styles.label}>{label}</div>}
+        {label && <div className={styles.label} style={color === 'white' ? { color: '#FFFFFFCC' } : undefined}>{label}</div>}
       </div>
     );
   }
@@ -133,7 +133,7 @@ const AnimatedCounter = ({
         <span className={styles.value}>{formatNumber(displayValue)}</span>
         <span className={styles.suffix}>{suffix || trailingSuffix}</span>
       </div>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && <div className={styles.label} style={color === 'white' ? { color: '#FFFFFFCC' } : undefined}>{label}</div>}
     </div>
   );
 };
@@ -197,7 +197,7 @@ export const SimpleCounter = ({
         <span className={styles.value}>{formatNumber(count)}</span>
         <span className={styles.suffix}>{suffix}</span>
       </div>
-      {label && <div className={styles.label}>{label}</div>}
+      {label && <div className={styles.label} style={color === 'white' ? { color: '#FFFFFFCC' } : undefined}>{label}</div>}
     </div>
   );
 };

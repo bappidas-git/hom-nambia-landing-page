@@ -190,7 +190,7 @@ const OverviewSection = () => {
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <span className={styles.badgeValue}>100</span>
-                  <span className={styles.badgeLabel}>Acres</span>
+                  <span className={styles.badgeLabel} style={{ color: '#FFFFFFE6' }}>Acres</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -257,7 +257,7 @@ const OverviewSection = () => {
                   <Typography className={styles.ctaTitle}>
                     Experience Premium Living
                   </Typography>
-                  <Typography className={styles.ctaSubtitle}>
+                  <Typography className={styles.ctaSubtitle} sx={{ color: '#FFFFFFB3 !important' }}>
                     Schedule a site visit today
                   </Typography>
                 </div>

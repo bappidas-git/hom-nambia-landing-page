@@ -198,7 +198,7 @@
 }
 
 .variantDark .formSubtitle {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #FFFFFFB3 !important;
 }
 
 .variantDark .textField :global(.MuiOutlinedInput-root) {
@@ -222,11 +222,11 @@
 }
 
 .variantDark .textField :global(.MuiInputBase-input::placeholder) {
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF80 !important;
 }
 
 .variantDark .inputIcon {
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF80 !important;
 }
 
 .variantDark .textField :global(.MuiOutlinedInput-root.Mui-focused) .inputIcon {
@@ -234,15 +234,15 @@
 }
 
 .variantDark .countryCode {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: #FFFFFFCC !important;
 }
 
 .variantDark .prefixDivider {
-  color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF4D !important;
 }
 
 .variantDark .trustBadge {
-  color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF99 !important;
 }
 
 .variantDark .trustIcon {
@@ -250,7 +250,7 @@
 }
 
 .variantDark .consentText {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: #FFFFFF99 !important;
 }
 
 .variantDark .privacyLink {
@@ -275,7 +275,7 @@
 }
 
 .variantDrawer .formSubtitle {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #FFFFFFB3 !important;
   text-align: center !important;
 }
 
@@ -304,11 +304,11 @@
 }
 
 .variantDrawer .textField :global(.MuiInputBase-input::placeholder) {
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF80 !important;
 }
 
 .variantDrawer .inputIcon {
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF80 !important;
   font-size: 20px;
 }
 
@@ -317,13 +317,13 @@
 }
 
 .variantDrawer .countryCode {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: #FFFFFFCC !important;
   font-weight: 600 !important;
   font-size: 0.9375rem !important;
 }
 
 .variantDrawer .prefixDivider {
-  color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF4D !important;
 }
 
 .variantDrawer .submitWrapper {
@@ -337,7 +337,7 @@
 }
 
 .variantDrawer .trustBadge {
-  color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF99 !important;
   font-size: 0.75rem;
 }
 
@@ -347,7 +347,7 @@
 }
 
 .variantDrawer .consentText {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: #FFFFFF99 !important;
   font-size: 0.6875rem !important;
   text-align: center !important;
 }
@@ -589,7 +589,7 @@
 
 .orText {
   font-size: 0.75rem !important;
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: #FFFFFF80 !important;
   margin-bottom: 8px !important;
 }
 

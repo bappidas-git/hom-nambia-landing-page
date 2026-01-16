@@ -225,7 +225,7 @@ const FloorPlansSection = () => {
                     />
                     {/* Blur overlay with preview label - always visible */}
                     <div className={styles.blurOverlay}>
-                      <div className={styles.previewLabel}>
+                      <div className={styles.previewLabel} style={{ color: '#FFFFFFE6' }}>
                         <Icon icon="mdi:floor-plan" />
                         <span>Click to View Full Plan</span>
                       </div>
@@ -381,7 +381,7 @@ const FloorPlansSection = () => {
               <Icon icon="mdi:headset" className={styles.ctaIcon} />
               <div className={styles.ctaText}>
                 <span className={styles.ctaTitle}>Need help choosing the right floor plan?</span>
-                <span className={styles.ctaSubtitle}>Our experts are here to guide you</span>
+                <span className={styles.ctaSubtitle} style={{ color: '#FFFFFF99' }}>Our experts are here to guide you</span>
               </div>
             </div>
             <motion.button

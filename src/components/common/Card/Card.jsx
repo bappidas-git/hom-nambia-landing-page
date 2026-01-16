@@ -126,7 +126,7 @@ const Card = forwardRef(({
         {renderIcon()}
         <div className={styles.featureContent}>
           {title && <h4 className={styles.featureTitle}>{title}</h4>}
-          {subtitle && <p className={styles.featureSubtitle}>{subtitle}</p>}
+          {subtitle && <p className={styles.featureSubtitle} style={variant === 'dark' ? { color: '#FFFFFFCC' } : undefined}>{subtitle}</p>}
           {children}
         </div>
       </motion.div>
@@ -177,7 +177,7 @@ const Card = forwardRef(({
         </div>
       )}
       {!icon && title && <h4 className={styles.cardTitle}>{title}</h4>}
-      {subtitle && <p className={styles.cardSubtitle}>{subtitle}</p>}
+      {subtitle && <p className={styles.cardSubtitle} style={variant === 'dark' ? { color: '#FFFFFFCC' } : undefined}>{subtitle}</p>}
       {children && <div className={styles.cardContent}>{children}</div>}
     </motion.div>
   );

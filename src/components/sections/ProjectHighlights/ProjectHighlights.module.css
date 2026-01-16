@@ -82,7 +82,7 @@
 .acresLabel {
   font-size: 0.875rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFFFFFE6 !important;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 4px;

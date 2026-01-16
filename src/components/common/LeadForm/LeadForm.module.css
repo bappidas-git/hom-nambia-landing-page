@@ -29,7 +29,7 @@
 }
 
 .variantDark .formSubtitle {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #FFFFFFB3 !important;
 }
 
 .variantDark .inputRoot {
@@ -48,19 +48,19 @@
 
 .variantDark .inputRoot input::placeholder,
 .variantDark .inputRoot textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF80 !important;
 }
 
 .variantDark .inputIcon {
-  color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF99 !important;
 }
 
 .variantDark .countryCode {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: #FFFFFFCC !important;
 }
 
 .variantDark .prefixDivider {
-  color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF66 !important;
 }
 
 .variantCompact {

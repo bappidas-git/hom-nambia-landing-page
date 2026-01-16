@@ -121,7 +121,7 @@ const SectionTitle = ({
 
       {/* Subtitle */}
       {subtitle && (
-        <motion.p className={styles.subtitle} variants={itemVariants}>
+        <motion.p className={styles.subtitle} variants={itemVariants} style={variant === 'dark' ? { color: '#FFFFFFCC' } : undefined}>
           {subtitle}
         </motion.p>
       )}
