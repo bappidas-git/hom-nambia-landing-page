@@ -32,9 +32,6 @@ const ThankYouPage = lazy(() => import('./pages/ThankYou/ThankYou'));
 const OverviewSection = lazy(() =>
   import(/* webpackChunkName: "overview" */ './components/sections/OverviewSection/OverviewSection')
 );
-const ProjectHighlights = lazy(() =>
-  import(/* webpackChunkName: "highlights" */ './components/sections/ProjectHighlights/ProjectHighlights')
-);
 const AmenitiesSection = lazy(() =>
   import(/* webpackChunkName: "amenities" */ './components/sections/AmenitiesSection/AmenitiesSection')
 );
@@ -318,7 +315,6 @@ const useIdlePreload = () => {
     if ('requestIdleCallback' in window) {
       const sections = [
         () => import('./components/sections/OverviewSection/OverviewSection'),
-        () => import('./components/sections/ProjectHighlights/ProjectHighlights'),
         () => import('./components/sections/AmenitiesSection/AmenitiesSection'),
         () => import('./components/sections/PricingSection/PricingSection'),
         () => import('./components/sections/FloorPlansSection/FloorPlansSection'),
@@ -388,14 +384,8 @@ const HomePageContent = () => {
 
         {/* Lazy loaded sections with error boundaries */}
         <ErrorBoundary>
-          <Suspense fallback={<SectionLoader height={500} variant="skeleton" />}>
-            <OverviewSection />
-          </Suspense>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
           <Suspense fallback={<SectionLoader height={400} variant="skeleton" />}>
-            <ProjectHighlights />
+            <OverviewSection />
           </Suspense>
         </ErrorBoundary>
 
