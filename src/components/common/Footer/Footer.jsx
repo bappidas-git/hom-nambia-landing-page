@@ -402,12 +402,21 @@ const Footer = () => {
         <div className={styles.mainFooter}>
           <Container maxWidth="xl">
             {/* RERA Badge */}
-            <div className={styles.reraBadge}>
-              <Icon icon="mdi:shield-check" className={styles.reraIcon} />
-              <span className={styles.reraLabel}>RERA Registered:</span>
-              <span className={styles.reraNumber}>
-                PRM/KA/RERA/1251/446/PR/171015/005205
-              </span>
+            <div className={styles.reraBadge} style={{ flexDirection: 'column', gap: '8px', padding: '12px 20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+                <Icon icon="mdi:shield-check" className={styles.reraIcon} />
+                <span className={styles.reraLabel}>RERA Registered</span>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center', fontSize: '12px' }}>
+                <span style={{ color: '#FFFFFFCC' }}>
+                  <strong style={{ color: '#C9A227' }}>Nambiar District 25 – Phase 2:</strong>{' '}
+                  <span style={{ color: '#FFFFFF99' }}>PRM/KA/RERA/1251/308/PR/200825/008011</span>
+                </span>
+                <span style={{ color: '#FFFFFFCC' }}>
+                  <strong style={{ color: '#C9A227' }}>H.O.M Advisory (Agent):</strong>{' '}
+                  <span style={{ color: '#FFFFFF99' }}>PRM/KA/RERA/1251/310/AG/251018/006354</span>
+                </span>
+              </div>
             </div>
 
             {/* Compact Disclaimer Bar */}
@@ -419,10 +428,7 @@ const Footer = () => {
                   style={{ color: '#FFFFFF66' }}
                 />
                 <span className={styles.disclaimerSummary} style={{ color: '#FFFFFF80' }}>
-                  This website is operated by <strong style={{ color: '#C9A227CC' }}>H.O.M Advisory</strong>,
-                  authorized channel partner of Nambiar Builders. All content is
-                  for informational purposes only; prices, specifications &
-                  visuals are indicative and subject to change.
+                  This website is owned, operated, and maintained by <strong style={{ color: '#C9A227CC' }}>H.O.M Advisory</strong>, a RERA-registered real estate agent and an authorized channel partner of Nambiar Builders for the promotion of Nambiar District 25 – Phase 2.
                 </span>
                 <button
                   className={styles.disclaimerToggle}
@@ -456,22 +462,7 @@ const Footer = () => {
                     transition={{ duration: 0.25, ease: "easeInOut" }}
                   >
                     <p className={styles.disclaimerFullText} style={{ color: '#FFFFFF73' }}>
-                      The content on this website is provided solely for general
-                      informational and reference purposes and shall not be
-                      construed as an offer, invitation, solicitation, or
-                      commitment of any kind; all prices, specifications,
-                      dimensions, floor plans, amenities, and related details
-                      are indicative and subject to change without prior notice
-                      at the sole discretion of Nambiar Builders, with
-                      availability subject to real-time inventory; all
-                      photographs, images, renders, and visual representations
-                      are for illustrative purposes only and actual properties,
-                      views, and finishes may vary; this is not an official
-                      Nambiar Builders website and is owned, operated, and
-                      maintained by <strong style={{ color: '#C9A227BF' }}>H.O.M Advisory</strong>, the
-                      authorized channel partner and marketing associate of
-                      Nambiar Builders for the promotion and sale of Nambiar
-                      District 25 Phase 2.
+                      This website is owned, operated, and maintained by <strong style={{ color: '#C9A227BF' }}>H.O.M Advisory</strong>, a RERA-registered real estate agent (Reg. No. PRM/KA/RERA/1251/310/AG/251018/006354) and an authorized channel partner of Nambiar Builders for the promotion of Nambiar District 25 – Phase 2. This is not the official website of Nambiar Builders. All prices, specifications, layouts, floor plans, amenities, and other details are indicative and subject to change without prior notice, subject to availability and approvals. Images and artistic impressions are for illustrative purposes only.
                     </p>
                   </motion.div>
                 )}
