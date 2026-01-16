@@ -9,6 +9,11 @@ import { Box, Container, IconButton, useMediaQuery, useTheme } from '@mui/materi
 import { Icon } from '@iconify/react';
 import styles from './Header.module.css';
 
+// Logo imports
+import whiteLogo from '../../../assets/images/logo/white-logo-hom.png';
+import darkLogo from '../../../assets/images/logo/logo-hom.png';
+import iconLogo from '../../../assets/images/logo/HOM-Icon.png';
+
 // Navigation items
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -153,15 +158,9 @@ const Header = ({ forceCloseMenu = false }) => {
           <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className={styles.logoLink}>
             <div className={styles.logoWrapper}>
               <img
-                src="https://placehold.co/180x60/0A1628/C9A227?text=Nambiar"
-                alt="Nambiar Builders"
+                src={isScrolled ? darkLogo : whiteLogo}
+                alt="HOM - House of Memories"
                 className={styles.mainLogo}
-              />
-              <div className={styles.logoDivider}></div>
-              <img
-                src="https://placehold.co/140x50/0A1628/FFFFFF?text=DISTRICT25"
-                alt="District 25"
-                className={styles.projectLogo}
               />
             </div>
             <span className={styles.tagline}>Authorized Marketing Partners</span>
@@ -218,8 +217,8 @@ const Header = ({ forceCloseMenu = false }) => {
             transition={{ delay: 0.6, duration: 0.5, type: 'spring' }}
           >
             <img
-              src="https://placehold.co/80x80/0A1628/C9A227?text=N"
-              alt="Nambiar Icon"
+              src={iconLogo}
+              alt="HOM Icon"
               className={styles.iconLogoImage}
             />
           </motion.div>
