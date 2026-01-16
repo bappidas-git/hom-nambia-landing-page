@@ -163,7 +163,6 @@ const Header = ({ forceCloseMenu = false }) => {
                 className={styles.mainLogo}
               />
             </div>
-            <span className={styles.tagline}>Authorized Marketing Partners</span>
           </a>
         </motion.div>
 
