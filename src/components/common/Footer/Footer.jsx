@@ -153,9 +153,9 @@ const PrivacyPolicyContent = () => (
       <p>
         <strong>H.O.M Advisory</strong>
         <br />
-        Email: info@homadvisory.com
+        Email: sales@nambiardistrict25.com
         <br />
-        Phone: +91 99999 99999
+        Phone: +91-9632367929
       </p>
     </section>
 
@@ -321,9 +321,9 @@ const TermsConditionsContent = () => (
       <p>
         <strong>H.O.M Advisory</strong>
         <br />
-        Email: info@homadvisory.com
+        Email: sales@nambiardistrict25.com
         <br />
-        Phone: +91 99999 99999
+        Phone: +91-9632367929
       </p>
     </section>
 

@@ -307,19 +307,19 @@ const LocationSection = () => {
             {[
               {
                 icon: 'mdi:train',
-                title: '600m from Metro',
+                title: '500m from Metro',
                 desc: 'Upcoming Metro Station',
                 color: '#FF9800',
               },
               {
                 icon: 'mdi:office-building',
                 title: 'IT Hub Proximity',
-                desc: 'Near Manyata Tech Park',
+                desc: 'Near Wipro & RMZ Ecoworld',
                 color: '#2196F3',
               },
               {
                 icon: 'mdi:airplane',
-                title: '30 mins to Airport',
+                title: '1 hr 40 mins to Airport',
                 desc: 'Quick Airport Access',
                 color: '#9C27B0',
               },

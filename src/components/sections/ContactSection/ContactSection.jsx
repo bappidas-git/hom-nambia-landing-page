@@ -55,13 +55,13 @@ const ContactSection = () => {
       icon: "mdi:map-marker-outline",
       title: "Visit Us",
       content:
-        "Thanisandra Main Road, Near Manyata Tech Park, Bangalore - 560064",
+        "CD Road, Dommasandra, Off Sarjapur Road, Bengaluru, Karnataka 562125",
     },
     {
       icon: "mdi:phone-outline",
       title: "Call Us",
-      content: "+91 98765 43210",
-      href: "tel:+919876543210",
+      content: "+91-9632367929",
+      href: "tel:+919632367929",
     },
     {
       icon: "mdi:email-outline",
