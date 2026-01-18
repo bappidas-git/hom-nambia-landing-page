@@ -102,7 +102,11 @@ const ContactSection = () => {
                 </Typography>
 
                 {/* Description */}
-                <Typography variant="body1" className={styles.description}>
+                <Typography
+                  variant="body1"
+                  className={styles.description}
+                  sx={{ marginBottom: "15px;", marginTop: "15px" }}
+                >
                   Experience luxury living at its finest. Get in touch with our
                   team to learn more about Nambiar District 25 Phase 2 and
                   schedule your exclusive site visit today.

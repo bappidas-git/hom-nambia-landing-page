@@ -3,25 +3,19 @@
    Compact amenities showcase with carousel and CTA
    ============================================ */
 
-import React, { useState, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import {
-  Container,
-  Typography,
-  Chip,
-  useTheme,
-  Button,
-} from '@mui/material';
-import { Icon } from '@iconify/react';
-import { useModal } from '../../../context/ModalContext';
+import React, { useState, useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { Container, Typography, Chip, useTheme, Button } from "@mui/material";
+import { Icon } from "@iconify/react";
+import { useModal } from "../../../context/ModalContext";
 import {
   amenitiesCategories,
   amenitiesStats,
   getFeaturedAmenities,
   getAmenitiesByCategory,
   amenitiesData,
-} from '../../../data/amenitiesData';
-import styles from './AmenitiesSection.module.css';
+} from "../../../data/amenitiesData";
+import styles from "./AmenitiesSection.module.css";
 
 // Animation variants
 const containerVariants = {
@@ -65,25 +59,25 @@ const AmenitiesSection = () => {
   const ref = useRef(null);
   const carouselRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [hoveredCard, setHoveredCard] = useState(null);
   const { openLeadDrawer } = useModal();
 
   const handleScheduleVisit = () => {
-    openLeadDrawer('schedule-site-visit');
+    openLeadDrawer("schedule-site-visit");
   };
 
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId);
     // Scroll carousel to start when category changes
     if (carouselRef.current) {
-      carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
     }
   };
 
   // Get filtered amenities based on category
   const getFilteredAmenities = () => {
-    if (selectedCategory === 'all') {
+    if (selectedCategory === "all") {
       return getFeaturedAmenities();
     }
     return getAmenitiesByCategory(selectedCategory);
@@ -93,21 +87,38 @@ const AmenitiesSection = () => {
 
   // Quick stats for the stats bar
   const quickStats = [
-    { icon: 'mdi:home-city-outline', value: amenitiesStats.clubhouseSize, label: 'Clubhouse' },
-    { icon: 'mdi:map-marker-radius-outline', value: amenitiesStats.clubhouseAcres, label: 'Green Space' },
-    { icon: 'mdi:view-grid-plus-outline', value: amenitiesStats.totalAmenities, label: 'Amenities' },
-    { icon: 'mdi:trophy-outline', value: '15+', label: 'Sports' },
+    {
+      icon: "mdi:home-city-outline",
+      value: amenitiesStats.clubhouseSize,
+      label: "Clubhouse",
+    },
+    {
+      icon: "mdi:map-marker-radius-outline",
+      value: amenitiesStats.clubhouseAcres,
+      label: "Green Space",
+    },
+    {
+      icon: "mdi:view-grid-plus-outline",
+      value: amenitiesStats.totalAmenities,
+      label: "Amenities",
+    },
+    { icon: "mdi:trophy-outline", value: "15+", label: "Sports" },
   ];
 
   // Category pills with counts
   const categoryPills = [
-    { id: 'all', label: 'Featured', icon: 'mdi:star-outline', count: getFeaturedAmenities().length },
-    ...amenitiesCategories.map(cat => ({
+    {
+      id: "all",
+      label: "Featured",
+      icon: "mdi:star-outline",
+      count: getFeaturedAmenities().length,
+    },
+    ...amenitiesCategories.map((cat) => ({
       id: cat.id,
       label: cat.title,
       icon: cat.icon,
-      count: getAmenitiesByCategory(cat.id).length
-    }))
+      count: getAmenitiesByCategory(cat.id).length,
+    })),
   ];
 
   return (
@@ -129,14 +140,14 @@ const AmenitiesSection = () => {
                 label={`${amenitiesStats.totalAmenities} AMENITIES`}
                 className={styles.amenitiesBadge}
                 sx={{
-                  backgroundColor: 'rgba(201, 162, 39, 0.15)',
-                  color: '#C9A227',
+                  backgroundColor: "rgba(201, 162, 39, 0.15)",
+                  color: "#C9A227",
                   fontWeight: 700,
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.1em',
-                  height: '28px',
-                  borderRadius: '14px',
-                  border: '1px solid rgba(201, 162, 39, 0.3)',
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.1em",
+                  height: "28px",
+                  borderRadius: "14px",
+                  border: "1px solid rgba(201, 162, 39, 0.3)",
                 }}
               />
             </div>
@@ -147,14 +158,15 @@ const AmenitiesSection = () => {
               sx={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 700,
-                fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2.25rem' },
-                color: '#FFFFFF',
-                marginTop: '0.75rem',
-                textAlign: 'center',
+                fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2.25rem" },
+                color: "#FFFFFF",
+                marginTop: "0.75rem",
+                textAlign: "center",
                 lineHeight: 1.2,
               }}
             >
-              Everything You Need, <span className={styles.goldText}>Within Your Community</span>
+              Everything You Need,{" "}
+              <span className={styles.goldText}>Within Your Community</span>
             </Typography>
           </motion.div>
 
@@ -178,13 +190,21 @@ const AmenitiesSection = () => {
             {categoryPills.map((pill) => (
               <button
                 key={pill.id}
-                className={`${styles.categoryPill} ${selectedCategory === pill.id ? styles.activePill : ''}`}
+                className={`${styles.categoryPill} ${
+                  selectedCategory === pill.id ? styles.activePill : ""
+                }`}
                 onClick={() => handleCategoryChange(pill.id)}
-                style={{ color: selectedCategory === pill.id ? '#0A1628' : '#D9DCE0' }}
+                style={{
+                  color: selectedCategory === pill.id ? "#0A1628" : "#D9DCE0",
+                }}
               >
                 <Icon icon={pill.icon} className={styles.pillIcon} />
-                <span className={styles.pillLabel} style={{ color: 'inherit' }}>{pill.label}</span>
-                <span className={styles.pillCount} style={{ color: 'inherit' }}>{pill.count}</span>
+                <span className={styles.pillLabel} style={{ color: "inherit" }}>
+                  {pill.label}
+                </span>
+                <span className={styles.pillCount} style={{ color: "inherit" }}>
+                  {pill.count}
+                </span>
               </button>
             ))}
           </motion.div>
@@ -222,7 +242,10 @@ const AmenitiesSection = () => {
                         style={{ color: amenity.iconColor }}
                       />
                     </div>
-                    <Typography className={styles.amenityName} sx={{ color: '#F2F3F4 !important' }}>
+                    <Typography
+                      className={styles.amenityName}
+                      sx={{ color: "#F2F3F4 !important" }}
+                    >
                       {amenity.name}
                     </Typography>
                     {/* Show description on hover */}
@@ -231,9 +254,9 @@ const AmenitiesSection = () => {
                         <motion.p
                           className={styles.amenityDescription}
                           initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
+                          animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          style={{ color: '#D9DCE0' }}
+                          style={{ color: "#D9DCE0" }}
                         >
                           {amenity.description}
                         </motion.p>
@@ -252,10 +275,16 @@ const AmenitiesSection = () => {
                   whileHover={{ y: -8, scale: 1.02 }}
                 >
                   <div className={styles.moreIconWrapper}>
-                    <Icon icon="mdi:dots-horizontal-circle-outline" className={styles.moreIcon} />
+                    <Icon
+                      icon="mdi:dots-horizontal-circle-outline"
+                      className={styles.moreIcon}
+                    />
                   </div>
                   <Typography className={styles.moreName}>
-                    +{parseInt(amenitiesStats.totalAmenities) - amenitiesData.length} More
+                    +
+                    {parseInt(amenitiesStats.totalAmenities) -
+                      amenitiesData.length}{" "}
+                    More
                   </Typography>
                   <Typography className={styles.moreSubtext}>
                     Explore all amenities
@@ -266,7 +295,7 @@ const AmenitiesSection = () => {
               {/* Scroll Indicators */}
               <div className={styles.scrollIndicator}>
                 <Icon icon="mdi:gesture-swipe-horizontal" />
-                <span style={{ color: '#B8BCC2' }}>Scroll to explore</span>
+                <span style={{ color: "#B8BCC2" }}>Scroll to explore</span>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -280,7 +309,11 @@ const AmenitiesSection = () => {
                 return (
                   <motion.div
                     key={category.id}
-                    className={`${styles.miniCategoryCard} ${selectedCategory === category.id ? styles.activeCategory : ''}`}
+                    className={`${styles.miniCategoryCard} ${
+                      selectedCategory === category.id
+                        ? styles.activeCategory
+                        : ""
+                    }`}
                     custom={index}
                     variants={cardVariants}
                     onClick={() => handleCategoryChange(category.id)}
@@ -291,8 +324,12 @@ const AmenitiesSection = () => {
                       <Icon icon={category.icon} />
                     </div>
                     <div className={styles.miniCategoryContent}>
-                      <span className={styles.miniCategoryTitle}>{category.title}</span>
-                      <span className={styles.miniCategoryCount}>{categoryAmenities.length}+ Amenities</span>
+                      <span className={styles.miniCategoryTitle}>
+                        {category.title}
+                      </span>
+                      <span className={styles.miniCategoryCount}>
+                        {categoryAmenities.length}+ Amenities
+                      </span>
                     </div>
                   </motion.div>
                 );
@@ -307,24 +344,29 @@ const AmenitiesSection = () => {
                 onClick={handleScheduleVisit}
                 endIcon={<Icon icon="mdi:arrow-right" />}
                 sx={{
-                  background: 'linear-gradient(135deg, #C9A227 0%, #E5C96E 100%)',
-                  color: '#0A1628',
+                  background:
+                    "linear-gradient(135deg, #C9A227 0%, #E5C96E 100%)",
+                  color: "#0A1628",
                   fontWeight: 700,
-                  fontSize: { xs: '0.875rem', md: '1rem' },
-                  padding: { xs: '12px 24px', md: '14px 32px' },
-                  borderRadius: '50px',
-                  textTransform: 'none',
-                  boxShadow: '0 8px 32px rgba(201, 162, 39, 0.3)',
-                  '&:hover': {
-                    background: 'linear-gradient(135deg, #E5C96E 0%, #C9A227 100%)',
-                    boxShadow: '0 12px 40px rgba(201, 162, 39, 0.4)',
-                    transform: 'translateY(-2px)',
+                  fontSize: { xs: "0.875rem", md: "1rem" },
+                  padding: { xs: "12px 24px", md: "14px 32px" },
+                  borderRadius: "50px",
+                  textTransform: "none",
+                  boxShadow: "0 8px 32px rgba(201, 162, 39, 0.3)",
+                  "&:hover": {
+                    background:
+                      "linear-gradient(135deg, #E5C96E 0%, #C9A227 100%)",
+                    boxShadow: "0 12px 40px rgba(201, 162, 39, 0.4)",
+                    transform: "translateY(-2px)",
                   },
                 }}
               >
                 Schedule a Visit
               </Button>
-              <Typography className={styles.ctaSubtext}>
+              <Typography
+                className={styles.ctaSubtext}
+                sx={{ color: "#f5f5f5 !important;" }}
+              >
                 Experience our world-class amenities firsthand
               </Typography>
             </div>

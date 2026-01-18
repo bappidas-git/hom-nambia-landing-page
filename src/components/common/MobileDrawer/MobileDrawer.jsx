@@ -3,7 +3,7 @@
    Slide-up menu drawer for mobile navigation
    ============================================ */
 
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback } from "react";
 import {
   SwipeableDrawer,
   Box,
@@ -15,85 +15,85 @@ import {
   ListItemText,
   IconButton,
   Divider,
-} from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Icon } from '@iconify/react';
-import styles from './MobileDrawer.module.css';
+} from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@iconify/react";
+import styles from "./MobileDrawer.module.css";
 
 // Navigation menu items
 const menuItems = [
   {
-    id: 'home',
-    label: 'Home',
-    icon: 'ic:outline-home',
-    href: '#home',
+    id: "home",
+    label: "Home",
+    icon: "ic:outline-home",
+    href: "#home",
   },
   {
-    id: 'overview',
-    label: 'Overview',
-    icon: 'ic:outline-info',
-    href: '#overview',
+    id: "overview",
+    label: "Overview",
+    icon: "ic:outline-info",
+    href: "#overview",
   },
   {
-    id: 'floor-plans',
-    label: 'Floor Plans',
-    icon: 'ic:outline-apartment',
-    href: '#floor-plans',
+    id: "floor-plans",
+    label: "Floor Plans",
+    icon: "ic:outline-apartment",
+    href: "#floor-plans",
   },
   {
-    id: 'location',
-    label: 'Location',
-    icon: 'ic:outline-location-on',
-    href: '#location',
+    id: "location",
+    label: "Location",
+    icon: "ic:outline-location-on",
+    href: "#location",
   },
   {
-    id: 'amenities',
-    label: 'Amenities',
-    icon: 'ic:outline-interests',
-    href: '#amenities',
+    id: "amenities",
+    label: "Amenities",
+    icon: "ic:outline-interests",
+    href: "#amenities",
   },
   {
-    id: 'pricing',
-    label: 'Pricing',
-    icon: 'ic:outline-local-offer',
-    href: '#pricing',
+    id: "pricing",
+    label: "Pricing",
+    icon: "ic:outline-local-offer",
+    href: "#pricing",
   },
   {
-    id: 'contact',
-    label: 'Contact',
-    icon: 'ic:outline-phone',
-    href: '#contact',
+    id: "contact",
+    label: "Contact",
+    icon: "ic:outline-phone",
+    href: "#contact",
   },
 ];
 
-const MobileDrawer = ({
-  open,
-  onClose,
-  onOpen,
-  activeSection = 'home',
-}) => {
+const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
   // iOS detection for SwipeableDrawer optimization
-  const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const iOS =
+    typeof navigator !== "undefined" &&
+    /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   // Handle escape key to close drawer
-  const handleKeyDown = useCallback((event) => {
-    if (event.key === 'Escape') {
-      onClose();
-    }
-  }, [onClose]);
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    },
+    [onClose]
+  );
 
   useEffect(() => {
     if (open) {
-      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener("keydown", handleKeyDown);
       // Prevent body scroll when drawer is open
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
     };
   }, [open, handleKeyDown]);
 
@@ -106,9 +106,9 @@ const MobileDrawer = ({
     onClose();
 
     // Reset body overflow immediately to enable scrolling
-    document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.width = '';
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.width = "";
 
     // Scroll after a brief delay to allow drawer close animation to start
     setTimeout(() => {
@@ -116,11 +116,12 @@ const MobileDrawer = ({
       if (element) {
         const headerOffset = 80;
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
       }
     }, 50);
@@ -154,7 +155,7 @@ const MobileDrawer = ({
       opacity: 1,
       x: 0,
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 300,
         damping: 24,
       },
@@ -170,7 +171,12 @@ const MobileDrawer = ({
 
   // Drawer content
   const drawerContent = (
-    <Box className={styles.drawerContent} role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <Box
+      className={styles.drawerContent}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation menu"
+    >
       {/* Drawer Handle */}
       <div className={styles.drawerHandle}>
         <div className={styles.handleBar} />
@@ -180,7 +186,10 @@ const MobileDrawer = ({
       <Box className={styles.drawerHeader}>
         <Box className={styles.logoSection}>
           <Box className={styles.logoIcon}>
-            <Icon icon="ic:baseline-apartment" style={{ fontSize: 24, color: '#0A1628' }} />
+            <Icon
+              icon="ic:baseline-apartment"
+              style={{ fontSize: 24, color: "#0A1628" }}
+            />
           </Box>
           <Box className={styles.logoText}>
             <Typography variant="h6" className={styles.projectName}>
@@ -217,15 +226,17 @@ const MobileDrawer = ({
                   <ListItem disablePadding className={styles.menuItem}>
                     <ListItemButton
                       onClick={() => handleMenuClick(item)}
-                      className={`${styles.menuButton} ${activeSection === item.id ? styles.activeItem : ''}`}
+                      className={`${styles.menuButton} ${
+                        activeSection === item.id ? styles.activeItem : ""
+                      }`}
                       sx={{
-                        borderRadius: '12px',
+                        borderRadius: "12px",
                         mx: 1,
                         mb: 0.5,
                         py: 1.5,
-                        transition: 'all 0.2s ease',
-                        '&:hover': {
-                          backgroundColor: 'rgba(201, 162, 39, 0.08)',
+                        transition: "all 0.2s ease",
+                        "&:hover": {
+                          backgroundColor: "rgba(201, 162, 39, 0.08)",
                         },
                       }}
                     >
@@ -233,7 +244,8 @@ const MobileDrawer = ({
                         className={styles.menuIcon}
                         sx={{
                           minWidth: 44,
-                          color: activeSection === item.id ? '#C9A227' : '#6B7280',
+                          color:
+                            activeSection === item.id ? "#C9A227" : "#6B7280",
                         }}
                       >
                         <Icon icon={item.icon} style={{ fontSize: 22 }} />
@@ -242,10 +254,11 @@ const MobileDrawer = ({
                         primary={item.label}
                         className={styles.menuText}
                         sx={{
-                          '& .MuiTypography-root': {
+                          "& .MuiTypography-root": {
                             fontWeight: activeSection === item.id ? 600 : 500,
-                            color: activeSection === item.id ? '#C9A227' : '#374151',
-                            fontSize: '0.95rem',
+                            color:
+                              activeSection === item.id ? "#C9A227" : "#374151",
+                            fontSize: "0.95rem",
                           },
                         }}
                       />
@@ -256,7 +269,7 @@ const MobileDrawer = ({
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           transition={{
-                            type: 'spring',
+                            type: "spring",
                             stiffness: 500,
                             damping: 30,
                           }}
@@ -280,7 +293,7 @@ const MobileDrawer = ({
           </Typography>
           <Box className={styles.contactActions}>
             <motion.a
-              href="tel:+919876543210"
+              href="tel:+919632367929"
               className={styles.contactLink}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -289,7 +302,7 @@ const MobileDrawer = ({
               <span>Call Us</span>
             </motion.a>
             <motion.a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/919632367929"
               className={styles.contactLinkWhatsapp}
               target="_blank"
               rel="noopener noreferrer"
@@ -320,9 +333,9 @@ const MobileDrawer = ({
       PaperProps={{
         className: styles.drawerPaper,
         sx: {
-          borderRadius: '24px 24px 0 0',
-          maxHeight: '85vh',
-          overflow: 'visible',
+          borderRadius: "24px 24px 0 0",
+          maxHeight: "85vh",
+          overflow: "visible",
         },
       }}
       BackdropProps={{

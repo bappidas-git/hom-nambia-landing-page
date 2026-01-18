@@ -3,44 +3,44 @@
    Bottom sticky navigation bar for mobile devices
    ============================================ */
 
-import React, { useState, useEffect } from 'react';
-import { IconButton, Typography, Badge } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Icon } from '@iconify/react';
-import styles from './MobileNavigation.module.css';
+import React, { useState, useEffect } from "react";
+import { IconButton, Typography, Badge } from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@iconify/react";
+import styles from "./MobileNavigation.module.css";
 
 // Navigation items configuration
 const navItems = [
   {
-    id: 'whatsapp',
-    label: 'WhatsApp',
-    icon: 'ic:baseline-whatsapp',
-    color: '#25D366',
-    action: 'whatsapp',
-    href: 'https://wa.me/919876543210?text=Hi,%20I%20am%20interested%20in%20District%2025%20Phase%202',
+    id: "whatsapp",
+    label: "WhatsApp",
+    icon: "ic:baseline-whatsapp",
+    color: "#25D366",
+    action: "whatsapp",
+    href: "https://wa.me/919632367929?text=Hi,%20I%20am%20interested%20in%20District%2025%20Phase%202",
   },
   {
-    id: 'call',
-    label: 'Call',
-    icon: 'ic:baseline-phone',
-    color: '#C9A227',
-    action: 'call',
-    href: 'tel:+919876543210',
+    id: "call",
+    label: "Call",
+    icon: "ic:baseline-phone",
+    color: "#C9A227",
+    action: "call",
+    href: "tel:+919632367929",
   },
   {
-    id: 'enquiry',
-    label: 'Enquiry',
-    icon: 'ic:baseline-download',
-    color: '#C9A227',
-    action: 'enquiry',
+    id: "enquiry",
+    label: "Enquiry",
+    icon: "ic:baseline-download",
+    color: "#C9A227",
+    action: "enquiry",
     badge: true,
   },
   {
-    id: 'menu',
-    label: 'Menu',
-    icon: 'ic:baseline-menu',
-    color: '#6B7280',
-    action: 'menu',
+    id: "menu",
+    label: "Menu",
+    icon: "ic:baseline-menu",
+    color: "#6B7280",
+    action: "menu",
   },
 ];
 
@@ -68,8 +68,8 @@ const MobileNavigation = ({
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   // Handle navigation item click
@@ -80,14 +80,14 @@ const MobileNavigation = ({
     setTimeout(() => setActiveItem(null), 300);
 
     switch (item.action) {
-      case 'whatsapp':
-      case 'call':
-        window.open(item.href, '_blank');
+      case "whatsapp":
+      case "call":
+        window.open(item.href, "_blank");
         break;
-      case 'enquiry':
+      case "enquiry":
         if (onEnquiryClick) onEnquiryClick();
         break;
-      case 'menu':
+      case "menu":
         if (onMenuClick) onMenuClick();
         break;
       default:
@@ -101,7 +101,7 @@ const MobileNavigation = ({
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 300,
         damping: 30,
       },
@@ -110,7 +110,7 @@ const MobileNavigation = ({
       y: 100,
       opacity: 0,
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 300,
         damping: 30,
       },
@@ -140,7 +140,7 @@ const MobileNavigation = ({
       opacity: 0,
       transition: {
         duration: 0.4,
-        ease: 'easeOut',
+        ease: "easeOut",
       },
     },
   };
@@ -164,7 +164,9 @@ const MobileNavigation = ({
             {navItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                className={`${styles.navItem} ${activeItem === item.id ? styles.active : ''}`}
+                className={`${styles.navItem} ${
+                  activeItem === item.id ? styles.active : ""
+                }`}
                 variants={itemVariants}
                 whileTap="tap"
                 whileHover="hover"
@@ -172,7 +174,7 @@ const MobileNavigation = ({
                 animate={{
                   opacity: 1,
                   y: 0,
-                  transition: { delay: index * 0.05 }
+                  transition: { delay: index * 0.05 },
                 }}
               >
                 <IconButton
@@ -180,8 +182,8 @@ const MobileNavigation = ({
                   onClick={() => handleItemClick(item)}
                   aria-label={item.label}
                   sx={{
-                    position: 'relative',
-                    overflow: 'hidden',
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
                   {/* Ripple effect */}
@@ -204,8 +206,8 @@ const MobileNavigation = ({
                       badgeContent=""
                       variant="dot"
                       sx={{
-                        '& .MuiBadge-badge': {
-                          backgroundColor: '#F44336',
+                        "& .MuiBadge-badge": {
+                          backgroundColor: "#F44336",
                           width: 8,
                           height: 8,
                           minWidth: 8,
@@ -220,7 +222,11 @@ const MobileNavigation = ({
                     </Badge>
                   ) : (
                     <Icon
-                      icon={item.id === 'menu' && isDrawerOpen ? 'ic:baseline-close' : item.icon}
+                      icon={
+                        item.id === "menu" && isDrawerOpen
+                          ? "ic:baseline-close"
+                          : item.icon
+                      }
                       className={styles.navIcon}
                       style={{ color: item.color }}
                     />

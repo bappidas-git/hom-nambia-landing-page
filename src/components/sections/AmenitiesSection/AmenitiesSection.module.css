@@ -7,7 +7,7 @@
 .amenitiesSection {
   position: relative;
   padding: 3.5rem 0;
-  background-color: #0A1628;
+  background-color: #0a1628;
   overflow: hidden;
 }
 
@@ -18,7 +18,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #0A1628 0%, #0D1E36 50%, #0A1628 100%);
+  background: linear-gradient(180deg, #0a1628 0%, #0d1e36 50%, #0a1628 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -29,8 +29,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(201, 162, 39, 0.03) 1px, transparent 0);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(201, 162, 39, 0.03) 1px,
+    transparent 0
+  );
   background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
@@ -61,7 +64,7 @@
 }
 
 .goldText {
-  color: #C9A227;
+  color: #c9a227;
   font-style: italic;
 }
 
@@ -74,7 +77,11 @@
   align-items: stretch;
   gap: 0;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.08) 0%, rgba(201, 162, 39, 0.03) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(201, 162, 39, 0.08) 0%,
+    rgba(201, 162, 39, 0.03) 100%
+  );
   border-radius: 16px;
   border: 1px solid rgba(201, 162, 39, 0.15);
   overflow: hidden;
@@ -105,14 +112,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  background: linear-gradient(135deg, #c9a227 0%, #e5c96e 100%);
   border-radius: 10px;
   flex-shrink: 0;
 }
 
 .statIcon {
   font-size: 20px;
-  color: #0A1628;
+  color: #0a1628;
 }
 
 .statContent {
@@ -124,13 +131,13 @@
 .statValue {
   font-size: 1rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 1.2;
 }
 
 .statLabel {
   font-size: 0.6875rem;
-  color: #D9DCE0;
+  color: #d9dce0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -154,7 +161,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
-  color: #D9DCE0 !important;
+  color: #d9dce0 !important;
   font-size: 0.8125rem;
   font-weight: 500;
   cursor: pointer;
@@ -164,19 +171,19 @@
 
 .categoryPill:hover {
   background: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.2);
 }
 
 .activePill {
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  background: linear-gradient(135deg, #c9a227 0%, #e5c96e 100%);
   border-color: transparent;
-  color: #0A1628 !important;
+  color: #0a1628 !important;
 }
 
 .activePill:hover {
-  background: linear-gradient(135deg, #E5C96E 0%, #C9A227 100%);
-  color: #0A1628 !important;
+  background: linear-gradient(135deg, #e5c96e 0%, #c9a227 100%);
+  color: #0a1628 !important;
 }
 
 .pillIcon {
@@ -267,14 +274,14 @@
 .amenityName {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #F2F3F4 !important;
+  color: #f2f3f4 !important;
   line-height: 1.3;
   margin-bottom: 0;
 }
 
 .amenityDescription {
   font-size: 0.625rem;
-  color: #D9DCE0 !important;
+  color: #d9dce0 !important;
   line-height: 1.4;
   margin-top: 0.5rem;
   overflow: hidden;
@@ -290,7 +297,11 @@
   justify-content: center;
   text-align: center;
   padding: 1.25rem 1rem;
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(201, 162, 39, 0.15) 0%,
+    rgba(201, 162, 39, 0.05) 100%
+  );
   backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px dashed rgba(201, 162, 39, 0.4);
@@ -300,7 +311,11 @@
 }
 
 .moreCard:hover {
-  background: linear-gradient(135deg, rgba(201, 162, 39, 0.25) 0%, rgba(201, 162, 39, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(201, 162, 39, 0.25) 0%,
+    rgba(201, 162, 39, 0.1) 100%
+  );
   border-color: rgba(201, 162, 39, 0.6);
 }
 
@@ -317,19 +332,19 @@
 
 .moreIcon {
   font-size: 24px;
-  color: #C9A227;
+  color: #c9a227;
 }
 
 .moreName {
   font-size: 0.875rem;
   font-weight: 700;
-  color: #C9A227;
+  color: #c9a227;
   margin-bottom: 0.25rem;
 }
 
 .moreSubtext {
   font-size: 0.625rem;
-  color: #C8CBCF;
+  color: #c8cbcf;
 }
 
 /* ========== Scroll Indicator ========== */
@@ -340,7 +355,7 @@
   gap: 0.5rem;
   padding-top: 0.75rem;
   font-size: 0.75rem;
-  color: #B8BCC2 !important;
+  color: #b8bcc2 !important;
 }
 
 .scrollIndicator svg {
@@ -394,9 +409,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #C9A227 0%, #E5C96E 100%);
+  background: linear-gradient(135deg, #c9a227 0%, #e5c96e 100%);
   border-radius: 8px;
-  color: #0A1628;
+  color: #0a1628;
   font-size: 18px;
 }
 
@@ -409,13 +424,13 @@
 .miniCategoryTitle {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #ffffff;
   white-space: nowrap;
 }
 
 .miniCategoryCount {
   font-size: 0.6875rem;
-  color: #C9A227;
+  color: #c9a227;
   font-weight: 500;
 }
 
@@ -433,7 +448,7 @@
 
 .ctaSubtext {
   font-size: 0.6875rem;
-  color: #C8CBCF;
+  color: #f5f5f5 !important;
   text-align: center;
 }
 
@@ -796,7 +811,7 @@
 .moreCard:focus-visible,
 .miniCategoryCard:focus-visible,
 .ctaButton:focus-visible {
-  outline: 2px solid #C9A227;
+  outline: 2px solid #c9a227;
   outline-offset: 2px;
 }
 
@@ -830,7 +845,7 @@
   .goldText,
   .sectionTitle,
   .statValue {
-    color: #0A1628 !important;
+    color: #0a1628 !important;
   }
 
   .scrollIndicator {
