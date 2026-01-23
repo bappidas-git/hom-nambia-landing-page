@@ -241,6 +241,7 @@ function sendLeadEmail($leadData, $leadId) {
         $mail->Password = SMTP_PASS;
         $mail->SMTPSecure = SMTP_SECURE;
         $mail->Port = SMTP_PORT;
+        $mail->SMTPDebug = 2;
 
         // Recipients
         $mail->setFrom(EMAIL_FROM, EMAIL_FROM_NAME);

@@ -7,10 +7,10 @@
  */
 
 // Database credentials
-define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
-define('DB_NAME', getenv('DB_NAME') ?: 'nambiar_leads');
-define('DB_USER', getenv('DB_USER') ?: 'root');
-define('DB_PASS', getenv('DB_PASS') ?: '');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'rgkuwjpumm');
+define('DB_USER', 'rgkuwjpumm');
+define('DB_PASS', '**********');
 define('DB_CHARSET', 'utf8mb4');
 
 /**

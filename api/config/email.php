@@ -12,20 +12,20 @@
  */
 
 // Gmail SMTP Settings
-define('SMTP_HOST', getenv('SMTP_HOST') ?: 'smtp.gmail.com');
-define('SMTP_PORT', getenv('SMTP_PORT') ?: 587);
-define('SMTP_USER', getenv('SMTP_USER') ?: 'your-email@gmail.com');
-define('SMTP_PASS', getenv('SMTP_PASS') ?: 'your-app-password');
+define('SMTP_HOST',  'smtp.gmail.com');
+define('SMTP_PORT',  587);
+define('SMTP_USER',  'myemail@gmail.com');
+define('SMTP_PASS',  '16_DIGIT_APP_PASSWORD');
 define('SMTP_SECURE', 'tls'); // Use 'tls' for port 587, 'ssl' for port 465
 
 // Email Recipients
-define('EMAIL_FROM', getenv('EMAIL_FROM') ?: SMTP_USER);
-define('EMAIL_FROM_NAME', getenv('EMAIL_FROM_NAME') ?: 'Nambiar District 25');
-define('EMAIL_TO', getenv('EMAIL_TO') ?: 'sales@nambiardistrict25.com');
-define('EMAIL_TO_NAME', getenv('EMAIL_TO_NAME') ?: 'Sales Team');
+define('EMAIL_FROM', 'myemail@gmail.com');
+define('EMAIL_FROM_NAME', 'Nambiar District 25');
+define('EMAIL_TO', 'client@gmail.com');
+define('EMAIL_TO_NAME',  'Marketing Team');
 
 // Optional: CC Recipients (comma-separated)
-define('EMAIL_CC', getenv('EMAIL_CC') ?: '');
+define('EMAIL_CC',  'client@gmail.com');
 
 // Email Settings
-define('EMAIL_SUBJECT_PREFIX', '[New Lead] ');
+define('EMAIL_SUBJECT_PREFIX', '[New Lead] - Nambiar District 25');
