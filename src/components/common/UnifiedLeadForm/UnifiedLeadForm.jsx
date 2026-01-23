@@ -655,7 +655,15 @@ const UnifiedLeadForm = ({
         }),
       });
 
-      const result = await response.json();
+      // Parse response safely - handle empty or invalid JSON
+      let result;
+      const responseText = await response.text();
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch (parseError) {
+        console.error("Failed to parse response:", responseText);
+        throw new Error("Server returned an invalid response. Please try again.");
+      }
 
       // Handle duplicate submission from server
       if (response.status === 409 && result.duplicate) {
