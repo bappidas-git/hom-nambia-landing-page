@@ -14,18 +14,18 @@
 // Gmail SMTP Settings
 define('SMTP_HOST',  'smtp.gmail.com');
 define('SMTP_PORT',  587);
-define('SMTP_USER',  'myemail@gmail.com');
+define('SMTP_USER',  'mythikona@gmail.com');
 define('SMTP_PASS',  '16_DIGIT_APP_PASSWORD');
 define('SMTP_SECURE', 'tls'); // Use 'tls' for port 587, 'ssl' for port 465
 
 // Email Recipients
-define('EMAIL_FROM', 'myemail@gmail.com');
+define('EMAIL_FROM', 'mythikona@gmail.com');
 define('EMAIL_FROM_NAME', 'Nambiar District 25');
-define('EMAIL_TO', 'client@gmail.com');
+define('EMAIL_TO', 'prasoon@homadvisory.com');
 define('EMAIL_TO_NAME',  'Marketing Team');
 
 // Optional: CC Recipients (comma-separated)
-define('EMAIL_CC',  'client@gmail.com');
+define('EMAIL_CC',  'assamdigital@gmail.com,susmit@assamdigital.com');
 
 // Email Settings
 define('EMAIL_SUBJECT_PREFIX', '[New Lead] - Nambiar District 25');
