@@ -3,7 +3,8 @@
  * Lead Form Submission Handler
  *
  * This script handles lead form submissions from the Nambiar District 25 landing page.
- * It creates the database and table if they don't exist, validates input, and saves the lead.
+ * It creates the database and table if they don't exist, validates input, saves the lead,
+ * and sends an email notification via Gmail SMTP.
  */
 
 // Set headers for CORS and JSON response
@@ -28,7 +29,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
+// Load dependencies
 require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/config/email.php';
+
+// Load PHPMailer via Composer autoload
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+}
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 /**
  * Create database if it doesn't exist
@@ -179,6 +191,264 @@ function getClientIP() {
     return 'unknown';
 }
 
+/**
+ * Send lead notification email via Gmail SMTP
+ *
+ * @param array $leadData Lead information
+ * @param int $leadId Lead ID from database
+ * @return bool True on success, false on failure
+ */
+function sendLeadEmail($leadData, $leadId) {
+    // Check if PHPMailer is available
+    if (!class_exists('PHPMailer\PHPMailer\PHPMailer')) {
+        error_log("PHPMailer not installed. Run 'composer install' in the api directory.");
+        return false;
+    }
+
+    $mail = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = SMTP_HOST;
+        $mail->SMTPAuth = true;
+        $mail->Username = SMTP_USER;
+        $mail->Password = SMTP_PASS;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port = SMTP_PORT;
+
+        // Recipients
+        $mail->setFrom(EMAIL_FROM, EMAIL_FROM_NAME);
+        $mail->addAddress(EMAIL_TO, EMAIL_TO_NAME);
+
+        // Add CC recipients if configured
+        if (!empty(EMAIL_CC)) {
+            $ccEmails = explode(',', EMAIL_CC);
+            foreach ($ccEmails as $ccEmail) {
+                $ccEmail = trim($ccEmail);
+                if (filter_var($ccEmail, FILTER_VALIDATE_EMAIL)) {
+                    $mail->addCC($ccEmail);
+                }
+            }
+        }
+
+        // Add reply-to as the lead's email
+        $mail->addReplyTo($leadData['email'], $leadData['name']);
+
+        // Email content
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
+        $mail->Subject = EMAIL_SUBJECT_PREFIX . 'Enquiry from ' . $leadData['name'];
+
+        // Build HTML email body
+        $htmlBody = buildEmailHTML($leadData, $leadId);
+        $mail->Body = $htmlBody;
+
+        // Plain text alternative
+        $mail->AltBody = buildEmailPlainText($leadData, $leadId);
+
+        $mail->send();
+        return true;
+
+    } catch (Exception $e) {
+        error_log("Email sending failed: " . $mail->ErrorInfo);
+        return false;
+    }
+}
+
+/**
+ * Build HTML email body
+ *
+ * @param array $leadData Lead information
+ * @param int $leadId Lead ID
+ * @return string HTML email content
+ */
+function buildEmailHTML($leadData, $leadId) {
+    $submittedAt = date('d M Y, h:i A');
+
+    return '
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+            <tr>
+                <td align="center">
+                    <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <!-- Header -->
+                        <tr>
+                            <td style="background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%); padding: 30px; text-align: center;">
+                                <h1 style="color: #ffffff; margin: 0; font-size: 24px;">New Lead Enquiry</h1>
+                                <p style="color: #c5cae9; margin: 10px 0 0 0; font-size: 14px;">Nambiar District 25</p>
+                            </td>
+                        </tr>
+
+                        <!-- Lead ID Badge -->
+                        <tr>
+                            <td style="padding: 20px 30px 0 30px; text-align: center;">
+                                <span style="background-color: #e8eaf6; color: #3949ab; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: bold;">
+                                    Lead ID: #' . $leadId . '
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- Content -->
+                        <tr>
+                            <td style="padding: 30px;">
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <!-- Name -->
+                                    <tr>
+                                        <td style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Name</td>
+                                                    <td style="color: #212121; font-size: 16px; font-weight: bold;">' . htmlspecialchars($leadData['name']) . '</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Mobile -->
+                                    <tr>
+                                        <td style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Mobile</td>
+                                                    <td style="color: #212121; font-size: 16px;">
+                                                        <a href="tel:+91' . htmlspecialchars($leadData['mobile']) . '" style="color: #1a237e; text-decoration: none; font-weight: bold;">
+                                                            +91 ' . htmlspecialchars($leadData['mobile']) . '
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Email -->
+                                    <tr>
+                                        <td style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Email</td>
+                                                    <td style="color: #212121; font-size: 16px;">
+                                                        <a href="mailto:' . htmlspecialchars($leadData['email']) . '" style="color: #1a237e; text-decoration: none;">
+                                                            ' . htmlspecialchars($leadData['email']) . '
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Message (if provided) -->
+                                    ' . (!empty($leadData['message']) ? '
+                                    <tr>
+                                        <td style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Message</td>
+                                                    <td style="color: #212121; font-size: 14px; line-height: 1.5;">
+                                                        ' . nl2br(htmlspecialchars($leadData['message'])) . '
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    ' : '') . '
+
+                                    <!-- Source -->
+                                    <tr>
+                                        <td style="padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Source</td>
+                                                    <td style="color: #212121; font-size: 14px;">' . htmlspecialchars($leadData['source']) . '</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Submitted At -->
+                                    <tr>
+                                        <td style="padding: 12px 0;">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="30%" style="color: #757575; font-size: 14px; vertical-align: top;">Submitted</td>
+                                                    <td style="color: #212121; font-size: 14px;">' . $submittedAt . '</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- CTA Button -->
+                                <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px;">
+                                    <tr>
+                                        <td align="center">
+                                            <a href="tel:+91' . htmlspecialchars($leadData['mobile']) . '" style="display: inline-block; background-color: #1a237e; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px;">
+                                                Call Now
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <!-- Footer -->
+                        <tr>
+                            <td style="background-color: #f5f5f5; padding: 20px 30px; text-align: center;">
+                                <p style="color: #757575; font-size: 12px; margin: 0;">
+                                    This is an automated notification from the Nambiar District 25 website.<br>
+                                    Please respond to this lead within 24 hours.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+    </html>';
+}
+
+/**
+ * Build plain text email body
+ *
+ * @param array $leadData Lead information
+ * @param int $leadId Lead ID
+ * @return string Plain text email content
+ */
+function buildEmailPlainText($leadData, $leadId) {
+    $submittedAt = date('d M Y, h:i A');
+
+    $text = "NEW LEAD ENQUIRY - Nambiar District 25\n";
+    $text .= "=========================================\n\n";
+    $text .= "Lead ID: #" . $leadId . "\n\n";
+    $text .= "CONTACT DETAILS:\n";
+    $text .= "----------------\n";
+    $text .= "Name: " . $leadData['name'] . "\n";
+    $text .= "Mobile: +91 " . $leadData['mobile'] . "\n";
+    $text .= "Email: " . $leadData['email'] . "\n";
+
+    if (!empty($leadData['message'])) {
+        $text .= "\nMESSAGE:\n";
+        $text .= "--------\n";
+        $text .= $leadData['message'] . "\n";
+    }
+
+    $text .= "\nADDITIONAL INFO:\n";
+    $text .= "----------------\n";
+    $text .= "Source: " . $leadData['source'] . "\n";
+    $text .= "Submitted: " . $submittedAt . "\n\n";
+    $text .= "=========================================\n";
+    $text .= "Please respond to this lead within 24 hours.\n";
+
+    return $text;
+}
+
 // Main execution
 try {
     // Get POST data (supports both form-data and JSON)
@@ -290,11 +560,28 @@ try {
     if ($result) {
         $leadId = $conn->lastInsertId();
 
+        // Prepare lead data for email
+        $leadData = [
+            'name' => $name,
+            'mobile' => $mobile,
+            'email' => $email,
+            'message' => $message,
+            'source' => $source
+        ];
+
+        // Send email notification (non-blocking - don't fail if email fails)
+        $emailSent = sendLeadEmail($leadData, $leadId);
+
+        if (!$emailSent) {
+            error_log("Warning: Lead #$leadId saved but email notification failed");
+        }
+
         http_response_code(201);
         echo json_encode([
             'success' => true,
             'message' => 'Thank you for your interest! Our team will contact you shortly.',
-            'lead_id' => $leadId
+            'lead_id' => $leadId,
+            'email_sent' => $emailSent
         ]);
     } else {
         throw new Exception('Failed to save lead');
