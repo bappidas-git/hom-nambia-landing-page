@@ -640,10 +640,64 @@ const UnifiedLeadForm = ({
     setIsSubmitting(true);
 
     try {
-      // Simulate API call - replace with actual API endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Submit to PHP backend
+      const response = await fetch("/api/save-lead.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          mobile: formData.mobile,
+          email: formData.email,
+          message: formData.message || "",
+          source: "website",
+        }),
+      });
 
-      // Save lead to localStorage
+      const result = await response.json();
+
+      // Handle duplicate submission from server
+      if (response.status === 409 && result.duplicate) {
+        // Close drawer first if it exists
+        if (onClose) {
+          onClose();
+        }
+
+        await Swal.fire({
+          icon: "info",
+          title: "Already Submitted",
+          html: `
+            <p style="margin-bottom: 12px;">You have already submitted an enquiry with this email or mobile number.</p>
+            <p style="color: #666; font-size: 14px;">Our team will contact you soon. For immediate assistance, please call us.</p>
+          `,
+          confirmButtonColor: "#C9A227",
+          confirmButtonText: "Got it!",
+          showCancelButton: true,
+          cancelButtonText: "Call Now",
+          cancelButtonColor: "#0A1628",
+          customClass: {
+            popup: styles.swalPopup,
+          },
+        }).then((swalResult) => {
+          if (!swalResult.isConfirmed && swalResult.dismiss === "cancel") {
+            window.location.href = "tel:+919632367929";
+          }
+        });
+        return;
+      }
+
+      // Handle validation errors from server
+      if (response.status === 400 && result.errors) {
+        throw new Error(result.errors.join(". "));
+      }
+
+      // Handle server errors
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Server error occurred");
+      }
+
+      // Success - save lead to localStorage
       saveLeadToStorage(formData);
 
       // Set lead submitted flag for thank you page access
@@ -695,7 +749,7 @@ const UnifiedLeadForm = ({
       await Swal.fire({
         icon: "error",
         title: "Oops!",
-        text: "Something went wrong. Please try again.",
+        text: error.message || "Something went wrong. Please try again.",
         confirmButtonColor: "#C9A227",
         confirmButtonText: "Try Again",
         customClass: {
