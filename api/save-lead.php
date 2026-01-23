@@ -7,20 +7,45 @@
  * and sends an email notification via Gmail SMTP.
  */
 
+// Start output buffering to capture any stray output (warnings, notices, etc.)
+ob_start();
+
 // Set headers for CORS and JSON response
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
+// Register shutdown function to ensure JSON response even on fatal errors
+register_shutdown_function(function() {
+    $error = error_get_last();
+    if ($error !== null && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+        // Clear any output that was buffered
+        ob_end_clean();
+
+        // Log the error
+        error_log("Fatal error in save-lead.php: " . $error['message'] . " in " . $error['file'] . " on line " . $error['line']);
+
+        // Return JSON error response
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode([
+            'success' => false,
+            'message' => 'An internal server error occurred. Please try again later.'
+        ]);
+    }
+});
+
 // Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    ob_end_clean();
     http_response_code(200);
     exit();
 }
 
 // Only accept POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    ob_end_clean();
     http_response_code(405);
     echo json_encode([
         'success' => false,
@@ -451,17 +476,28 @@ function buildEmailPlainText($leadData, $leadId) {
 
 // Main execution
 try {
+    // Clear any buffered output from included files
+    ob_clean();
+
     // Get POST data (supports both form-data and JSON)
-    $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
+    $contentType = isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : '';
 
     if (strpos($contentType, 'application/json') !== false) {
         $rawData = file_get_contents('php://input');
+        if (empty($rawData)) {
+            throw new Exception('Empty request body');
+        }
         $data = json_decode($rawData, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new Exception('Invalid JSON data');
+            throw new Exception('Invalid JSON data: ' . json_last_error_msg());
         }
     } else {
         $data = $_POST;
+    }
+
+    // Ensure data is an array
+    if (!is_array($data)) {
+        throw new Exception('Invalid request data format');
     }
 
     // Extract and sanitize fields
@@ -497,12 +533,14 @@ try {
     }
 
     if (!empty($errors)) {
+        ob_clean();
         http_response_code(400);
         echo json_encode([
             'success' => false,
             'message' => 'Validation failed',
             'errors' => $errors
         ]);
+        ob_end_flush();
         exit();
     }
 
@@ -533,12 +571,14 @@ try {
     ]);
 
     if ($checkStmt->rowCount() > 0) {
+        ob_clean();
         http_response_code(409);
         echo json_encode([
             'success' => false,
             'message' => 'You have already submitted an enquiry recently. Our team will contact you soon.',
             'duplicate' => true
         ]);
+        ob_end_flush();
         exit();
     }
 
@@ -576,6 +616,7 @@ try {
             error_log("Warning: Lead #$leadId saved but email notification failed");
         }
 
+        ob_clean();
         http_response_code(201);
         echo json_encode([
             'success' => true,
@@ -588,6 +629,9 @@ try {
     }
 
 } catch (Exception $e) {
+    // Clear any buffered output
+    ob_clean();
+
     error_log("Lead submission error: " . $e->getMessage());
 
     http_response_code(500);
@@ -596,3 +640,6 @@ try {
         'message' => 'An error occurred while processing your request. Please try again later.'
     ]);
 }
+
+// End output buffering and flush
+ob_end_flush();
