@@ -10,7 +10,7 @@
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'rgkuwjpumm');
 define('DB_USER', 'rgkuwjpumm');
-define('DB_PASS', '**********');
+define('DB_PASS', 'd97EEhetfN');
 define('DB_CHARSET', 'utf8mb4');
 
 /**

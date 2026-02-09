@@ -15,7 +15,7 @@
 define('SMTP_HOST',  'smtp.gmail.com');
 define('SMTP_PORT',  587);
 define('SMTP_USER',  'mythikona@gmail.com');
-define('SMTP_PASS',  '16_DIGIT_APP_PASSWORD');
+define('SMTP_PASS',  'mxjrgswgjzlqyasi');
 define('SMTP_SECURE', 'tls'); // Use 'tls' for port 587, 'ssl' for port 465
 
 // Email Recipients
