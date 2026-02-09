@@ -367,6 +367,37 @@ const HomePageContent = () => {
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const { openLeadDrawer } = useModal();
 
+  // Handle hash-based scrolling on page load (e.g., /#floor-plans)
+  // Sections are lazy-loaded, so we poll until the target element exists
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const targetId = hash.substring(1);
+    let attempts = 0;
+    const maxAttempts = 50; // 50 × 100ms = 5 seconds max wait
+
+    const scrollToTarget = () => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      } else if (attempts < maxAttempts) {
+        attempts++;
+        setTimeout(scrollToTarget, 100);
+      }
+    };
+
+    // Small initial delay to let lazy-loaded sections start rendering
+    setTimeout(scrollToTarget, 100);
+  }, []);
+
   const handleMenuClick = () => setIsMobileDrawerOpen(true);
   const handleMobileDrawerClose = () => setIsMobileDrawerOpen(false);
   const handleMobileDrawerOpen = () => setIsMobileDrawerOpen(true);
@@ -477,7 +508,12 @@ const App = () => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
-    window.scrollTo(0, 0);
+    // Only scroll to top if there's no hash in the URL
+    // When a hash is present (e.g., /#floor-plans), we let
+    // HomePageContent handle scrolling to that section
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   // Register service worker for offline capability (if available)
