@@ -17,7 +17,11 @@
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  /* Use overflow-clip instead of overflow-x: hidden to prevent creating
+     a nested scroll container on Android Chrome. overflow-x: hidden
+     implicitly sets overflow-y: auto (per CSS spec), which creates a
+     secondary scroll context that conflicts with body scroll on Android. */
+  overflow-x: clip;
 }
 
 /* Main content area */
@@ -187,9 +191,13 @@ section[id] {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Touch action optimization */
+  /* Touch action optimization
+     NOTE: Using 'manipulation' instead of 'pan-y pinch-zoom' to avoid
+     Android Chrome scroll-blocking when framer-motion gesture handlers
+     are present. 'manipulation' allows pan + pinch-zoom but disables
+     double-tap-to-zoom, which is safe for a landing page. */
   .app {
-    touch-action: pan-y pinch-zoom;
+    touch-action: manipulation;
   }
 }
 

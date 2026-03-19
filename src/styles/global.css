@@ -19,7 +19,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -35,13 +35,14 @@ body {
   min-height: 100vh;
 }
 
-/* Prevent body scroll when modal/drawer is open */
+/* Prevent body scroll when modal/drawer is open.
+   NOTE: Do NOT use position: fixed here — on Android Chrome, position: fixed
+   on body removes it from the scroll flow and can leave scroll permanently
+   stuck if not perfectly cleaned up. overflow: hidden alone is sufficient
+   for both iOS and Android to prevent background scroll. */
 body.modal-open,
 body.drawer-open {
   overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
 }
 
 /* ========== Typography Defaults ========== */
