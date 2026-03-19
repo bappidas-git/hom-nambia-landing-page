@@ -58,6 +58,8 @@ const Modal = ({
   useEffect(() => {
     if (isOpen) {
       document.addEventListener('keydown', handleEscapeKey);
+      // Only set overflow to prevent background scroll.
+      // Do NOT set position:fixed — it breaks scroll on Android Chrome.
       document.body.style.overflow = 'hidden';
     }
 

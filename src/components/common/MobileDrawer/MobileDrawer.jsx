@@ -67,10 +67,6 @@ const menuItems = [
 ];
 
 const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
-  // iOS detection for SwipeableDrawer optimization
-  const iOS =
-    typeof navigator !== "undefined" &&
-    /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   // Handle escape key to close drawer
   const handleKeyDown = useCallback(
@@ -86,6 +82,7 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
     if (open) {
       document.addEventListener("keydown", handleKeyDown);
       // Prevent body scroll when drawer is open
+      // NOTE: Only set overflow, never position:fixed — that breaks Android scroll
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -107,8 +104,6 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
 
     // Reset body overflow immediately to enable scrolling
     document.body.style.overflow = "";
-    document.body.style.position = "";
-    document.body.style.width = "";
 
     // Scroll after a brief delay to allow drawer close animation to start
     setTimeout(() => {
@@ -324,11 +319,11 @@ const MobileDrawer = ({ open, onClose, onOpen, activeSection = "home" }) => {
       open={open}
       onClose={onClose}
       onOpen={onOpen}
-      disableBackdropTransition={!iOS}
-      disableDiscovery={iOS}
-      swipeAreaWidth={30}
+      disableBackdropTransition
+      disableDiscovery
+      disableSwipeToOpen
       ModalProps={{
-        keepMounted: true,
+        keepMounted: false,
       }}
       PaperProps={{
         className: styles.drawerPaper,
